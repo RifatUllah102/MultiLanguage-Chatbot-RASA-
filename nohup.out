@@ -1,0 +1,576 @@
+2021-12-23 13:13:17.891447: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2021-12-23 13:13:25.538524: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2021-12-23 13:13:25.545292: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:982] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-12-23 13:13:25.546210: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:00:09.0 name: Tesla K80 computeCapability: 3.7
+coreClock: 0.8235GHz coreCount: 13 deviceMemorySize: 11.17GiB deviceMemoryBandwidth: 223.96GiB/s
+2021-12-23 13:13:25.546282: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2021-12-23 13:13:25.552209: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2021-12-23 13:13:25.557148: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2021-12-23 13:13:25.557798: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2021-12-23 13:13:25.564223: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2021-12-23 13:13:25.566176: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2021-12-23 13:13:25.566364: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib64/
+2021-12-23 13:13:25.566396: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1753] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2021-12-23 13:13:25.577713: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2599995000 Hz
+2021-12-23 13:13:25.578995: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0xb106320 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-12-23 13:13:25.579045: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-12-23 13:13:25.581059: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-12-23 13:13:25.581092: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      
+[93m/usr/local/lib/python3.6/site-packages/rasa/utils/train_utils.py:646: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss. It will be set to `True` by default, Rasa Open Source 3.0.0 onwards.
+  category=UserWarning,
+[0m[93m/usr/local/lib/python3.6/site-packages/rasa/shared/utils/io.py:97: UserWarning: Parsing of message: '1237892' lead to overlapping entities: 1237892 of type amount-of-money extracted by DIETClassifier overlaps with 1237892 of type number extracted by DucklingEntityExtractor. This can lead to unintended filling of slots. Please refer to the documentation section on entity extractors and entities getting extracted multiple times:https://rasa.com/docs/rasa/components#entity-extractors
+[0m[93m/usr/local/lib/python3.6/site-packages/rasa/shared/utils/io.py:97: UserWarning: Interpreter parsed an entity 'number' which is not defined in the domain. Please make sure all entities are listed in the domain.
+  More info at https://rasa.com/docs/rasa/domain
+[0m12-23 13:19 rasa.core.processor ERROR    Encountered an exception while running action 'action_reset_BkashTransectionVALUES'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 686, in run
+    json=json_body, method="post", timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/usr/local/lib/python3.6/site-packages/rasa/utils/endpoints.py", line 173, in request
+    response.status, response.reason, await response.content.read()
+rasa.utils.endpoints.ClientResponseError: 404, Not Found, body='b'{"error":"No registered action found for name \'action_reset_BkashTransectionVALUES\'.","action_name":"action_reset_BkashTransectionVALUES"}''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/processor.py", line 773, in _run_action
+    output_channel, nlg, temporary_tracker, self.domain
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 709, in run
+    raise RasaException("Failed to execute custom action.") from e
+rasa.shared.exceptions.RasaException: Failed to execute custom action.
+12-23 13:19 rasa.core.processor ERROR    Encountered an exception while running action 'action_reset_BkashTransectionVALUES'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 686, in run
+    json=json_body, method="post", timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/usr/local/lib/python3.6/site-packages/rasa/utils/endpoints.py", line 173, in request
+    response.status, response.reason, await response.content.read()
+rasa.utils.endpoints.ClientResponseError: 404, Not Found, body='b'{"error":"No registered action found for name \'action_reset_BkashTransectionVALUES\'.","action_name":"action_reset_BkashTransectionVALUES"}''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/processor.py", line 773, in _run_action
+    output_channel, nlg, temporary_tracker, self.domain
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 709, in run
+    raise RasaException("Failed to execute custom action.") from e
+rasa.shared.exceptions.RasaException: Failed to execute custom action.
+12-23 13:19 rasa.core.processor ERROR    Encountered an exception while running action 'action_reset_BkashTransectionVALUES'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 686, in run
+    json=json_body, method="post", timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/usr/local/lib/python3.6/site-packages/rasa/utils/endpoints.py", line 173, in request
+    response.status, response.reason, await response.content.read()
+rasa.utils.endpoints.ClientResponseError: 404, Not Found, body='b'{"error":"No registered action found for name \'action_reset_BkashTransectionVALUES\'.","action_name":"action_reset_BkashTransectionVALUES"}''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/processor.py", line 773, in _run_action
+    output_channel, nlg, temporary_tracker, self.domain
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 709, in run
+    raise RasaException("Failed to execute custom action.") from e
+rasa.shared.exceptions.RasaException: Failed to execute custom action.
+action endpoint: "http://localhost:5056/webhook"
+action endpoint: "http://localhost:5056/webhook"
+======== Running on http://0.0.0.0:5004 ========
+(Press CTRL+C to quit)
+Request:
+{'sender': '1640243911200779142', 'message': 'Hello', 'metadata': 'bn'}
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট।'}, {'recipient_id': 'default', 'text': 'আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640243911200779142', 'message': 'আমার ব্যালেন্স কত', 'metadata': 'bn'}
+Response:
+[{'recipient_id': 'default', 'text': 'একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640243911200779142', 'message': 'ওয়ান টু থ্রি সেভেন এইট নাইন টু টেন', 'metadata': 'bn'}
+Response:
+[{'recipient_id': 'default', 'text': 'একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640243911200779142', 'message': 'ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন', 'metadata': 'bn'}
+Response:
+[{'recipient_id': 'default', 'text': 'একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640243911200779142', 'message': 'ওয়ান টু থ্রি', 'metadata': 'bn'}
+Response:
+[{'recipient_id': 'default', 'text': 'একাউন্ট নাম্বার বলুন'}]
+2021-12-28 12:22:21.733971: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2021-12-28 12:22:31.407109: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2021-12-28 12:22:31.432716: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:982] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-12-28 12:22:31.433703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:00:09.0 name: Tesla K80 computeCapability: 3.7
+coreClock: 0.8235GHz coreCount: 13 deviceMemorySize: 11.17GiB deviceMemoryBandwidth: 223.96GiB/s
+2021-12-28 12:22:31.433779: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2021-12-28 12:22:31.440216: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2021-12-28 12:22:31.446214: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2021-12-28 12:22:31.447176: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2021-12-28 12:22:31.454863: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2021-12-28 12:22:31.457011: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2021-12-28 12:22:31.457238: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib64/
+2021-12-28 12:22:31.457272: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1753] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2021-12-28 12:22:31.469459: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2599995000 Hz
+2021-12-28 12:22:31.470703: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1108e150 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-12-28 12:22:31.470746: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-12-28 12:22:31.472763: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-12-28 12:22:31.472810: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      
+action endpoint: "http://localhost:5056/webhook"
+action endpoint: "http://localhost:5056/webhook"
+======== Running on http://0.0.0.0:5004 ========
+(Press CTRL+C to quit)
+<Request GET / >
+<Request GET / >
+PEPNxsUQMayU-7GIAAAD
+lang: bn
+campaign: False
+টাইম কত
+new user message
+টাইম কত
+Response:
+[{'recipient_id': 'PEPNxsUQMayU-7GIAAAD', 'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}]
+{'tracker': {'active_loop': {},
+             'events': None,
+             'followup_action': None,
+             'latest_action': {'action_name': 'action_listen'},
+             'latest_action_name': 'action_listen',
+             'latest_event_time': 1640672792.3419905,
+             'latest_input_channel': None,
+             'latest_message': {'entities': [],
+                                'intent': {'confidence': 0.9997659921646118,
+                                           'id': 4290512966500514481,
+                                           'name': 'Ask_Time'},
+                                'intent_ranking': [{'confidence': 0.9997659921646118,
+                                                    'id': 4290512966500514481,
+                                                    'name': 'Ask_Time'},
+                                                   {'confidence': 0.00010758961434476078,
+                                                    'id': 403771915673127011,
+                                                    'name': 'deny'},
+                                                   {'confidence': 3.143509820802137e-05,
+                                                    'id': 125846294322734597,
+                                                    'name': 'weather'},
+                                                   {'confidence': 3.0617280572187155e-05,
+                                                    'id': -2695623604608581545,
+                                                    'name': 'check_human'},
+                                                   {'confidence': 2.4612514607724734e-05,
+                                                    'id': 6333435272925180997,
+                                                    'name': 'affirm'},
+                                                   {'confidence': 2.022306580329314e-05,
+                                                    'id': 4135395160503699237,
+                                                    'name': 'Exchange_rate'},
+                                                   {'confidence': 8.84684322954854e-06,
+                                                    'id': 7038353897683325636,
+                                                    'name': 'goodbye'},
+                                                   {'confidence': 5.66625840292545e-06,
+                                                    'id': -3455499638342180077,
+                                                    'name': 'agent_transfer'},
+                                                   {'confidence': 3.272087042205385e-06,
+                                                    'id': -6815837566000084972,
+                                                    'name': 'inform'},
+                                                   {'confidence': 1.7211898466484854e-06,
+                                                    'id': -8637366820505009600,
+                                                    'name': 'check_balance'}],
+                                'message_id': '66a60ad20a1f450397246cb8c8c03d31',
+                                'metadata': {},
+                                'text': 'টাইম '
+                                        'কত'},
+             'paused': False,
+             'sender_id': 'PEPNxsUQMayU-7GIAAAD',
+             'slots': {'CCV': None,
+                       'PIN': None,
+                       'Valid_DATE': None,
+                       'account_number': None,
+                       'amount-of-money': None,
+                       'card_number': None,
+                       'currency': 'BDT',
+                       'phone_number': None,
+                       'requested_slot': None,
+                       'session_started_metadata': None}}}
+{'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}
+PEPNxsUQMayU-7GIAAAD
+lang: bn
+campaign: False
+তারিক কত
+new user message
+তারিক কত
+Response:
+[{'recipient_id': 'PEPNxsUQMayU-7GIAAAD', 'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}]
+{'tracker': {'active_loop': {},
+             'events': None,
+             'followup_action': None,
+             'latest_action': {'action_name': 'action_listen'},
+             'latest_action_name': 'action_listen',
+             'latest_event_time': 1640672806.0735373,
+             'latest_input_channel': None,
+             'latest_message': {'entities': [],
+                                'intent': {'confidence': 0.9315541386604309,
+                                           'id': 4290512966500514481,
+                                           'name': 'Ask_Time'},
+                                'intent_ranking': [{'confidence': 0.9315541386604309,
+                                                    'id': 4290512966500514481,
+                                                    'name': 'Ask_Time'},
+                                                   {'confidence': 0.031175047159194946,
+                                                    'id': 6333435272925180997,
+                                                    'name': 'affirm'},
+                                                   {'confidence': 0.023363785818219185,
+                                                    'id': 403771915673127011,
+                                                    'name': 'deny'},
+                                                   {'confidence': 0.0052762567065656185,
+                                                    'id': 4135395160503699237,
+                                                    'name': 'Exchange_rate'},
+                                                   {'confidence': 0.0037621138617396355,
+                                                    'id': -8637366820505009600,
+                                                    'name': 'check_balance'},
+                                                   {'confidence': 0.001718635205179453,
+                                                    'id': 7038353897683325636,
+                                                    'name': 'goodbye'},
+                                                   {'confidence': 0.0011722039198502898,
+                                                    'id': -2695623604608581545,
+                                                    'name': 'check_human'},
+                                                   {'confidence': 0.0008066342561505735,
+                                                    'id': -5083157372318933230,
+                                                    'name': 'campaign'},
+                                                   {'confidence': 0.0006858297274447978,
+                                                    'id': -3455499638342180077,
+                                                    'name': 'agent_transfer'},
+                                                   {'confidence': 0.00048535983660258353,
+                                                    'id': -6815837566000084972,
+                                                    'name': 'inform'}],
+                                'message_id': '40859f80751b4eecad68c407e3d1841f',
+                                'metadata': {},
+                                'text': 'তারিক '
+                                        'কত'[93m/usr/local/lib/python3.6/site-packages/rasa/utils/train_utils.py:646: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss. It will be set to `True` by default, Rasa Open Source 3.0.0 onwards.
+  category=UserWarning,
+[0m[93m/usr/local/lib/python3.6/site-packages/rasa/shared/utils/io.py:97: UserWarning: Interpreter parsed an intent 'Ask_Time' which is not defined in the domain. Please make sure all intents are listed in the domain.
+  More info at https://rasa.com/docs/rasa/domain
+[0m[93m/usr/local/lib/python3.6/site-packages/rasa/shared/utils/io.py:97: UserWarning: Parsing of message: '12345678' lead to overlapping entities: 12345678 of type account_number extracted by DIETClassifier overlaps with 12345678 of type number extracted by DucklingEntityExtractor. This can lead to unintended filling of slots. Please refer to the documentation section on entity extractors and entities getting extracted multiple times:https://rasa.com/docs/rasa/components#entity-extractors
+[0m[93m/usr/local/lib/python3.6/site-packages/rasa/shared/utils/io.py:97: UserWarning: Interpreter parsed an entity 'number' which is not defined in the domain. Please make sure all entities are listed in the domain.
+  More info at https://rasa.com/docs/rasa/domain
+[0m12-28 12:37 rasa.core.processor ERROR    Encountered an exception while running action 'action_default_fallback'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 686, in run
+    json=json_body, method="post", timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/usr/local/lib/python3.6/site-packages/rasa/utils/endpoints.py", line 173, in request
+    response.status, response.reason, await response.content.read()
+rasa.utils.endpoints.ClientResponseError: 404, Not Found, body='b'{"error":"No registered action found for name \'action_default_fallback\'.","action_name":"action_default_fallback"}''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/processor.py", line 773, in _run_action
+    output_channel, nlg, temporary_tracker, self.domain
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 709, in run
+    raise RasaException("Failed to execute custom action.") from e
+rasa.shared.exceptions.RasaException: Failed to execute custom action.
+},
+             'paused': False,
+             'sender_id': 'PEPNxsUQMayU-7GIAAAD',
+             'slots': {'CCV': None,
+                       'PIN': None,
+                       'Valid_DATE': None,
+                       'account_number': None,
+                       'amount-of-money': None,
+                       'card_number': None,
+                       'currency': 'BDT',
+                       'phone_number': None,
+                       'requested_slot': None,
+                       'session_started_metadata': None}}}
+{'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}
+Request:
+{'sender': '1640672891215909005', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হাই, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'আমার অ্যাকাউন্টে ব্যালেন্স কত পরিমাণ', 'metadata': 'bn'}
+আমার অ্যাকাউন্টে ব্যালেন্স কত পরিমাণ
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন এইট', 'metadata': 'bn'}
+12345678
+Response:
+[{'recipient_id': 'default', 'text': 'আপনি বলেছেন,  ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন এইট । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে ।'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'ঠিক আছে', 'metadata': 'bn'}
+ঠিক আছে
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'ফাইভ সিক্স সেভেন এইট', 'metadata': 'bn'}
+5678
+Response:
+[{'recipient_id': 'default', 'text': 'আপনি বলেছেন,  ফাইভ সিক্স সেভেন এইট । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে ।'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'ঠিক আছে দেন', 'metadata': 'bn'}
+ঠিক আছে দেন
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার অ্যাকাউন্টের ব্যালেন্স হল এক লক্ষ ছয় হাজার টাকা'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'আজকে ডলারে ডেট কত', 'metadata': 'bn'}
+আজকে ডলারে ডেট কত
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'এখন ফরিদা পারভীন', 'metadata': 'bn'}
+এখন ফরিদা পারভীন
+Response:
+[{'recipient_id': 'default', 'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'চার কিন্তু চ্যানেল এখন ত্রিশ ঐ নাম্বারে তো পারবো একটু বুঝা গেলো নাকি নাই', 'metadata': 'bn'}
+চার কিন্তু চ্যানেল এখন ত্রিশ ঐ নাম্বারে তো পারবো একটু বুঝা গেলো নাকি নাই
+Response:
+[{'recipient_id': 'default', 'text': 'দুঃখিত! আমি অপ্রাসঙ্গিক প্রশ্নের উত্তর দিতে পারছি না।'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'পল্লবী শাখা', 'metadata': 'bn'}
+পল্লবী শাখা
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}]
+Request:
+{'sender': '1640672891215909005', 'message': 'আজকের ওয়েব এটা বন্ধ', 'metadata': 'bn'}
+আজকের ওয়েব এটা বন্ধ
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের ওয়েদার, মেঘ মুক্ত মাটি, কাঁদা মুক্ত আকাশ, খুবই চমৎকার ওয়েদার।'}]
+Request:
+{'sender': '1640673076206164006', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640673076206164006', 'message': 'একত্রিশ অটোমেটিক চলে নাকি নাই', 'metadata': 'bn'}
+একত্রিশ অটোমেটিক চলে নাকি নাই
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}]
+Request:
+{'sender': '1640673076206164006', 'message': 'ভিসা তুমি ছিলো নাকি মে', 'metadata': 'bn'}
+ভিসা তুমি ছিলো নাকি মে
+Response:
+[{'recipient_id': 'default', 'text': 'দুঃখিত! আমি অপ্রাসঙ্গিক প্রশ্নের উত্তর দিতে পারছি না।'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'অ্যাঁ আমার ব্যালেন্স কত', 'metadata': 'bn'}
+অ্যাঁ আমার ব্যালেন্স কত
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'ওয়ান থ্রি টু থ্রি ফোর ফাইভ জিরো থ্রি সেভেন থ্রি জিরো টু এইট', 'metadata': 'bn'}
+1323450373028
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'ওয়ান এইট টু এইট ফোর জিরো ওয়ান জিরো থ্রি টু সিক্স ডাবল টু জিরো এইট ফোর এইট থ্রি জিরো থ্রি টু জিরো থ্রি টু', 'metadata': 'bn'}
+18284010326208483032032
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার অ্যাকাউন্টের ব্যালেন্স হল এক লক্ষ ছয় হাজার টাকা'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'আমার কার্ডের আউটস্ট্যান্ডিং করলাম কিন্তু একুশ ডলার', 'metadata': 'bn'}
+আমার কার্ডের আউটস্ট্যান্ডিং করলাম কিন্তু একুশ ডলার
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'ঐ রেট কত', 'metadata': 'bn'}
+ঐ রেট কত
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'কার্ডে আউটস্ট্যান্ডিং কত ছিলো', 'metadata': 'bn'}
+কার্ডে আউটস্ট্যান্ডিং কত ছিলো
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'অ্যাঁ পনেরো ডলার ইনফরমেশন আমার স্ত্রী', 'metadata': 'bn'}
+অ্যাঁ পনেরো ডলার ইনফরমেশন আমার স্ত্রী
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'অ্যাঁ অ্যাকাউন্টের ব্যালেন্স আমার', 'metadata': 'bn'}
+অ্যাঁ অ্যাকাউন্টের ব্যালেন্স আমার
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673414212393007', 'message': 'আমি আমার কার্ড দিয়ে যখন ব্যালেন্স বলতে হচ্ছে অ্যাঁ কনভার্সন ফরেন এক্সচেঞ্জ যাবে নাহিদা সুলতানা', 'metadata': 'bn'}
+আমি আমার কার্ড দিয়ে যখন ব্যালেন্স বলতে হচ্ছে অ্যাঁ কনভার্সন ফরেন এক্সচেঞ্জ যাবে নাহিদা সুলতানা
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}, {'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'আমার ব্যালেন্স কত আছে', 'metadata': 'bn'}
+আমার ব্যালেন্স কত আছে
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন থ্রি', 'metadata': 'bn'}
+12345673
+Response:
+[{'recipient_id': 'default', 'text': 'আপনি বলেছেন,  ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন থ্রি । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে ।'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'না ঠিক না', 'metadata': 'bn'}
+না ঠিক না
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ওয়ান টু থ্রি ফোর ফাইভ থ্রি সেভেন এইট', 'metadata': 'bn'}
+12345378
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ওয়ান টু এইট সেভেন ফোর', 'metadata': 'bn'}
+12874
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার অ্যাকাউন্টের ব্যালেন্স হল এক লক্ষ ছয় হাজার টাকা'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'লাস্ট ট্রানজেকশন', 'metadata': 'bn'}
+লাস্ট ট্রানজেকশন
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ডলারের লিমিট কত', 'metadata': 'bn'}
+ডলারের লিমিট কত
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'এখন ওয়েট কেমন', 'metadata': 'bn'}
+এখন ওয়েট কেমন
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের ওয়েদার, মেঘ মুক্ত মাটি, কাঁদা মুক্ত আকাশ, খুবই চমৎকার ওয়েদার।'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'এখন কষ্ট করে দেন', 'metadata': 'bn'}
+এখন কষ্ট করে দেন
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'এখন টাইম কত', 'metadata': 'bn'}12-28 12:46 rasa.core.processor ERROR    Encountered an exception while running action 'action_default_fallback'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 686, in run
+    json=json_body, method="post", timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/usr/local/lib/python3.6/site-packages/rasa/utils/endpoints.py", line 173, in request
+    response.status, response.reason, await response.content.read()
+rasa.utils.endpoints.ClientResponseError: 404, Not Found, body='b'{"error":"No registered action found for name \'action_default_fallback\'.","action_name":"action_default_fallback"}''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/processor.py", line 773, in _run_action
+    output_channel, nlg, temporary_tracker, self.domain
+  File "/usr/local/lib/python3.6/site-packages/rasa/core/actions/action.py", line 709, in run
+    raise RasaException("Failed to execute custom action.") from e
+rasa.shared.exceptions.RasaException: Failed to execute custom action.
+
+এখন টাইম কত
+Response:
+[{'recipient_id': 'default', 'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'থ্যাংক ইউ সো মাচ নামটা একটু বলেন সবগুলোই তো আজকে আজকে আবার কেমন', 'metadata': 'bn'}
+থ্যাংক ইউ সো মাচ নামটা একটু বলেন সবগুলোই তো আজকে আজকে আবার কেমন
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ডাবল ওয়ান', 'metadata': 'bn'}
+ডাবল ওয়ান
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'ঐটা কি আমার অ্যাঁ', 'metadata': 'bn'}
+ঐটা কি আমার অ্যাঁ
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673606202749008', 'message': 'আমি আমি আজকে ঢাকার ঐ অ্যাড্রেসটা কি আমি', 'metadata': 'bn'}
+আমি আমি আজকে ঢাকার ঐ অ্যাড্রেসটা কি আমি
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'মানে আমার অ্যাকাউন্টে ব্যালেন্স কত আছে', 'metadata': 'bn'}
+মানে আমার অ্যাকাউন্টে ব্যালেন্স কত আছে
+Response:
+[{'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'এক দুই', 'metadata': 'bn'}
+এক দুই
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}, {'recipient_id': 'default', 'text': 'আট ডিজিট এর একাউন্ট নাম্বার বলুন'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'টু ওয়ান টু থ্রি এইট ফোর ফাইভ সিক্স', 'metadata': 'bn'}
+21238456
+Response:
+[{'recipient_id': 'default', 'text': 'আপনি বলেছেন,  টু ওয়ান টু থ্রি এইট ফোর ফাইভ সিক্স । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে ।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'সিক্স নাইন', 'metadata': 'bn'}
+69
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার চার ডিজিট এর পিন নাম্বার ইংলিশ পূর্ণ সংখ্যা বলুন'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'ওয়ান টু থ্রি ফোর', 'metadata': 'bn'}
+1234
+Response:
+[{'recipient_id': 'default', 'text': 'আপনি বলেছেন,  ওয়ান টু থ্রি ফোর । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে ।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'ঠিক আছে', 'metadata': 'bn'}
+ঠিক আছে
+Response:
+[{'recipient_id': 'default', 'text': 'আপনার অ্যাকাউন্টের ব্যালেন্স হল এক লক্ষ ছয় হাজার টাকা'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'আজকের ডলার অ্যাড কত', 'metadata': 'bn'}
+আজকের ডলার অ্যাড কত
+changed text
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'আজকে টাইম কত এখন কার্ডটাই কত', 'metadata': 'bn'}
+আজকে টাইম কত এখন কার্ডটাই কত
+Response:
+[{'recipient_id': 'default', 'text': 'এখন সময়, বারো টা বেজে বারো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'বিশ অক্টোবর ছেলের নামে', 'metadata': 'bn'}
+বিশ অক্টোবর ছেলের নামে
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'খুবই ছেলে নাকি', 'metadata': 'bn'}
+খুবই ছেলে নাকি
+Response:
+[{'recipient_id': 'default', 'text': 'দুঃখিত! আমি অপ্রাসঙ্গিক প্রশ্নের উত্তর দিতে পারছি না।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'আজকের ঐটার কেমন', 'metadata': 'bn'}
+আজকের ঐটার কেমন
+Response:
+[{'recipient_id': 'default', 'text': 'আজকের ওয়েদার, মেঘ মুক্ত মাটি, কাঁদা মুক্ত আকাশ, খুবই চমৎকার ওয়েদার।'}]
+Request:
+{'sender': '1640673895217218009', 'message': 'এইটা দেশে', 'metadata': 'bn'}
+এইটা দেশে
+Response:
+[{'recipient_id': 'default', 'text': 'আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?'}]
+Request:
+{'sender': '1640675354213208010', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
+Request:
+{'sender': '1640675354213208010', 'message': 'টাইম কত', 'metadata': 'bn'}
+টাইম কত
+Response:
+[{'recipient_id': 'default', 'text': 'এখন সময়, তেরো টা বেজে তেরো মিনিট। আজকের তারিখ হচ্ছে, আঠাশ, ডিসেম্বর, দুই হাজার একুশ ।'}]
+Request:
+{'sender': '1640676686208899011', 'message': 'Hello', 'metadata': 'bn'}
+Hello
+Response:
+[{'recipient_id': 'default', 'text': 'হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?'}]
