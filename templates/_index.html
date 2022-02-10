@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multilingual Rasa Bot</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <script src="/static/js/env.js"></script>
+    <script src="/static/js/webchat.js"></script>
+</head>
+<body>
+  <ul class="languagepicker roundborders">
+    <a id="choice_en"><li><img src="/static/images/flag-uk.png"/>English</li></a>
+    <a id="choice_de"><li><img src="/static/images/flag-de.png"/>Bangla</li></a>
+  </ul>
+
+  <!-- explanation -->
+  <div style="width:600px;display:inline-block;color:#FFF;">
+    <p>
+      Pick your language and chat with our bot!
+    </p>
+  </div>
+  <div id="webchat" data-title="Demo Bot" data-subtitle="Let's chat!"></div>
+</body>
+</html>

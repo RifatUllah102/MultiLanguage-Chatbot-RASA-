@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="st.css">
+	<style>
+ol {
+  counter-reset: li; 
+  list-style: none; 
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  width: 10%;
+}
+
+ol a {
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em .8em;
+  margin: .5em 0 .5em 2.5em;
+  background: #D3D4DA;
+  color: #444;
+  text-decoration: none;
+  transition: all .3s ease-out;
+}
+
+ol a:hover {background: #DCDDE1;}       
+ol a:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: #f9dd94;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+}
+
+ol a:after {
+  position: absolute;
+  content: "";
+  border: .5em solid transparent;
+  left: -1em;
+  top: 50%;
+  margin-top: -.5em;
+  transition: all .3s ease-out;
+}
+
+ol a:hover:after {
+  left: -.5em;
+  border-left-color: #f9dd94;
+}
+	</style>
+</head>
+<body style="background-image: url(https://vaprod.gplex.com/public/assets/app/media/img/bg/bg-3.jpg);">
+
+  
+<ol class="languagepicker roundborders">
+    <li class=""><a id="choice_en">English</a></li>
+    <li class=""><a id="choice_bn">Bangla</a></li>
+</ol>
+    
+<script>!(function () {
+  let lang = 'en'
+  let campaign = false
+  
+  const urlParams = new URLSearchParams(location.search);
+  for (const [key, value] of urlParams) {
+    console.log(`${key}:${value}`);
+	if(key=='lang'){
+		lang=value;
+	}
+	if(key=='campaign'){
+		campaign=value;
+	}
+	
+  }
+  alert(lang)
+  var ll="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js";
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "http://192.168.1.41:5004/js"),
+    (e.async = !0),
+    (e.onload = () => {
+	
+	
+	    var inactivityTime = function () {
+		var time;
+		var timeouts = [];
+		window.onload = resetTimer;
+		// DOM Events
+		//document.onmousemove = resetTimer;
+		document.onkeydown = resetTimer;
+
+		function logout() {
+			console.log('calling inactive intent')
+			//webchatRef.current.sendMessage('/offer{"entityName":"value"}');
+			$(".rw-new-message").val('offer');
+		}
+
+		function resetTimer() {
+			console.log('calling resetTimer')
+			clearTimeout(time);
+			for (var i=0; i<timeouts.length; i++) {
+			  clearTimeout(timeouts[i]);
+			}
+			if(timeouts.length<1){
+				time = setTimeout(logout, 20000)
+				timeouts.push(time)
+			}
+			console.log(timeouts)
+			// 1000 milliseconds = 1 second
+		}
+	};
+	
+	var config={
+          onSocketEvent: {'connect': function(){
+					console.log('connect');
+					var time;
+					var timeouts = [];
+					document.onkeydown = resetTimer;
+					
+					function logout() {
+						console.log('calling inactive intent')
+						//webchatRef.current.sendMessage('/offer{"entityName":"value"}');
+						$(".rw-new-message").val('offer');
+					}
+					
+					function resetTimer() {
+						console.log('calling resetTimer')
+						clearTimeout(time);
+						for (var i=0; i<timeouts.length; i++) {
+						  clearTimeout(timeouts[i]);
+						}
+						if(timeouts.length<1){
+							time = setTimeout(logout, 20000)
+							timeouts.push(time)
+						}
+						console.log(timeouts)
+						// 1000 milliseconds = 1 second
+					}
+				}},
+          initPayload: "/offer",
+          customData: { lang: lang, campaign: campaign },
+          socketUrl: "http://192.168.1.41:5004",
+          embedded: false,
+		      interval: 10,
+          title: "AI Chatbot",
+          subtitle: "I'm your financial assistant.",
+          inputTextFieldHint: "Type a message...",
+          //connectingText: "Waiting for server...",
+          profileAvatar: "/static/images/avatar.png",
+          params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+          // add other props here
+        };
+	  
+	  var idleTime = 0;
+	  var idleInterval = setInterval(timerIncrement, 20000); // 10 second
+	  
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+		function timerIncrement() {
+        idleTime = idleTime + 1;
+			if (idleTime > 1) { // 1 minutes				
+				console.log(campaign)
+				//$(".rw-new-message").val('offer');
+				//$('#rw-sender').submit();
+				
+				//window.WebChat.default(config, null);
+				
+				//location.href = "http://192.168.1.41:5004?lang="+lang+"&campaign=1";
+			}
+		}
+		
+      window.WebChat.default(
+        {
+          onSocketEvent: {'connect': function(){
+					console.log('connect');
+					var time;
+					var timeouts = [];
+					document.onkeydown = resetTimer;
+					
+					function logout() {
+						console.log('calling inactive intent')
+						//webchatRef.current.sendMessage('/offer{"entityName":"value"}');
+						$(".rw-new-message").val('offer');
+					}
+					
+					function resetTimer() {
+						console.log('calling resetTimer')
+						clearTimeout(time);
+						for (var i=0; i<timeouts.length; i++) {
+						  clearTimeout(timeouts[i]);
+						}
+						if(timeouts.length<1){
+							time = setTimeout(logout, 20000)
+							timeouts.push(time)
+						}
+						console.log(timeouts)
+						// 1000 milliseconds = 1 second
+					}
+				}},
+          initPayload: "/greet",
+		  //customMessageDelay: 10,
+          customData: { lang: lang, campaign: campaign },
+          socketUrl: "http://192.168.1.41:5004",
+          embedded: false,
+		      interval: 1,
+          title: "AI Chatbot",
+          subtitle: "I'm your financial assistant.",
+          inputTextFieldHint: "Type a message...",
+          //connectingText: "Waiting for server...",
+          profileAvatar: "/static/images/avatar.png",
+          params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+          // add other props here
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+$("#choice_en").click(function() {
+      console.log('en')
+      lang = 'en';
+	  location.href = "http://192.168.1.41:5004";
+  });
+
+  $("#choice_bn").click(function() {
+      console.log('bn')
+      lang = 'bn';
+	  location.href = "http://192.168.1.41:5004?lang=bn";
+  });
+</script>
+</body>
+</html>
