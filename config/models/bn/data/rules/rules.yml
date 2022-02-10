@@ -1,0 +1,117 @@
+version: "2.0"
+
+rules:
+
+- rule: Say no_story_1
+  steps:
+  - or:
+    - intent: EMI_Query
+    - intent: campaign
+  - action: utter_no_story
+
+- rule: BankingQuery response
+  steps:
+  - intent: BankingQuery
+  - action: utter_AT
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: answer out of scope
+  steps:
+  - intent: out_of_scope
+  - action: Action_out_of_scope
+
+- rule: Disha_Name_Meanign
+  steps:
+  - intent: Name_meaning
+  - action: utter_Disha
+
+- rule: Bank Location
+  steps:
+  - intent: Bank_and_ATM_Location
+  - action: utter_bank_location
+
+- rule: Agent Transfer
+  steps:
+    - intent: agent_transfer
+    - action: utter_AT
+    - action: action_deactivate_loop
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+
+- rule: Confirm that the bot is not a human
+  steps:
+  - intent: check_human
+  - action: utter_bot
+
+- rule: Exchange Rate Check
+  steps:
+    - intent: Exchange_rate
+    - action: utter_exchange_USD
+
+- rule: explain card_number
+  condition:
+  - active_loop: card_bill_form_c_number
+  steps:
+  - intent: explain
+  - action: utter_explain_card_number
+  - action: card_bill_form_c_number
+  - active_loop: card_bill_form_c_number
+
+- rule: explain account_number
+  condition:
+  - active_loop: check_Balance_ACnum_form
+  steps:
+  - intent: explain
+  - action: utter_explain_account_number
+  - action: check_Balance_ACnum_form
+  - active_loop: check_Balance_ACnum_form
+
+- rule: explain parents_name
+  condition:
+  - active_loop: get_parents_name_form
+  steps:
+  - intent: explain
+  - action: utter_explain
+  - action: get_parents_name_form
+  - active_loop: get_parents_name_form
+
+- rule: explain Birth_day
+  condition:
+  - active_loop: Birthdate_form
+  steps:
+  - intent: explain
+  - action: utter_explain
+  - action: Birthdate_form
+  - active_loop: Birthdate_form
+
+- rule: explain pin
+  condition:
+  - active_loop: check_Balance_PIN_form
+  steps:
+  - intent: explain
+  - action: utter_explain_pin
+  - action: check_Balance_PIN_form
+  - active_loop: check_Balance_PIN_form
+
+- rule: Tell Current Time
+  steps:
+  - intent: Ask_Time
+  - action: Action_Current_DateTime
+
+- rule: Thank You
+  steps:
+  - intent: thankyou
+  - action: utter_thanks
+  - or:
+    - intent: affirm
+    - intent: deny

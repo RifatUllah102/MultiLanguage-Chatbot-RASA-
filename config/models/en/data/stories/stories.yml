@@ -1,0 +1,2045 @@
+version: "2.0"
+
+stories:
+
+- story: say ok when user affirms after utter_help
+  steps:
+  - action: utter_help
+  - intent: affirm
+  - action: utter_ok
+
+- story: say ok when user affirms after action_show_balance
+  steps:
+  - action: action_show_balance
+  - intent: affirm
+  - action: utter_ok
+
+- story: say ok when user affirms after action_show_recipients
+  steps:
+  - action: action_show_recipients
+  - intent: affirm
+  - action: utter_ok
+  
+- story: say ok when user affirms after action_show_transfer_charge
+  steps:
+  - action: action_show_transfer_charge
+  - intent: affirm
+  - action: utter_ok
+- story: Freqiuent Ask questions
+  steps:
+    - intent: FAQ
+    - action: action_FAQ
+    - action: utter_ask_whatelse
+    
+- story: Product_Info Story
+  steps:
+    - intent: product_info
+    - action: action_Product_Info
+    - action: utter_ask_whatelse
+
+- story: Online Banking Story
+  steps:
+    - intent: online_banking
+    - action: utter_online_banking
+    - action: utter_ask_whatelse
+    
+- story: Lost Card Story
+  steps:
+    - intent: lost_card
+    - action: action_lost_card
+    - action: utter_ask_whatelse
+    
+- story: change_pin Story
+  steps:
+    - intent: change_pin
+    - action: action_lost_card
+    - action: utter_ask_whatelse
+
+- story: story of action_open_procedure main if confirmed
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - slot_was_set:
+    - email_address: vincent@gmail.com
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - USERNAME: vincent
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - USERNAME: '01631000000'
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: FDR
+  - slot_was_set:
+    - requested_slot: card_type
+  - slot_was_set:
+    - card_type: VISA
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+  
+- story: story of action_open_procedure main if notconfirmed
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - slot_was_set:
+    - email_address: vincent@gmail.com
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - USERNAME: vincent
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - USERNAME: '01631000000'
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: FDR
+  - slot_was_set:
+    - requested_slot: card_type
+  - slot_was_set:
+    - card_type: VISA
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+  
+- story: stop creating account while open_procedure_form
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+
+- story: story of stop_cheque main if confirmed
+  steps:
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '12365498'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '50000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_stopCHEQUE_Value
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_stopCHEQUE
+  - action: utter_ask_whatelse
+
+- story: story of stop_cheque main if notconfirmed
+  steps:
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '12365498'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '50000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_stopCHEQUE_Value
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_stopCHEQUE
+  - action: utter_ask_whatelse
+
+- story: cancel stop_cheque in middle
+  steps:
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_stopCHEQUE
+  - action: utter_ask_whatelse
+
+- story: interactive_story_stop_cheque
+  steps:
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - intent: explain
+  - action: Action_Explain
+  - slot_was_set:
+    - Explain: null
+  - action: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '54658987'
+  - slot_was_set:
+    - number: 54658987
+  - slot_was_set:
+    - cheque_number: '54658987'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '2000'
+  - slot_was_set:
+    - number: 2000
+  - slot_was_set:
+    - amount-of-money: '2000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_stopCHEQUE_Value
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_stopCHEQUE
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - action: utter_ask_whatelse
+
+- story: story of ADD_Beneficiary for bKash main if confirmed
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bKash_Benificiary
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: story of ADD_Beneficiary for bKash main if confirmed_only bKash
+  steps:
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bKash_Benificiary
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+
+- story: story of ADD_Beneficiary for Bank to Bank transfer if confirmed
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: bank_name
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_Bank_Benificiary
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+- story: story of ADD_Beneficiary for Bank to Bank transfer if confirmed_Bank
+  steps:
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: bank_name
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_Bank_Benificiary
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: story of ADD_Beneficiary for bKash main if notconfirmed
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bKash_Benificiary
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+- story: story of ADD_Beneficiary for bKash main if notconfirmed_bKash
+  steps:
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bKash_Benificiary
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: story of ADD_Beneficiary for Bank to Bank transfer if notconfirmed
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: bank_name
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_Bank_Benificiary
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+- story: story of ADD_Beneficiary for Bank to Bank transfer if notconfirmed_Bank
+  steps:
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: bank_name
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_Bank_Benificiary
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: interactive_story_Bank_To_Bank_transfer_form
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - slot_was_set:
+    - USERNAME: null
+  - slot_was_set:
+    - phone_number: null
+  - slot_was_set:
+    - account_number: null
+  - slot_was_set:
+    - bank_name: null
+  - action: utter_ask_transfer_methods
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - intent: explain
+  - action: Action_Explain
+  - slot_was_set:
+    - Explain: null
+  - action: Bank_To_Bank_transfer_form
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - USERNAME: rifat
+  - slot_was_set:
+    - USERNAME: rifat
+  - slot_was_set:
+    - requested_slot: bank_name
+  - slot_was_set:
+    - bank_name: EBL
+  - slot_was_set:
+    - bank_name: EBL
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '5421568956325'
+  - slot_was_set:
+    - number: 5421568956325
+  - slot_was_set:
+    - account_number: '5421568956325'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: utter_ask_whatelse
+
+
+- story: cancel ADD_Beneficiary for bKash in middle
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+- story: cancel ADD_Beneficiary for bKash in middle_bKash
+  steps:
+  - intent: bKash
+  - action: bKash_form
+  - active_loop: bKash_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: cancel ADD_Beneficiary for Bank to Bank in middle
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+- story: cancel ADD_Beneficiary for Bank to Bank in middle
+  steps:
+  - intent: ADD_Beneficiary
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_transfer_methods
+  - intent: Bank
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_BenificiaryValue
+  - action: utter_ask_whatelse
+
+- story: say happy goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: affirm
+  - action: utter_show_C-sat_rating
+  - intent: inform
+    entities:
+    - rating: '1'
+  - slot_was_set:
+    - rating: '1'
+  - action: action_thanks
+
+- story: say unhappy goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: deny
+  - action: action_thanks
+
+# - story: greet main
+#   steps: 
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_help
+
+# - story: greet
+#   steps: 
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_help
+
+
+# - story: greet story if OTP available
+#   steps: 
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_help
+#   - action: Check_OTP
+#   - intent: deny
+#   - action: utter_ask_something
+
+
+- story: greet story if empty OTP
+  steps: 
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - action: Check_OTP
+  - action: OTP_form
+  - active_loop: OTP_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: OTP
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_Set_SessionToDB
+  - action: utter_ask_something
+
+
+# - story: email_address interjection
+#   steps:
+#   - intent: open_procedure
+#   - action: utter_open_procedure
+#   - action: open_procedure_form
+#   - active_loop: open_procedure_form
+#   - slot_was_set:
+#     - requested_slot: email_address
+#   - intent: explain
+#   - action: utter_explain_email_address
+#   - action: open_procedure_form
+
+# - story: USERNAME interjection
+#   steps:
+#   - intent: open_procedure
+#   - action: utter_open_procedure
+#   - action: open_procedure_form
+#   - active_loop: open_procedure_form
+#   - slot_was_set:
+#     - requested_slot: USERNAME
+#   - intent: explain
+#   - action: utter_explain_USERNAME
+#   - action: open_procedure_form
+  
+# - story: account_type interjection
+#   steps:
+#   - intent: open_procedure
+#   - action: utter_open_procedure
+#   - action: open_procedure_form
+#   - active_loop: open_procedure_form
+#   - slot_was_set:
+#     - requested_slot: account_type
+#   - intent: explain
+#   - action: utter_explain_account_type
+#   - action: open_procedure_form
+  
+# - story: card_type interjection
+#   steps:
+#   - intent: open_procedure
+#   - action: utter_open_procedure
+#   - action: open_procedure_form
+#   - active_loop: open_procedure_form
+#   - slot_was_set:
+#     - requested_slot: card_type
+#   - intent: explain
+#   - action: utter_explain_card_type
+#   - action: open_procedure_form
+
+- story: Loan interactive_story_1
+  steps:
+  - intent: loan_information
+  - action: utter_show_loan_type
+  - intent: home_loan_information
+    entities:
+    - loan_type: Home
+  - slot_was_set:
+    - loan_type: Home
+  - action: action_show_loan_details
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+
+- story: Loan interactive_story_2
+  steps:
+  - intent: loan_information
+  - action: utter_show_loan_type
+  - intent: personal_loan_information
+    entities:
+    - loan_type: Personal
+  - slot_was_set:
+    - loan_type: Personal
+  - action: action_show_loan_details
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+  
+- story: Loan interactive_story_3
+  steps:
+  - intent: loan_information
+  - action: utter_show_loan_type
+  - intent: auto_loan_information
+    entities:
+    - loan_type: Auto
+  - slot_was_set:
+    - loan_type: Auto
+  - action: action_show_loan_details
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+
+- story: offer handeling
+  steps:
+  - intent: offer
+  - action: utter_offer
+  - intent: inform
+  - action: action_offer_details
+  - action: action_schedule_reminder
+  - action: action_inactive_advertisement
+
+- story: Campaign
+  steps:
+    - intent: campaign
+    - action: action_schedule_reminder
+    - action: action_inactive_advertisement
+
+- story: loan calculation
+  steps:
+  - intent: calculate_loan
+  - action: utter_loanCalculatior
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: interest rate information
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+  
+- story: new card information if account available
+  steps:
+  - intent: new_card
+  - action: utter_ask_have_account
+  - intent: affirm
+  - action: utter_have_account
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+  
+- story: new card information if account not available
+  steps:
+  - intent: new_card
+  - action: utter_ask_have_account
+  - intent: deny
+  - action: utter_no_account
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: rate information interactive_story_1
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: current_acc_rate_information
+    entities:
+    - rate_type: Current
+  - slot_was_set:
+    - rate_type: Current
+  - action: action_interest_rate_information
+  - action: utter_LoanCalculator
+  - action: utter_ask_whatelse
+
+- story: rate information interactive_story_2
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: saving_acc_rate_information
+    entities:
+    - rate_type: Saving
+  - slot_was_set:
+    - rate_type: Saving
+  - action: action_interest_rate_information
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: rate information interactive_story_3
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: emi_rate_information
+    entities:
+    - rate_type: EMI
+  - slot_was_set:
+    - rate_type: EMI
+  - action: action_interest_rate_information
+  - action: utter_LoanCalculator
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: rate information interactive_story_4
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: loan_rate_information
+    entities:
+    - rate_type: Loan
+  - slot_was_set:
+    - rate_type: Loan
+  - action: utter_show_loan_type
+  - action: action_schedule_reminder
+
+- story: interactive_story_1
+  steps:
+  - slot_was_set:
+    - currency: $
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: interactive_story_2
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: loan_rate_information
+    entities:
+    - rate_type: Loan
+  - slot_was_set:
+    - rate_type: Loan
+  - action: utter_show_loan_type
+  - action: action_schedule_reminder
+  - intent: inform
+    entities:
+    - loan_type: Auto
+  - slot_was_set:
+    - loan_type: Auto
+  - action: action_show_loan_details
+  - slot_was_set:
+    - loan_type: null
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: saving_acc_rate_information
+    entities:
+    - rate_type: Saving
+  - slot_was_set:
+    - rate_type: Saving
+  - action: action_interest_rate_information
+  - slot_was_set:
+    - rate_type: null
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: interactive_story_3
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: loan_rate_information
+    entities:
+    - rate_type: Loan
+  - slot_was_set:
+    - rate_type: Loan
+  - action: utter_show_loan_type
+  - intent: inform
+    entities:
+    - loan_type: Home
+  - slot_was_set:
+    - loan_type: Home
+  - action: action_show_loan_details
+  - slot_was_set:
+    - loan_type: null
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+
+- story: interactive_story_4
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: saving_acc_rate_information
+    entities:
+    - rate_type: Saving
+  - slot_was_set:
+    - rate_type: Saving
+  - action: action_interest_rate_information
+  - slot_was_set:
+    - rate_type: null
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: interactive_story_5
+  steps:
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: emi_rate_information
+    entities:
+    - rate_type: EMI
+  - slot_was_set:
+    - rate_type: EMI
+  - action: action_interest_rate_information
+  - slot_was_set:
+    - rate_type: null
+  - action: utter_ask_whatelse
+  - intent: rate_info
+  - action: utter_show_rate_type
+  - intent: loan_rate_information
+    entities:
+    - rate_type: Loan
+  - slot_was_set:
+    - rate_type: Loan
+  - action: utter_show_loan_type
+  - intent: inform
+    entities:
+    - loan_type: Auto
+  - slot_was_set:
+    - loan_type: Auto
+  - action: action_show_loan_details
+  - slot_was_set:
+    - loan_type: null
+  - action: action_FAQ
+  - action: utter_ask_whatelse
+
+- story: interactive_story_1
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - slot_was_set:
+    - email_address: rifati@yahoo.com
+  - slot_was_set:
+    - email_address: rifati@yahoo.com
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - USERNAME: Ahmed Abdul Rahman
+  - slot_was_set:
+    - USERNAME: Ahmed Abdul Rahman
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - USERNAME: '01631000000'
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: Loan
+  - slot_was_set:
+    - account_type: Loan
+  - slot_was_set:
+    - requested_slot: card_type
+  - slot_was_set:
+    - card_type: AMEX
+  - slot_was_set:
+    - card_type: amex
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - intent: explain
+  - action: Action_Explain
+  - action: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+  - intent: bill_pay
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - slot_was_set:
+    - requested_slot: utility_type
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_reset_bill_payment_form
+  - slot_was_set:
+    - utility_type: null
+  - slot_was_set:
+    - account_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of change customer name if confirmed
+  steps:
+  - intent: change_customer_name
+  - action: change_customer_name_form
+  - active_loop: change_customer_name_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_change_name
+  - action: utter_change_name_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_name_form
+  - action: utter_ask_whatelse
+
+- story: story of change customer name if not confirmed
+  steps:
+  - intent: change_customer_name
+  - action: change_customer_name_form
+  - active_loop: change_customer_name_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_change_name
+  - action: utter_change_name_info
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_customer_name_form
+  - action: utter_ask_whatelse
+
+- story: stop change customer name in middle
+  steps:
+  - intent: change_customer_name
+  - action: change_customer_name_form
+  - active_loop: change_customer_name_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_customer_name_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of change customer address if confirmed
+  steps:
+  - intent: change_customer_address
+  - action: change_customer_address_form
+  - active_loop: change_customer_address_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: mailling_address
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_change_address
+  - action: utter_change_address_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_address_form
+  - action: utter_ask_whatelse
+
+- story: story of change customer address if not confirmed
+  steps:
+  - intent: change_customer_address
+  - action: change_customer_address_form
+  - active_loop: change_customer_address_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: mailling_address
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_change_address
+  - action: utter_change_address_info
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_customer_address_form
+  - action: utter_ask_whatelse
+
+- story: stop change customer address in middle
+  steps:
+  - intent: change_customer_address
+  - action: change_customer_address_form
+  - active_loop: change_customer_address_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_customer_address_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of change customer phone number if confirmed
+  steps:
+  - intent: change_customer_phonenumber
+  - action: action_reset_customer_Phonenumber_form
+  - action: change_customer_phonenumber_form
+  - active_loop: change_customer_phonenumber_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_change_phone_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_Phonenumber_form
+  - action: utter_ask_whatelse
+
+
+- story: story of change customer phone number if denied
+  steps:
+  - intent: change_customer_phonenumber
+  - action: action_reset_customer_Phonenumber_form
+  - action: change_customer_phonenumber_form
+  - active_loop: change_customer_phonenumber_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_change_phone_info
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_customer_Phonenumber_form
+  - action: utter_ask_whatelse
+
+- story: stop change customer phone number in middle
+  steps:
+  - intent: change_customer_phonenumber
+  - action: action_reset_customer_Phonenumber_form
+  - action: change_customer_phonenumber_form
+  - active_loop: change_customer_phonenumber_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_customer_Phonenumber_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of bill_payment_form if everything is correct
+  steps:
+  - intent: bill_pay
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - slot_was_set:
+    - requested_slot: utility_type
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bill_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_bill_payment_form
+  - action: utter_ask_whatelse
+
+- story: story of bill_payment_form if incorrect
+  steps:
+  - intent: bill_pay
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - slot_was_set:
+    - requested_slot: utility_type
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bill_payment_details
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_bill_payment_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: stop bill_payment_form in middle
+  steps:
+  - intent: bill_pay
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_bill_payment_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of card_bill_form if confirmed positive
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: affirm
+  - action: action_AffirmCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: Valid_DATE
+  - slot_was_set:
+    - requested_slot: CCV
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_card_bill_form
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: story of card_bill_form if confirmed positive without card_number
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: deny
+  - action: action_DenyCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: Valid_DATE
+  - slot_was_set:
+    - requested_slot: CCV
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_card_bill_form
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: story of card_bill_form if confirmed negative
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: affirm
+  - action: action_AffirmCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: Valid_DATE
+  - slot_was_set:
+    - requested_slot: CCV
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_payment_details
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_card_bill_form
+  - action: utter_denied
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: story of card_bill_form if confirmed negative without card_number
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: deny
+  - action: action_DenyCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: Valid_DATE
+  - slot_was_set:
+    - requested_slot: CCV
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_payment_details
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_card_bill_form
+  - action: utter_denied
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: stop card_bill_form in middle
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: affirm
+  - action: action_AffirmCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_card_bill_form
+  - action: utter_denied
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: stop card_bill_form in middle without card_number
+  steps:
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - action: action_card_bill_form
+  - intent: deny
+  - action: action_DenyCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_card_bill_form
+  - action: utter_denied
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse
+
+- story: story of mobile_recharge_form with phone number if confirmed
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: affirm
+  - action: action_switch_affirm
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_mobile_recharge_form
+  - action: utter_ask_whatelse
+
+- story: story of mobile_recharge_form with phone number if incorrect
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: affirm
+  - action: action_switch_affirm
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_mobile_recharge_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: stop mobile_recharge_form with phone number in middle
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: affirm
+  - action: action_switch_affirm
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_mobile_recharge_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: story of mobile_recharge_form without phone number if confirmed
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: deny
+  - action: action_switch_deny
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_mobile_recharge_form
+  - action: utter_ask_whatelse
+
+- story: story of mobile_recharge_form without phone number if incorrect
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: deny
+  - action: action_switch_deny
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_mobile_recharge_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: stop mobile_recharge_form without phone number in middle
+  steps:
+  - intent: mobile_recharge
+  - action: action_GetMobileNumberFromDB
+  - action: action_mobile_recharge_form
+  - intent: deny
+  - action: action_switch_deny
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+  - intent: deny
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_reset_mobile_recharge_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- story: close_procedure story
+  steps:
+  - intent: close_procedure
+  - action: utter_close_procedure
+  - action: utter_close_procedure_stop
+  - action: utter_ask_whatelse
+
+
+# - story: interactive_story_4
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - intent: inform
+#     entities:
+#     - rating: '4'
+#   - slot_was_set:
+#     - rating: '4'
+#   - action: action_thanks
+
+# - story: interactive_story_5
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_6
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - intent: inform
+#     entities:
+#     - rating: '2'
+#   - slot_was_set:
+#     - rating: '2'
+#   - action: action_thanks
+
+# - story: interactive_story_7
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - intent: inform
+#     entities:
+#     - rating: '3'
+#   - slot_was_set:
+#     - rating: '3'
+#   - action: action_thanks
+
+# - story: interactive_story_8
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - intent: inform
+#     entities:
+#     - rating: '5'
+#   - slot_was_set:
+#     - rating: '5'
+#   - action: action_thanks
+
+# - story: interactive_story_9
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - intent: inform
+#     entities:
+#     - rating: '1'
+#   - slot_was_set:
+#     - rating: '1'
+#   - action: action_thanks
+
+- story: interactive_story_2
+  steps:
+  - intent: bill_pay
+    entities:
+    - utility_type: WASA
+  - slot_was_set:
+    - utility_type: WASA
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - slot_was_set:
+    - utility_type: WASA
+  - slot_was_set:
+    - utility_type: WASA
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '098765432145'
+  - slot_was_set:
+    - account_number: '098765432145'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bill_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_bill_payment_form
+  - action: utter_ask_whatelse
+
+- story: complain interactive_story_5
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: online_banking_service_complain
+    entities:
+    - complain_catagory: online
+  - slot_was_set:
+    - complain_catagory: online
+  - action: utter_online_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: deny
+  - action: complain_details_form
+  - active_loop: complain_details_form  
+  - slot_was_set:
+    - requested_slot: complain_details
+  - slot_was_set:
+    - complain_details: there is a problem
+  - slot_was_set:
+    - requested_slot: null 
+  - active_loop: null
+  - action: action_listen_complain_details
+  - action: action_reset_complain_slots
+
+- story: complain affirm interactive_story_5
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: online_banking_service_complain
+    entities:
+    - complain_catagory: online
+  - slot_was_set:
+    - complain_catagory: online
+  - action: utter_online_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+
+- story: complain interactive_story_1
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: customer_service_complain
+    entities:
+    - complain_catagory: customer
+  - slot_was_set:
+    - complain_catagory: customer
+  - action: utter_customer_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: deny
+  - action: complain_details_form
+  - active_loop: complain_details_form
+  - slot_was_set:
+    - requested_slot: complain_details
+  - slot_was_set:
+    - complain_details: there is a problem
+  - slot_was_set:
+    - requested_slot: null 
+  - active_loop: null
+  - action: action_listen_complain_details
+  - action: action_reset_complain_slots
+
+- story: complain affirm interactive_story_1
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: customer_service_complain
+    entities:
+    - complain_catagory: customer
+  - slot_was_set:
+    - complain_catagory: customer
+  - action: utter_customer_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+
+- story: complain interactive_story_2
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: banking_service_complain
+    entities:
+    - complain_catagory: banking
+  - slot_was_set:
+    - complain_catagory: banking
+  - action: utter_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: deny
+  - action: complain_details_form
+  - active_loop: complain_details_form
+  - slot_was_set:
+    - requested_slot: complain_details
+  - slot_was_set:
+    - complain_details: there is a problem
+  - slot_was_set:
+    - requested_slot: null 
+  - active_loop: null
+  - action: action_listen_complain_details
+  - action: action_reset_complain_slots
+
+- story: complain affirm interactive_story_2
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: banking_service_complain
+    entities:
+    - complain_catagory: banking
+  - slot_was_set:
+    - complain_catagory: banking
+  - action: utter_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+
+- story: complain interactive_story_3
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: mobile_banking_service_complain
+    entities:
+    - complain_catagory: mobile
+  - slot_was_set:
+    - complain_catagory: mobile
+  - action: utter_mobile_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: deny
+  - action: complain_details_form
+  - active_loop: complain_details_form
+  - slot_was_set:
+    - requested_slot: complain_details
+  - slot_was_set:
+    - complain_details: there is a problem
+  - slot_was_set:
+    - requested_slot: null 
+  - active_loop: null
+  - action: action_listen_complain_details
+  - action: action_reset_complain_slots
+
+- story: complain affirm interactive_story_3
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: mobile_banking_service_complain
+    entities:
+    - complain_catagory: mobile
+  - slot_was_set:
+    - complain_catagory: mobile
+  - action: utter_mobile_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+
+- story: complain interactive_story_4
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: chatbot_service_complain
+    entities:
+    - complain_catagory: chatbot
+  - slot_was_set:
+    - complain_catagory: chatbot
+  - action: utter_chatbot_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: deny
+  - action: complain_details_form
+  - active_loop: complain_details_form
+  - slot_was_set:
+    - requested_slot: complain_details
+  - slot_was_set:
+    - complain_details: there is a problem
+  - slot_was_set:
+    - requested_slot: null 
+  - active_loop: null
+  - action: action_listen_complain_details
+  - action: action_reset_complain_slots
+
+- story: complain affirm interactive_story_4
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: chatbot_service_complain
+    entities:
+    - complain_catagory: chatbot
+  - slot_was_set:
+    - complain_catagory: chatbot
+  - action: utter_chatbot_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+
+- story: interactive_story_1
+  steps:
+  - slot_was_set:
+    - currency: $
+  - intent: new_card
+    entities:
+    - card_type: credit
+  - slot_was_set:
+    - card_type: credit
+  - action: utter_ask_have_account
+  - intent: deny
+  - action: utter_no_account
+  - action: utter_ask_whatelse
+  - intent: bill_pay
+    entities:
+    - utility_type: WASA
+  - slot_was_set:
+    - utility_type: WASA
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+  - slot_was_set:
+    - utility_type: WASA
+  - slot_was_set:
+    - utility_type: WASA
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '123345869424'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_bill_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_bill_payment_form
+  - action: utter_ask_whatelse
+
+- story: interactive_story_1
+  steps:
+  - intent: complain
+  - action: utter_show_complain_category
+  - intent: online_banking_service_complain
+    entities:
+    - complain_catagory: online
+  - slot_was_set:
+    - complain_catagory: online
+  - action: utter_online_banking_service_suggestions
+  - action: utter_ask_token_complaint
+  - intent: affirm
+  - action: utter_tell_saved_complain
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: affirm
+  - action: utter_show_C-sat_rating
+
+- story: interactive_story_2
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: affirm
+  - action: utter_show_C-sat_rating
+  - intent: inform
+    entities:
+    - rating: '3'
+  - slot_was_set:
+    - rating: '3'
+  - action: action_thanks
+
+- story: interactive_story_3
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: affirm
+  - action: utter_show_C-sat_rating
+  - intent: inform
+    entities:
+    - rating: '4'
+  - slot_was_set:
+    - rating: '4'
+  - action: action_thanks
+
+- story: interactive_story_4
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_review
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+  - slot_was_set:
+    - requested_slot: email_address
+  - slot_was_set:
+    - email_address: yttr@gmail.com
+  - slot_was_set:
+    - requested_slot: USERNAME
+  - intent: inform
+    entities:
+    - PERSON: Mohammad Rifat Ullah
+  - action: utter_ask_USERNAME
+  - intent: inform
+    entities:
+    - USERNAME: Mohammmad Rifat Ullah
+  - slot_was_set:
+    - USERNAME: Mohammmad Rifat Ullah
+  - action: open_procedure_form
+  - slot_was_set:
+    - USERNAME: Mohammmad Rifat Ullah
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - USERNAME: '01631000000'
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: CASA
+  - slot_was_set:
+    - account_type: CASA
+  - slot_was_set:
+    - requested_slot: card_type
+  - slot_was_set:
+    - card_type: VISA
+  - slot_was_set:
+    - card_type: VISA
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_open_procedure_form
+  - slot_was_set:
+    - email_address: null
+  - slot_was_set:
+    - USERNAME: null
+  - slot_was_set:
+    - account_type: null
+  - slot_was_set:
+    - card_type: null
+  - action: utter_ask_whatelse
+
+- story: interactive_story_1
+  steps:
+  - slot_was_set:
+    - currency: $
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '12786534'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '5000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_stopCHEQUE_Value
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_stopCHEQUE
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - action: utter_ask_whatelse
+
+- story: interactive_story_2
+  steps:
+  - intent: stop_cheque
+  - action: utter_stopCHEQUE
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '87421545'
+  - slot_was_set:
+    - cheque_number: '87421545'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '10000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_stopCHEQUE_Value
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_stopCHEQUE
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - action: utter_ask_whatelse
+
+- story: interactive_story_1
+  steps:
+  - slot_was_set:
+    - currency: $
+  - intent: card_bill
+  - action: action_GetCardNumberFromDB
+  - slot_was_set:
+    - card_number: null
+  - action: action_card_bill_form
+  - intent: affirm
+  - action: action_AffirmCardNumber
+  - action: card_bill_form
+  - active_loop: card_bill_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '1254789865326554'
+  - slot_was_set:
+    - requested_slot: Valid_DATE
+  - slot_was_set:
+    - Valid_DATE: 01/25
+  - slot_was_set:
+    - requested_slot: CCV
+  - slot_was_set:
+    - CCV: '126'
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '2000'
+  - slot_was_set:
+    - AmountMoney: '2000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_card_bill_form
+  - slot_was_set:
+    - card_number: null
+  - slot_was_set:
+    - Valid_DATE: null
+  - slot_was_set:
+    - CCV: null
+  - slot_was_set:
+    - amount-of-money: null
+  - action: action_schedule_reminder
+  - action: utter_ask_whatelse

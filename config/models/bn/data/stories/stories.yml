@@ -1,0 +1,317 @@
+version: "2.0"
+
+stories:
+
+- story: greet
+  steps:
+  - intent: greet
+  - action: action_greet
+  # - action: utter_ask_whatelse
+
+- story: weather path
+  steps:
+  - intent: weather
+  - action: utter_weather
+
+- story: Thank You
+  steps:
+  - intent: thankyou
+  - action: utter_thanks
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: Action_Call_Cut
+
+- story: Take Number
+  steps:
+  - intent: Demo_Number
+  - action: card_bill_form_c_number
+  - active_loop: card_bill_form_c_number
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_reset_all_slots
+
+# - story: card bill with affirm if confirmed positive
+#   steps:
+#   - intent: card_bill
+#   - action: card_bill_form_c_number
+#   - active_loop: card_bill_form_c_number
+#   - slot_was_set:
+#     - requested_slot: card_number
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_CardNumber_confirm
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_check_response
+#   - action: card_bill_form_V_Date
+#   - active_loop: card_bill_form_V_Date
+#   - slot_was_set:
+#     - requested_slot: Valid_DATE
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_Valid_Date_confirm
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_check_response_date
+#   - action: card_bill_form_CCV
+#   - active_loop: card_bill_form_CCV
+#   - slot_was_set:
+#     - requested_slot: CCV
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_CCV_confirm
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_check_response_CCV
+#   - action: card_bill_form_amount
+#   - active_loop: card_bill_form_amount
+#   - slot_was_set:
+#     - requested_slot: amount-of-money
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_card_payment_details
+#   - intent: affirm
+#   - action: utter_done
+#   - action: action_reset_card_bill_form
+#   - action: utter_ask_whatelse
+
+- story: check balance
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: check_Balance_ACnum_form
+  - active_loop: check_Balance_ACnum_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_ACNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_AC_Number
+  - action: check_Balance_PIN_form
+  - active_loop: check_Balance_PIN_form
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_pin
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_PIN
+  - action: action_show_balance
+
+- story: story of stop_cheque main if confirmed
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - action: cheque_form
+  - active_loop: cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '123658'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_ChequeNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_Cheque_Number
+  - action: card_bill_form_amount
+  - active_loop: card_bill_form_amount
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '5000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_Amount
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_amount
+  - action: utter_cheque_cancel_confirmed
+
+- story: credit card limit
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - action: card_bill_form_c_number
+  - active_loop: card_bill_form_c_number
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '1234567489'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_CardNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_response
+  - action: check_Balance_PIN_form
+  - active_loop: check_Balance_PIN_form
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - PIN: '1234'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_pin
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_PIN
+  - action: Action_Card_limit_info
+
+- story: Bkash Transfer
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - action: check_Balance_ACnum_form
+  - active_loop: check_Balance_ACnum_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_ACNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_AC_Number
+  - action: phone_number_form
+  - active_loop: phone_number_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_PhoneNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_phone_Number
+  - action: card_bill_form_amount
+  - active_loop: card_bill_form_amount
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_Amount
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_amount
+  - action: utter_transfer
+
+- story: story of Card_Activation
+  steps:
+  - intent: Card_Activation
+  # - action: action_Card_Activation
+  - action: card_bill_form_c_number
+  - active_loop: card_bill_form_c_number
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_CardNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_response
+  - action: get_parents_name_form
+  - active_loop: get_parents_name_form
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Birthdate_form
+  - active_loop: Birthdate_form
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_activation
+
+- story: story of E_Commerce_Request
+  steps:
+  - intent: E_Commerce_Request
+  - action: action_E_Commerce_Request
+  - action: get_parents_name_form
+  - active_loop: get_parents_name_form
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Birthdate_form
+  - active_loop: Birthdate_form
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ok
+
+- story: story of Card_Close
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - action: card_bill_form_c_number
+  - active_loop: card_bill_form_c_number
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tell_CardNumber
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_check_response
+  - action: get_parents_name_form
+  - active_loop: get_parents_name_form
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Birthdate_form
+  - active_loop: Birthdate_form
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_card_close_done

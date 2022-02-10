@@ -1,0 +1,399 @@
+version: "2.0"
+
+rules:
+
+- rule: Confirm that the bot is not a human
+  steps:
+  - intent: check_human
+  - action: utter_bot
+
+- rule: Confirm that the bot is not doing something like human
+  steps:
+  - intent: cant_do
+  - action: Action_CantDo
+  
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: answer out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: action_SessionRestart
+    
+# - rule: greet
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_help
+
+
+# - rule: goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: affirm
+#   - action: utter_show_C-sat_rating
+#   - slot_was_set:
+#     - requested_slot: rating
+#   - action: action_thanks
+
+# - rule: say unhappy goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_ask_for_review
+#   - intent: deny
+#   - action: utter_goodbye
+  
+- rule: help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- rule: thankyou
+  steps:
+  - intent: thankyou
+  - action: utter_noworries
+  
+- rule: is there a transfer charge
+  steps:
+  - intent: ask_transfer_charge
+  - action: action_show_transfer_charge
+  
+- rule: Show list of known recipients
+  steps:
+  - intent: check_recipients
+  - action: action_show_recipients
+  
+- rule: Show balance (bank account or credit card, based on account_type)
+  steps:
+  - intent: check_balance
+  - action: action_show_balance
+        
+- rule: Activate cc_payment_form when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - intent: pay_cc
+  - action: cc_payment_form
+  - active_loop: cc_payment_form
+  
+- rule: Activate transfer_money_form when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - intent: transfer_money
+  - action: transfer_money_form
+  - active_loop: transfer_money_form
+  
+- rule: Activate transaction_search_form when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - or:
+    - intent: search_transactions
+    - intent: check_earnings
+  - action: transaction_search_form
+  - active_loop: transaction_search_form
+  
+- rule: Submit cc_payment_form while not switched from previous form
+  condition:
+  - active_loop: cc_payment_form
+  - slot_was_set:
+    - previous_form_name: null
+  steps:
+  - action: cc_payment_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_pay_cc
+  
+- rule: Submit transfer_money_form while not switched from previous form
+  condition:
+  - active_loop: transfer_money_form
+  - slot_was_set:
+    - previous_form_name: null
+  steps:
+  - action: transfer_money_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_transfer_money
+  
+- rule: Submit transaction_search_form while not switched from previous form
+  condition:
+  - active_loop: transaction_search_form
+  - slot_was_set:
+    - previous_form_name: null
+  steps:
+  - action: transaction_search_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_transaction_search
+
+- rule: Activate open_procedure_form
+  steps:
+  - intent: open_procedure
+  - action: utter_open_procedure
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+
+- rule: explain while open_procedure_form is active
+  condition:
+  - active_loop: open_procedure_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+# - action: utter_explain
+  - action: open_procedure_form
+  - active_loop: open_procedure_form
+
+- rule: Submit open_procedure_form if Confirm
+  condition:
+  - active_loop: open_procedure_form
+  steps:
+  - action: open_procedure_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+
+- rule: Submit open_procedure_form if Not Confirm
+  condition:
+  - active_loop: open_procedure_form
+  steps:
+  - action: open_procedure_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots_values
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: utter_denied
+  - action: action_reset_open_procedure_form
+  - action: utter_ask_whatelse
+
+- rule: Activate change_customer_name_form
+  steps:
+  - intent: change_customer_name
+  - action: change_customer_name_form
+  - active_loop: change_customer_name_form
+
+- rule: explain while change_customer_name_form is active
+  condition:
+  - active_loop: change_customer_name_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: change_customer_name_form
+  - active_loop: change_customer_name_form
+
+- rule: Submit change_customer_name_form
+  condition:
+  - active_loop: change_customer_name_form
+  steps:
+  - action: change_customer_name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_change_name
+  - action: utter_change_name_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_name_form
+  - action: utter_ask_whatelse
+
+- rule: Activate change_customer_address_form
+  steps:
+  - intent: change_customer_address
+  - action: change_customer_address_form
+  - active_loop: change_customer_address_form
+
+- rule: explain while change_customer_address_form is active
+  condition:
+  - active_loop: change_customer_address_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: change_customer_address_form
+  - active_loop: change_customer_address_form
+
+- rule: Submit change_customer_address_form
+  condition:
+  - active_loop: change_customer_address_form
+  steps:
+  - action: change_customer_address_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_change_address
+  - action: utter_change_address_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_address_form
+  - action: utter_ask_whatelse
+
+- rule: Activate change_customer_phonenumber_form
+  steps:
+  - intent: change_customer_phonenumber
+  - action: action_reset_customer_Phonenumber_form
+  - action: change_customer_phonenumber_form
+  - active_loop: change_customer_phonenumber_form
+
+- rule: explain while change_customer_phonenumber_form is active
+  condition:
+  - active_loop: change_customer_phonenumber_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: change_customer_phonenumber_form
+  - active_loop: change_customer_phonenumber_form
+
+- rule: Submit change_customer_phonenumber_form
+  condition:
+  - active_loop: change_customer_phonenumber_form
+  steps:
+  - action: change_customer_phonenumber_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_change_phone_info
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_customer_Phonenumber_form
+  - action: utter_ask_whatelse
+
+# - rule: Activate mobile_recharge_form
+#   steps:
+#   - intent: mobile_recharge
+#   - action: action_reset_mobile_recharge_form
+#   - action: mobile_recharge_form
+#   - active_loop: mobile_recharge_form
+
+- rule: explain while mobile_recharge_form is active
+  condition:
+  - active_loop: mobile_recharge_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+
+- rule: if ask to take the old value while mobile_recharge_form is active
+  condition:
+  - active_loop: mobile_recharge_form
+  steps:
+  - intent: previous_Value
+  - action: Action_previous_Value
+  - action: mobile_recharge_form
+  - active_loop: mobile_recharge_form
+
+- rule: Submit mobile_recharge_form if Confirm
+  condition:
+  - active_loop: mobile_recharge_form
+  steps:
+  - action: mobile_recharge_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_mobile_recharge_form
+  - action: utter_ask_whatelse 
+
+- rule: Submit mobile_recharge_form if incorrect
+  condition:
+  - active_loop: mobile_recharge_form
+  steps:
+  - action: mobile_recharge_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_recharge_confirm
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_mobile_recharge_form
+  - action: utter_denied
+  - action: utter_ask_whatelse
+
+- rule: Activate bill_payment_form
+  steps:
+  - intent: bill_pay
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+
+- rule: explain while bill_payment_form is active
+  condition:
+  - active_loop: bill_payment_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: bill_payment_form
+  - active_loop: bill_payment_form
+
+- rule: Submit bill_payment_form if Confirm
+  condition:
+  - active_loop: bill_payment_form
+  steps:
+  - action: bill_payment_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_bill_payment_details
+  - action: utter_ask_confirm
+  - intent: affirm
+  - action: utter_submit
+  - action: action_reset_bill_payment_form
+  - action: utter_ask_whatelse
+
+- rule: explain while stop_cheque_form is active
+  condition:
+  - active_loop: stop_cheque_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: stop_cheque_form
+  - active_loop: stop_cheque_form
+
+- rule: explain while OTP_form is active
+  condition:
+  - active_loop: OTP_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: OTP_form
+  - active_loop: OTP_form
+
+- rule: explain while Bank_To_Bank_transfer_form is active
+  condition:
+  - active_loop: Bank_To_Bank_transfer_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: Bank_To_Bank_transfer_form
+  - active_loop: Bank_To_Bank_transfer_form
+  
+- rule: explain while bKash_form is active
+  condition:
+  - active_loop: bKash_form
+  steps:
+  - intent: explain
+  - action: Action_Explain
+  - action: bKash_form
+  - active_loop: bKash_form

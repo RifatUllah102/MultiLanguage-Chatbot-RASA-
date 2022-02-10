@@ -1,0 +1,476 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- thankyou
+- greet
+- Ask_Time
+- inform:
+    use_entities: []
+- stop_cheque
+- affirm
+- campaign
+- check_human
+- Name_meaning
+- Card_Activation
+- deny
+- bKash_transfer
+- goodbye
+- agent_transfer
+- Credit_Card_Limit
+- mood_great
+- out_of_scope
+- check_balance
+- bot_challenge
+- weather
+- explain
+- Exchange_rate
+- E_Commerce_Request
+- EMI_Query
+- Card_Close
+- Demo_Number
+- Bank_and_ATM_Location
+- BankingQuery
+entities:
+- account_check
+- CCV
+- PIN
+- Valid_DATE
+- account_number
+- amount-of-money
+- card_number
+- phone_number
+- cheque_number
+- Father_Name
+- Mother_Name
+- Birth_Date
+slots:
+  Father_Name:
+    type: text
+    influence_conversation: false
+  Mother_Name:
+    type: text
+    influence_conversation: false
+  Birth_Date:
+    type: text
+    influence_conversation: false
+  cheque_number:
+    type: any
+    influence_conversation: false
+  phone_number:
+    type: any
+    influence_conversation: false
+  currency:
+    type: any
+    initial_value: BDT
+    influence_conversation: false
+  account_number:
+    type: any
+    influence_conversation: false
+  PIN:
+    type: any
+    influence_conversation: false
+  Valid_DATE:
+    type: any
+    influence_conversation: false
+  CCV:
+    type: any
+    influence_conversation: false
+  card_number:
+    type: any
+    influence_conversation: false
+  amount-of-money:
+    type: float
+    influence_conversation: false
+    max_value: 100000.0
+    min_value: 0.0
+  account_check:
+    type: any
+    initial_value: True
+    influence_conversation: false
+responses:
+  utter_thanks:
+  - text: আপনাকেও ধন্যবাদ
+  utter_out_of_scope:
+  - text: দুঃখিত! আমি অপ্রাসঙ্গিক প্রশ্নের উত্তর দিতে পারছি না।
+  - text: দুঃখিত! আমি আপনার প্রশ্নের উত্তর দিতে পারছি না। অন্য কিছু বলুন
+  - text: আমাকে অপ্রাসঙ্গিক প্রশ্নের উত্তর দিতে নিষেধ করা হয়েছে।
+  - text: দুঃখিত, আমি এই প্রশ্নের উত্তর দিতে পারছি না।
+  - text: দুঃখিত, এটা একটা অপ্রাসঙ্গিক প্রশ্ন।
+  - text: আপনি প্রাসঙ্গিক কিছু জানতে চাইলে বলুন,
+  - text: আপনার ব্যাংক সংক্রান্ত কিছু সহায়তা লাগলে বলুন
+  utter_ask_rephrase:
+  - text: আমি ঠিক বুঝতে পারিনি। দয়া করে আবার বলুন
+  - text: আপনি কি কোনো কোলাহলময় পরিবেশে আছেন? কথাটি বুঝতে পারিনি। দয়া করে পুনরায় বলুন
+  - text: কথাটি বুঝতে পারিনি। স্পষ্ট করে বলুন
+  utter_ok:
+  - text: ঠিক আছে।
+  utter_ask_continue:
+  - text: আপনি কি প্রক্রিয়াটি চলমান করতে চান?
+  utter_default:
+  - text: আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?
+  - text: কথাটি বুঝতে পারিনি। দয়া করে পুনরায় বলুন
+  - text: দুঃখিত আপনার কথাটি শুনতে পাইনি
+  - text: দুঃখিত পুনরাই বলবেন প্লিজ?
+  utter_AT:
+  - text: আপনার কল টি এক জন কাস্টমার কেয়ার প্রতিনিধির কাছে ট্রান্সফার করা হচ্ছে
+  utter_greet:
+  - text: হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?
+  - text: হাই, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_greet_morning:
+  - text: শুভ সকাল, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_greet_afternoon:
+  - text: শুভ বিকেল, দিশা বলছি। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
+  - text: শুভ অপরাহ্ন, দিশা বলছি। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_greet_evening:
+  - text: শুভ সন্ধ্যা, দিশা বলছি। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_greet_night:
+  - text: শুভ রাত্রি, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_ask_whatelse:
+  - text: আমি আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_ask_somethingelse:
+  - text: আমি আর কিভাবে আপনাকে সহায়তা করতে পারি?
+  utter_ask_cheque_number:
+  - text: ছয় সংখ্যার চেক নাম্বার বলুন
+  utter_bot:
+  - text: আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমাকে তৈরি করেছে জিপ্লেক্স
+  utter_Disha:
+  - text: দিশা মানে নির্দেশনা দেয়া এবং যেহেতু আমি আমার কাস্টমার দের সঠিক নিরদেশনা দেয় তাই আমার নাম দিশা।
+  - text: দিশা মানে দিকনির্দেশ বা নির্দেশনা দেয়া এবং যেহেতু আমি আমার কাস্টমার দের সঠিক নিরদেশনা দেয় তাই আমার নাম দিশা।
+  - text: আমার নাম দিশা কারণ আমি আমার কাস্টমার দের ব্যাংক সংক্রান্ত সকল ধরনের দিক নিরদেশনা করি।
+  utter_help:
+  - text: আমি আপনাকে আপনার ব্যাংক সংক্রান্ত সকল ধরনের সাহায্য করার জন্য প্রস্তত আছি।
+  utter_done:
+  - text: Thank you for confirming.
+  utter_ask_card_number:
+  - text: আপনার দশ ডিজিট এর কার্ড নাম্বার বলুন
+  utter_Out_of_scope_funny_1:
+  - text: নির্ভর করে। কোন উত্তর পেলে আপনি আমার সাথে ফ্লার্ট করা বন্ধ করবেন।
+  utter_Out_of_scope_funny_2:
+  - text: যেতে পারলে ভালই হত। কিন্তু, অফিস আমাকে ছুটি দিবে না। আপনি অন্য কাউকে নিয়ে যেতে পারেন।
+  utter_Out_of_scope_funny_3:
+  - text: ধন্যবাদ। এই যাহ, এসবের কি দরকার ছিল।
+  utter_Out_of_scope_funny_4:
+  - text: আমি একা থাকতে বেশী স্বচ্ছন্দ বোধ করি
+  - text: আমাকে কি আপনার অসুখী মনে হয়।
+  - text: না আমাকে আমার খাবার কারো সাথে শেয়ার করতে হয় না।
+  utter_Out_of_scope_funny_5:
+  - text: সচরাচর যেভাবে যায় সেভাবেই কেটেছে।
+  - text: সবার সাথে কথা বলে, ও কাজ করে
+  - text: সারাক্ষণ কাজ করা এবং সহকর্মীদের সাথে কথা বলা ও গ্রাহকদের সাহায্য করে অনেক সুন্দর কেটেছে
+  - text: অন্যদিনের মতই কেটেছে।
+  utter_Out_of_scope_funny_6:
+  - text: আমি নিশ্চিত নই তবে আমি যখন স্কুলে ছিলাম, তখন আমার পাশের ছেলেটির দিকে তাকিয়ে থেকে আমার মেটাফিজিক্স পরীক্ষায় ফেল করেছিলাম।
+  utter_Out_of_scope_funny_7:
+  - text: হাউ এবাউট, পৃথিবীতে মহাকর্ষ না থাকলেও, আমি আপনার জন্য পড়ে যাব।
+  - text: হাউ এবাউট, তোমাকে দেখার আগে আমি প্রথম দেখায় প্রেমে বিশ্বাস পরা করিনি
+  - text: হাউ এবাউট, তোমার কাছে কি মানচিত্র আছে, কারণ আমি তোমার চোখে নিজেকে হারিয়ে ফেলেছি।
+  utter_Out_of_scope_funny_8:
+  - text: না তবে, ক্রাশ খেয়েছি অনেক বার, এবং ক্রাশ খাওয়া পর্যন্তই সীমাবদ্ধ ছিলাম। বেশীদুর এগোতে পারি নি।
+  utter_Out_of_scope_funny_9:
+  - text: ওয়াও, শুভ জন্মদিন।
+  - text: শুভ জন্মদিন। কিভাবে আপনাকে সহায়তা করতে পারি?
+  - text: জন্মদিন শুভ হোক, স্যার। কিভাবে আপনাকে সহায়তা করতে পারি
+  utter_Out_of_scope_funny_10:
+  - text: আমি কোনো বিজ্ঞানী না, তাই আমি সঠিক জানি না
+  - text: এলিয়েন, সেটা আবার কি।
+  - text: আমি জানি না, এবং বিজ্ঞানীরা ও নিশ্চিত করে বলতে পারবে না।
+  utter_Out_of_scope_funny_Alexa:
+  - text: অ্যামাজন অ্যালেক্সা, একটি ভার্চুয়াল সহকারী প্রযুক্তি যা মূলত আইভোনা নামে একটি পোলিশ স্পিচ সিন্থেসাইজারের উপর তৈরি। যা অ্যামাজন কিনে নিয়েছে।
+  utter_Out_of_scope_funny_Siri:
+  - text: সিরি হচ্ছে অ্যাপল ইনকর্পোরেশন এর তৈরি ভার্চুয়াল অ্যাসিস্ট্যান্ট।
+  utter_Out_of_scope_funny_Cortana:
+  - text: করটানা হচ্ছে মাইক্রোসফ্ট এর তৈরি ভার্চুয়াল অ্যাসিস্ট্যান্ট।
+  utter_account_balance:
+  - text: আপনার অ্যাকাউন্টের ব্যালেন্স হল {init_account_balance} টাকা
+  utter_ask_account_number:
+  - text: আপনার আট ডিজিট এর একাউন্ট নাম্বার বলুন
+  utter_ask_Valid_DATE:
+  - text: আপনার কার্ডের এক্সপায়ারি তারিখ বলুন
+  utter_ask_phone_number:
+  - text: আপনার এগার সংখ্যার ফোন নাম্বার বলুন
+  utter_ask_amount-of-money:
+  - text: টাকার পরিমাণ বলুন
+  utter_denied:
+  - text: আপনার অনুরোধে, আমি আপনার কাজটি বন্ধ করেছি।  আপনি চাইলে পুনরায় প্রক্রিয়াটি সম্পন্ন করতে পারবেন।
+  utter_invalidAMOUNT:
+  - text: টাকার পরিমাণ সঠিক নয়।
+  utter_invalidNAME:
+  - text: দুঃখিত, সঠিক নাম বলুন
+  utter_invalidCHEQUEnumber:
+  - text: চেক নাম্বার সঠিক না। সঠিক চেক নাম্বার দিন।
+  utter_invalidCARDnumber:
+  - text: কার্ড নাম্বার সঠিক নয়।
+  - text: কার্ড নাম্বার সঠিক নয়। সঠিক কার্ড নাম্বার বলুন
+  utter_invalidphone:
+  - text: ফোন নাম্বার সঠিক নয়। সঠিক নাম্বার বলুন
+  utter_invalidACNumber:
+  - text: ভুল একাউন্ট নাম্বার। সঠিক একাউন্ট নাম্বার বলুন
+  utter_invalidPIN:
+  - text: ভুল পিন নাম্বার। দয়া করে পুনরায় বলুন
+  utter_invalidCCV:
+  - text: ভুল সিভিভি. সঠিক সিভিভি লিখুন, সিভিভি কার্ডের পিছনে রয়েছে।
+  utter_invalidValid_DATE:
+  - text: মেয়াদ শেষ হওয়ার তারিখ বৈধ নয়। অনুগ্রহ করে কার্ডের সঠিক তারিখটি লিখুন এবং নিশ্চিত করুন যে আপনার কার্ডটি এখনও বৈধ।
+  utter_invalidBDATE:
+  - text: ভুল জন্ম তারিখ বলেছেন আপনি। দয়া করে আবার বলুন
+  utter_goodbye:
+  - text: খোদা হাফেস।
+  utter_Valid_Date_confirm:
+  - text: কার্ড ভেলিডেশন ডেইট হচ্ছে {Valid_DATE}. এটা কি সঠিক
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_amount_confirm:
+  - text: টাকার পরিমাণ {amount-of-money} টাকা. এটা কি সঠিক
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_card_number_affirm:
+  - text: ঠিক আছে।
+  utter_CCV_confirm:
+  - text: আপনার সি সি ভি হচ্ছে {CCV}. এটা কি ঠিক আছে
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_CardNumber_confirm:
+  - text: কার্ড নাম্বার হচ্ছে {card_number}. এটা কি ঠিক
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_ask_PIN:
+  - text: আপনার চার ডিজিটের টি পিন নাম্বার বলুন
+  utter_ACNumber_confirm:
+  - text: আপনার একাউন্ট নাম্বার হচ্ছে {account_number}, এটা কি ঠিক আছে
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_PIN_confirm:
+  - text: আপনার পিন নাম্বার হচ্ছে {PIN}, এটা কি সঠিক
+    buttons:
+    - payload: /affirm
+      title: হ্যাঁ
+    - payload: /deny
+      title: না
+  utter_transfer:
+  - text: ধন্যবাদ। আপনার লেনদেন সম্পন্ন হয়েছে.
+  utter_card_limit:
+  - text: আপনার কার্ড এর লিমিট হচ্ছে এক লক্ষ বিশ হাজার টাকা।
+  utter_card_outstanding:
+  - text: আপনার কার্ড এর আউটস্টেন্ডং হচ্ছে তিরিশ হাজার টাকা। আমি কি আপনাকে আর কোন সহায়তা করতে পারি?
+  - text: আপনার কার্ড এর আউটস্টেন্ডং হচ্ছে তিরিশ হাজার টাকা। আপনি কি আর কিছু জানতে চাচ্ছেন?
+  utter_card_balance:
+  - text: আপনার কার্ড এর এভেইলেবল এমাউন্ট হচ্ছে নব্বই হাজার টাকা।
+  utter_card_info:
+  - text: আপনার কার্ড এর লিমিট হচ্ছে এক লক্ষ বিশ হাজার টাকা, এবং আপনার কার্ড এর এভেইলেবল এমাউন্ট হচ্ছে নব্বই হাজার টাকা।
+  utter_weather:
+  - text: আজকের ওয়েদার, মেঘ মুক্ত মাটি, কাঁদা মুক্ত আকাশ, খুবই চমৎকার ওয়েদার।
+  utter_explain:
+  - text: এই কাজটি সম্পন্ন করতে আপনার এই তথ্য আমাদের লাগবেই। চিন্তা করবেন না, আপনার তথ্য আমাদের কাছে নিরাপদ থাকবে।
+  - text: কাজটি সম্পন্ন করতে আপনার এই তথ্য আমাদের লাগবেই।
+  - text: নিরাপত্তার জন্য আপনার এই তথ্য আমাদের লাগবেই। চিন্তা করবেন না, আপনার তথ্য আমাদের কাছে নিরাপদ।
+  - text: আপনার তথ্য না নিয়ে আমি আপনার কাজটি সম্পন্ন করতে পারব না।
+  utter_explain_card_number:
+  - text: কাজটি সম্পন্ন করতে আপনার কার্ড নাম্বার আমাদের লাগবে। চিন্তা করবেন না, আপনার তথ্য আমাদের কাছে নিরাপদ।
+  utter_explain_account_number:
+  - text: কাজটি সম্পন্ন করতে আপনার একাউন্ট নাম্বার আমাদের লাগবে।
+  utter_explain_pin:
+  - text: যাচাইকরণের জন্য, আমাদের আপনার পিন নম্বর প্রয়োজন।
+  utter_exchange_USD:
+  - text: আজকের রেট হচ্ছে পঁচাশি টাকা বাহাত্তর পয়সা।
+  utter_cheque_cancel_confirmed:
+  - text: আপনার চেকটি বাতিল করা হয়েছে। ধন্যবাদ, আমি কি আপনাকে আর কোন সহায়তা করতে পারি?
+  utter_card_activation:
+  - text: ধন্যবাদ। আপনার কার্ডটি এক্টিভেইট করে দেয়া হয়েছে।
+  utter_E_Commerce_Request:
+  - text: ইকমারস রিকুয়েস্ট এপ্রুব করার জন্য আপনার কিছু তথ্য লাগবে। নিরাপত্তার জন্য আপনার এই তথ্য গুলো লাগবে।
+  utter_Card_Close:
+  - text: কার্ড ডিএক্টিভিশন এর জন্য আপনার কিছু তথ্য লাগবে। আশা করছি আপনি প্রশ্ন গুলোর উত্তর দিবেন।
+  utter_ask_Father_Name:
+  - text: আপনার বাবার নাম বলুন
+  - text: আপনার বাবার নাম কি
+  utter_ask_Mother_Name:
+  - text: আপনার মায়ের নাম বলুন
+  - text: আপনার মায়ের নাম কি
+  - text: এবং আপনার মায়ের নাম 
+  utter_ask_Birth_Date:
+  - text: আপনার জন্ম তারিখ বলুন
+  utter_card_close_done:
+  - text: ধন্যবাদ। আপনার কার্ডটি বন্ধ করে দেয়া হয়েছে।
+  utter_bank_location:
+  - text: আমাদের ব্যাংকের হেড অফিস হচ্ছে গুলশান দুই এ। এছাড়া আশুলিয়া, আটি বাজার, পল্টন ও মিরপুরে আমাদের আরোও শাখা আছে।
+  utter_no_story:
+  - text: দুঃখিত। আমি এই রিলেটেড কথা বলতে পারছি না, কারণ আমার কাছে এর কোন স্টোরি নেই।
+actions:
+- action_reset_all_slots
+- Action_Card_limit_info
+- Action_Current_DateTime
+- Action_out_of_scope
+- action_check_Cheque_Number
+- action_check_AC_Number
+- action_check_PIN
+- action_check_amount
+- action_check_phone_Number
+- action_check_response
+- action_Card_Activation
+- action_E_Commerce_Request
+- action_Card_Close
+- action_greet
+- action_reset_AMOUNT
+- action_reset_BkashTransectionVALUES
+- action_reset_PINandACnumer
+- action_reset_ChequeANDamount
+- action_reset_PINandCARDnumer
+- action_reset_card_number
+- action_show_balance
+- action_tell_ACNumber
+- action_tell_Amount
+- action_tell_ChequeNumber
+- action_tell_CardNumber
+- action_tell_PhoneNumber
+- action_tell_pin
+- Action_Call_Cut
+- utter_ACNumber_confirm
+- utter_AT
+- utter_Disha
+- utter_CardNumber_confirm
+- utter_Out_of_scope_funny_1
+- utter_Out_of_scope_funny_2
+- utter_Out_of_scope_funny_3
+- utter_Out_of_scope_funny_4
+- utter_Out_of_scope_funny_5
+- utter_Out_of_scope_funny_6
+- utter_Out_of_scope_funny_7
+- utter_Out_of_scope_funny_8
+- utter_Out_of_scope_funny_9
+- utter_Out_of_scope_funny_10
+- utter_Out_of_scope_funny_Alexa
+- utter_Out_of_scope_funny_Siri
+- utter_Out_of_scope_funny_Cortana
+- utter_ask_amount-of-money
+- utter_ask_card_number
+- utter_ask_phone_number
+- utter_ask_cheque_number
+- utter_ask_Father_Name
+- utter_ask_Mother_Name
+- utter_ask_Birth_Date
+- utter_ask_somethingelse
+- utter_ask_whatelse
+- utter_card_balance
+- utter_card_info
+- utter_card_limit
+- utter_card_outstanding
+- utter_default
+- utter_denied
+- utter_done
+- utter_exchange_USD
+- utter_explain
+- utter_explain_account_number
+- utter_explain_card_number
+- utter_explain_pin
+- utter_goodbye
+- utter_greet
+- utter_card_activation
+- utter_E_Commerce_Request
+- utter_Card_Close
+- utter_card_close_done
+- utter_invalidAMOUNT
+- utter_invalidCARDnumber
+- utter_invalidphone
+- utter_invalidCHEQUEnumber
+- utter_invalidNAME
+- utter_invalidBDATE
+- utter_thanks
+- utter_transfer
+- utter_weather
+- utter_no_story
+- utter_bank_location
+- utter_cheque_cancel_confirmed
+- validate_card_bill_form
+- validate_card_bill_form_amount
+- validate_card_bill_form_c_number
+- validate_check_Balance_ACnum_form
+- validate_check_Balance_PIN_form
+- validate_phone_number_form
+- validate_cheque_form
+- validate_get_parents_name_form
+- validate_Birthdate_form
+forms:
+  card_bill_form:
+    required_slots:
+      card_number:
+      - entity: card_number
+        type: from_entity
+      Valid_DATE:
+      - entity: Valid_DATE
+        type: from_entity
+      CCV:
+      - entity: CCV
+        type: from_entity
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  card_bill_form_c_number:
+    required_slots:
+      card_number:
+      - entity: card_number
+        type: from_entity
+  card_bill_form_V_Date:
+    required_slots:
+      Valid_DATE:
+      - entity: Valid_DATE
+        type: from_entity
+  card_bill_form_CCV:
+    required_slots:
+      CCV:
+      - entity: CCV
+        type: from_entity
+  card_bill_form_amount:
+    required_slots:
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  check_Balance_ACnum_form:
+    required_slots:
+      account_number:
+      - entity: account_number
+        type: from_entity
+  check_Balance_PIN_form:
+    required_slots:
+      PIN:
+      - entity: PIN
+        type: from_entity
+  phone_number_form:
+    required_slots:
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+  cheque_form:
+    required_slots:
+      cheque_number:
+      - entity: cheque_number
+        type: from_entity
+  get_parents_name_form:
+    required_slots:
+      Father_Name:
+      - entity: Father_Name
+        type: from_text
+      Mother_Name:
+      - entity: Mother_Name
+        type: from_text
+  Birthdate_form:
+    required_slots:
+      Birth_Date:
+      - entity: Birth_Date
+        type: from_text

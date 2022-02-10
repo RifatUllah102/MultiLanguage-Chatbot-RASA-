@@ -1,0 +1,1226 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- inform:
+    use_entities: []
+- card_bill:
+    use_entities: []
+- ADD_Beneficiary
+- explain:
+    use_entities: []
+- previous_Value
+- Bank
+- stop_cheque:
+    use_entities: []
+- bKash
+- calculate_loan
+- campaign
+- greet
+- cant_do
+- open_procedure:
+    use_entities: []
+- change_customer_name:
+    use_entities: []
+- complain
+- deny
+- banking_service_complain
+- online_banking_service_complain
+- goodbye
+- bill_pay:
+    use_entities: []
+- new_card:
+    use_entities: []
+- chatbot_service_complain
+- customer_service_complain
+- mobile_banking_service_complain
+- change_customer_address:
+    use_entities: []
+- change_customer_phonenumber:
+    use_entities: []
+- emi_rate_information
+- rate_info
+- loan_rate_information
+- saving_acc_rate_information
+- check_human
+- transfer_money:
+    use_entities: []
+- ask_transfer_charge
+- pay_cc
+- process
+- product_info:
+    use_entities: []
+- show_accounts:
+    use_entities: []
+- show_credit_cards
+- show_statement
+- complain_details
+- lost_card
+- change_pin
+- retirement_plan
+- online_banking
+- mobile_recharge
+- close_procedure
+- offer:
+    use_entities: []
+- FAQ
+- location
+- thankyou
+- search_transactions:
+    use_entities: []
+- check_balance:
+    use_entities: []
+- check_earnings:
+    use_entities: []
+- check_recipients
+- out_of_scope
+- session_start
+- restart
+- trigger_handoff
+- handoff
+- human_handoff
+- help
+- nlu_fallback
+- loan_information
+- loan_detail_information
+- personal_loan_information
+- home_loan_information
+- auto_loan_information
+- current_acc_rate_information
+entities:
+- AmountMoney
+- CCV
+- Explain
+- OTP
+- USERNAME
+- Valid_DATE
+- account_number
+- account_type
+- amount-of-money
+- bank_name
+- card_number
+- card_type
+- cheque_number
+- complain_catagory
+- complain_details
+- credit_card
+- email_address
+- handoff_to
+- loan_class
+- loan_type
+- mailling_address
+- number
+- offer_type
+- payment_date
+- phone_number
+- product_type
+- rate_type
+- rating
+- search_type
+- time
+- utility_type
+- vendor_name
+slots:
+  Explain:
+    type: text
+    influence_conversation: false
+  OTP:
+    type: any
+    influence_conversation: false
+  Valid_DATE:
+    type: any
+    influence_conversation: false
+  CCV:
+    type: any
+    influence_conversation: false
+  complain_details:
+    type: any
+    influence_conversation: false
+  complain_catagory:
+    type: categorical
+    influence_conversation: false
+    values:
+    - customer
+    - banking
+    - online
+    - mobile
+    - chatbot
+  rating:
+    type: categorical
+    influence_conversation: false
+    values:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+  card_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - visa
+    - master
+    - atm
+    - amex
+    - visa platinum
+    - debit
+  loan_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - personal
+    - home
+    - auto
+  offer_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - upay
+    - card
+    - new
+  rate_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - current
+    - savings
+    - emi
+    - loan
+  bank_name:
+    type: text
+    influence_conversation: false
+  email_address:
+    type: text
+    influence_conversation: false
+  utility_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - dth
+    - wasa
+    - electricity
+    - telephone
+    - internet
+  cheque_number:
+    type: any
+    influence_conversation: false
+  account_number:
+    type: any
+    influence_conversation: false
+  phone_number:
+    type: any
+    influence_conversation: false
+  mailling_address:
+    type: any
+    influence_conversation: false
+  card_number:
+    type: any
+    influence_conversation: false
+  AA_CONTINUE_FORM:
+    type: any
+    influence_conversation: false
+  USERNAME:
+    type: text
+    influence_conversation: false
+  account_type:
+    type: categorical
+    influence_conversation: false
+    values:
+    - fdr
+    - casa
+    - savings
+    - current
+    - loan
+  amount-of-money:
+    type: float
+    influence_conversation: false
+    max_value: 100000.0
+    min_value: 0.0
+  AmountMoney:
+    type: float
+    influence_conversation: false
+    max_value: 100000.0
+    min_value: 0.0
+  amount_transferred:
+    type: any
+    initial_value: 0
+    influence_conversation: false
+  credit_card:
+    type: any
+    influence_conversation: false
+  currency:
+    type: any
+    initial_value: ৳
+    influence_conversation: false
+  end_time:
+    type: any
+    influence_conversation: false
+  end_time_formatted:
+    type: any
+    influence_conversation: false
+  grain:
+    type: any
+    influence_conversation: false
+  handoff_to:
+    type: any
+    influence_conversation: false
+  next_form_name:
+    type: text
+    influence_conversation: true
+  number:
+    type: any
+    influence_conversation: false
+  payment_amount_type:
+    type: any
+    initial_value: ''
+    influence_conversation: false
+  previous_form_name:
+    type: text
+    influence_conversation: true
+  repeated_validation_failures:
+    type: any
+    influence_conversation: false
+  requested_slot:
+    type: any
+    influence_conversation: false
+  search_type:
+    type: any
+    influence_conversation: false
+  start_time:
+    type: any
+    influence_conversation: false
+  start_time_formatted:
+    type: any
+    influence_conversation: false
+  time:
+    type: any
+    influence_conversation: false
+  time_formatted:
+    type: any
+    influence_conversation: false
+  vendor_name:
+    type: any
+    influence_conversation: false
+  zz_confirm_form:
+    type: any
+    influence_conversation: false
+responses:
+  utter_repeat_recharge:
+  - text: Wants to recharge to {phone_number} again, at this moment?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_is_phone_number_prepaid:
+  - text: Are you using a prepaid mobile number?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_is_phone_number:
+  - text: Are you trying to recharge to {phone_number} number?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_ask_email_address:
+  - text: Please Enter Email.
+  utter_ask_PERSON:
+  - text: Enter your name.
+  utter_ask_account_type:
+  - text: Select what kind of account do you want FDR/CASA/Loan/Saving/Current?
+    buttons:
+    - title: FDR
+      payload: /inform{{"account_type":"FDR"}}
+    - title: CASA
+      payload: /inform{{"account_type":"CASA"}}
+    - title: Loan
+      payload: /inform{{"account_type":"Loan"}}
+    - title: Saving
+      payload: /inform{{"account_type":"Saving"}}
+    - title: Current
+      payload: /inform{{"account_type":"Current"}}
+  utter_ask_card_type:
+  - text: Select what kind of card you wants to get? We provide the following card types,
+    buttons:
+    - title: VISA Card
+      payload: /inform{{"card_type":"VISA"}}
+    - title: Master Card
+      payload: /inform{{"card_type":"Master"}}
+    - title: ATM
+      payload: /inform{{"card_type":"ATM"}}
+    - title: AMEX
+      payload: /inform{{"card_type":"AMEX"}}
+    - title: VISA Platinum
+      payload: /inform{{"card_type":"VISA Platinum"}}
+    - title: Debit Card
+      payload: /inform{{"card_type":"Debit"}}
+  utter_out_of_scope:
+  - text: Sorry, I'm not sure how to respond to that. I don't think this is meaningful. Type "help" for assistance.
+  utter_ask_transfer_money_form_amount-of-money:
+  - text: How much money do you want to transfer?
+  utter_ask_transfer_money_form_PERSON:
+  - text: Who do you want to transfer money to?
+  utter_goodbye:
+  - text: Bye
+  utter_noworries:
+  - text: You're welcome :)
+  utter_transfer_complete:
+  - text: Successfully transferred BDT {amount-of-money} to {USERNAME}.
+  utter_transfer_charge:
+  - text: You are entitled to six transfers within a statement cycle before being charged. For subsequent transfers you will be charged {currency}10 per transaction.
+  utter_ask_cc_payment_form_amount-of-money:
+  - text: How much do you want to pay?
+  utter_ask_cc_payment_form_credit_card:
+  - text: Towards which credit card account do you want to make a payment?
+  utter_ask_cc_payment_form_time:
+  - text: For which date would you like to schedule the payment?
+  utter_ask_transaction_search_form_vendor_name:
+  - text: For which vendor do you want to see transactions?  e.g Sopno, Agora
+  utter_ask_transaction_search_form_time:
+  - text: In which timeframe would you like to search for transactions?
+  utter_ask_transaction_search_form_search_type:
+  - text: Would you like to search incoming or outgoing transactions?
+    buttons:
+    - title: Incoming (earnings)
+      payload: /inform{"search_type":"deposit"}'
+    - title: Outgoing (spending)
+      payload: /inform{"search_type":"spend"}'
+  utter_no_payment_amount:
+  - text: Sorry, I don't understand that payment amount.
+  utter_no_paymentdate:
+  - text: Sorry, that is not a valid payment date.
+  utter_no_creditcard:
+  - text: I'm afraid that this card is not a valid credit card.
+  utter_no_vendor_name:
+  - text: Opps, that's not a recognized vendor.
+  utter_no_transactdate:
+  - text: Oh No, that's not a recognized time frame.
+  utter_cc_pay_scheduled:
+  - text: Payment of BDT {amount-of-money}{payment_amount_type} towards your {credit_card} account scheduled to be paid at {time_formatted}.
+  utter_searching_spend_transactions:
+  - text: Searching transactions{vendor_name} between {start_time_formatted} and {end_time_formatted}...
+  utter_found_spend_transactions:
+  - text: I found {numtransacts} transactions{vendor_name} totalling {currency}{total}.
+  utter_searching_deposit_transactions:
+  - text: Searching deposits made to your account between {start_time_formatted} and {end_time_formatted}...
+  utter_found_deposit_transactions:
+  - text: I found {numtransacts} deposits made to your account totalling {currency}{total}
+  utter_ask_rephrase:
+  - text: I didn't quite understand that. Can you rephrase?
+  utter_ok:
+  - text: Ok
+  utter_ask_continue:
+  - text: Would you like to continue?
+  utter_default:
+  - text: I didn't quite understand that. Could you rephrase?
+  utter_ask_cc_payment_form_AA_CONTINUE_FORM:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    text: Would you like to continue scheduling the credit card payment?
+  utter_ask_transfer_money_form_AA_CONTINUE_FORM:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transfer
+    text: Would you like to continue scheduling the money transfer?
+  utter_ask_transaction_search_form_AA_CONTINUE_FORM:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the search
+    text: Would you like to continue the transaction search?
+  utter_ask_cc_payment_form_zz_confirm_form:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    text: Would you like to schedule a payment of {currency}{amount-of-money}{payment_amount_type} towards your {credit_card} account for {time_formatted}?
+  utter_ask_transfer_money_form_zz_confirm_form:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    text: Would you like to transfer {currency}{amount-of-money} to {USERNAME}?
+  utter_cc_pay_cancelled:
+  - text: Credit card account payment cancelled.
+  utter_transfer_cancelled:
+  - text: Transfer cancelled.
+  utter_transaction_search_cancelled:
+  - text: Transaction search cancelled.
+  utter_account_balance:
+  - text: Your bank account balance is {currency}{init_account_balance}.
+  utter_changed_account_balance:
+  - text: Your bank account balance was {currency}{init_account_balance} and is now {currency}{account_balance} after transfers and payments.
+  utter_unknown_recipient:
+  - text: Sorry, {USERNAME} is not in your list of known recipients. You can add someone you know by typing "Add Beneficiary". Hope it will help you.
+  utter_insufficient_funds:
+  - text: Sorry, you don't have enough money to do that!
+  utter_insufficient_funds_specific:
+  - text: The {payment_amount_type} on your {credit_card} credit card is {amount-of-money}, so you have insufficient funds to pay it off.
+  utter_credit_card_balance:
+  - text: The current balance for your {credit_card} account is {currency}{credit_card_balance}.
+  utter_nothing_due:
+  - text: Your don't owe any money on your {credit_card} credit card bill.
+  utter_recipients:
+  - text: These are your known recipients to whom you can send money:{formatted_recipients}. You can add someone you know to your recipients list by typing "Add Beneficiary". Indeed it will help you sir.
+  utter_greet:
+  - text: Hi! I'm your Financial Assistant!
+  utter_ask_handoff:
+  - text: It looks like you want to be transferred to a human agent.
+  utter_handoff:
+  - text: Alright, I'll try to transfer you.
+  utter_wouldve_handed_off:
+  - text: If you were talking to me via chatroom, I would have handed you off to {handoffhost}.
+  utter_no_handoff:
+  - text: Since you haven't configured a host to hand off to, I can't send you anywhere!
+  utter_ask_whatelse:
+  - text: What else can I help you with?
+  utter_bot:
+  - text: |-
+      I'm a virtual AI assistant 👩🏻‍💻.
+      Human calls me Bot, Chatbot and etc. However, I am here to assist you on the behalf of the bank.
+  utter_help:
+  - text: |-
+      I can help you with your financial accounts. 
+      You can ask me things like: 
+      - What's my account balance?
+      - What did I spend at Agora last month? 
+      - I need to transfer money
+      - Mobile recharge from my account
+  utter_slots_values:
+  - text: I have got your Details. Your Name is {USERNAME}, Your Email is {email_address}, Your Mobile is {phone_number}, Your Account Type is {account_type}, Your Requested Card Type is {card_type}.
+  utter_submit:
+  - text: Thanks, Your information stored successfuly.
+  utter_show_loan_type:
+  - text: There are 3 types of loan
+    buttons:
+    - title: Personal Loan
+      payload: /personal_loan_information{{"loan_type":"Personal"}}
+    - title: Home Loan
+      payload: /home_loan_information{{"loan_type":"Home"}}
+    - title: Car Loan
+      payload: /auto_loan_information{{"loan_type":"Auto"}}
+  utter_ask_cheque_number:
+  - text: Please Enter the Cheque Number you want's to cancel.
+  utter_ask_USERNAME:
+  - text: |-
+      Enter Full Name exactly as it appears in NID.
+      ⚠️WARNING: Please do not use any types of special characters.
+  utter_ask_transfer_money_form_USERNAME:
+  - text: Who do you want to transfer money to?
+  utter_ask_something:
+  - text: So, tell me what can I do for you?
+  utter_Enter_NumberForVarification:
+  - text: Please enter your mobile number to verify you.
+  utter_ask_OTP:
+  - text: |-
+      We have sent you an OTP to {phone_number},
+      Please enter 6 digits OTP to proceed further:
+  utter_OTP_Received:
+  - text: Hello, OTP Received Successfully.
+  utter_ask_card_number:
+  - text: Please Enter your Card Number to pay the bill?
+  utter_card_payment_details:
+  - text: Your card number is {card_number}(CCV is {CCV}, Expiry Date is {Valid_DATE}), and you are willing to pay {amount-of-money} taka as your card bill. Please confirm it.
+  utter_ask_for_review:
+  - text: Would you like to give us a feedback! Every feedback is valuable to us.
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_tell_saved_complain:
+  - text: your complains are noted and will be informed.
+  utter_ask_account_number:
+  - text: Enter account number here.
+  utter_ask_Valid_DATE:
+  - text: Enter your card Expiry Date as it is appear in you card (Example format "01/23").
+  utter_ask_CCV:
+  - text: Enter your card verification value (CCV).
+  utter_ask_mailling_address:
+  - text: Enter your new address.
+  utter_ask_phone_number:
+  - text: Enter contact number.
+  utter_ask_utility_type:
+  - text: Select what kind of bill you wants to pay?
+    buttons:
+    - title: WASA
+      payload: /inform{{"utility_type":"WASA"}}
+    - title: Electricity
+      payload: /inform{{"utility_type":"Electricity"}}
+    - title: DTH
+      payload: /inform{{"utility_type":"DTH"}}
+    - title: Telephone
+      payload: /inform{{"utility_type":"Telephone"}}
+    - title: Internet
+      payload: /inform{{"utility_type":"Internet"}}
+  utter_ask_amount-of-money:
+  - text: Enter Total Amount.
+  utter_bill_payment_details:
+  - text: You are paying your {utility_type} bill, the destination account is {account_number}, and the amount is {amount-of-money} taka.
+  utter_online_banking:
+  - text: You can visit https://www.upaybd.com/
+  utter_change_name_info:
+  - text: I have got your details to change. Your Account Number is {account_number}, and You wants to change your name to {USERNAME}. Now from our bank some human agent will contact to you before update your account information.
+  utter_change_phone_info:
+  - text: I have got your details to change. Your Account Number is {account_number}, and You wants to change your phone number to {phone_number}. Now from our bank some human agent will contact to you before update your account information.
+  utter_change_address_info:
+  - text: I have got your details to change. Your Account Number is {account_number}, and You wants to change your address to {mailling_address}. Now from our bank some human agent will contact to you before update your account information.
+  utter_ask_have_account:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, Do not have an account.
+    text: Do you have any existing account in our Bank?
+  utter_ask_confirm:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: Please recheck that above information are correct?
+  utter_have_account:
+  - text: You can directly apply for a new card. Just visit the nearby branch.
+  utter_no_account:
+  - text: At first, Open a new bank account and you can request for a new card.
+  utter_show_rate_type:
+  - text: Which kind of offer you are interested in?
+    buttons:
+    - title: Current interest rate
+      payload: /current_acc_rate_information{{"rate_type":"Current"}}
+    - title: Saving interest rate
+      payload: /saving_acc_rate_information{{"rate_type":"Saving"}}
+    - title: EMI interest rate
+      payload: /emi_rate_information{{"rate_type":"EMI"}}
+    - title: Loan interest rate
+      payload: /loan_rate_information{{"rate_type":"Loan"}}
+  utter_thanks:
+  - text: Thank you, Sir. Have a nice day.😀
+  utter_thanks_night:
+  - text: Thank you, Sir. Have a good night.😀
+  utter_thanks_evening:
+  - text: Thank you, Sir. Have a great evening.😀
+  utter_thanks_afternoon:
+  - text: Thank you, Sir. Have a nice afternoon.😀
+  utter_show_C-sat_rating:
+  - text: How you would like to rate this app?
+    buttons:
+    - title: Very good
+      payload: /inform{{"rating":"5"}}
+    - title: Good
+      payload: /inform{{"rating":"4"}}
+    - title: Average
+      payload: /inform{{"rating":"3"}}
+    - title: Bad
+      payload: /inform{{"rating":"2"}}
+    - title: Very Bad
+      payload: /inform{{"rating":"1"}}
+  utter_ask_complain_details:
+  - text: Can you provide us some details about your complain?
+  utter_show_complain_category:
+  - text: What do you wnat to complain about?
+    buttons:
+    - title: Customer Service
+      payload: /customer_service_complain{{"complain_catagory":"customer"}}
+    - title: Banking Service
+      payload: /banking_service_complain{{"complain_catagory":"banking"}}
+    - title: Online Service
+      payload: /online_banking_service_complain{{"complain_catagory":"online"}}
+    - title: Mobile Service
+      payload: /mobile_banking_service_complain{{"complain_catagory":"mobile"}}
+    - title: Chatbot
+      payload: /chatbot_service_complain{{"complain_catagory":"chatbot"}}
+  utter_offer:
+  - text: Which kind of offer you are interested?
+    buttons:
+    - title: Upay Offers
+      payload: /inform{{"offer_type":"Upay"}}
+    - title: Card Offers
+      payload: /inform{{"offer_type":"Card"}}
+    - title: New Offers
+      payload: /inform{{"offer_type":"New"}}
+  utter_customer_service_suggestions:
+  - text: |-
+      We are very sorry for the inconvenience 😢
+      Would you please consider following points!
+      - Report to our reception desk.
+      - Contact an executive officer for the issue.
+      - Notify the brunch operating manager. 
+      - See our services at https://www.ucb.com.bd/banking/retail-banking/24-7-customer-service
+      - Contact our helpline 16419
+  utter_banking_service_suggestions:
+  - text: |-
+      We are very sorry for the inconvenience 😢
+      Would you please consider following points!
+      - See our Banking system at https://www.ucb.com.bd/banking
+      - You can query all account facility here in this chat.
+      - You can ask any type interest details here in this chat.
+      - You can see any type of offers here in this chat.
+      - Contact our helpline 16419
+  utter_online_banking_service_suggestions:
+  - text: |-
+      We are very sorry for the inconvenience 😢
+      Would you please consider following points!
+      - Check the internet connection. i.e: ISP/VPN may create issue that may cause problem.
+      - Close all other tabs that are running.
+      - Server may be down. Browse sometimes latter.
+      - Accepting cookies may help the site to operate better.
+      - Contact our helpline 16419
+  utter_mobile_banking_service_suggestions:
+  - text: |-
+      We are very sorry for the inconvenience 😢
+      Would you please consider following points!
+      - Check Mobile account type.
+      - Check all the credentials.
+      - You can see KYC Upgration process at https://www.ucb.com.bd/reports/downloads/Upay/Upay_FAQ.pdf.
+      - Our mobile banking facilities https://www.upaybd.com.
+      - Contact our helpline 16419
+  utter_chatbot_service_suggestions:
+  - text: |-
+      We are very sorry for the inconvenience 😢
+      Would you please consider following points!
+      - Rate this app.
+      - Leave your feedback. Every feedback is appreciated.
+      - Contact our dev team.
+      - Report your issue to our support team at https://www.ucb.com.bd/support/complaint-cell-form.  
+      - Contact our helpline 16419
+  utter_ask_token_complaint:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: Would you like to have a complaint token?
+  utter_explain:
+  - text: These credentials are required for completing the task. No need to worry! We are your trusted partner.🤝
+  utter_explain_email_address:
+  - text: Your Email is required for completing the task. No need to worry! We are your trusted partner. 🤝
+  utter_explain_USERNAME:
+  - text: Your Name is required for completing the task. No need to worry! We are your trusted partner. 🤝
+  utter_explain_account_type:
+  - text: Selecting an account type is required for completing the task. If you need any types of help please contact to our Call Center "16419".🙂
+  utter_explain_card_type:
+  - text: You must select a card type, and it is highly recommended for uninterruptible transactions, and required for the task to be completed.
+  utter_open_procedure:
+  - text: Your account Opening Procedure is Ongoing. Please provide us the proper information.
+  utter_close_procedure:
+  - text: |-
+      Sorry to hear that you have decided to left our Bank.
+      For closing any services you need to visit your nearby branch.
+  utter_close_procedure_stop:
+  - text: If there is anything wrong with your account just tell me. I will try to solve it or I can connect you to a human agent so that you can use your account without having any issues.
+  utter_recharge_confirm:
+  - text: You are requested to recharge BDT {amount-of-money} to the mobile number {phone_number}.
+  utter_denied:
+  - text: Action was denied by you. You can repeat the process from the begining...
+  utter_Wakeup:
+  - text: Hello, are you there? Is there anything else that I can do for you?
+  utter_stopCHEQUE:
+  - text: Hello, You are here to confiscate your CHEQUE. Please enter your Cheque Number and Amount you have written on that cheque.
+  utter_stopCHEQUE_Value:
+  - text: Your cheque number is {cheque_number}, and amount of that cheque is {amount-of-money} taka only. You have requested to cancel the cheque to being PASS. Please Be Careful, You Won't be able to UNDO it once confirmed.
+  utter_ask_transfer_methods:
+  - buttons:
+    - payload: /bKash
+      title: bKash
+    - payload: /Bank
+      title: Bank to Bank
+    text: What kind of Beneficiary would you like to add?
+  utter_bKash_Benificiary:
+  - text: You have been adding {USERNAME} whose bKash number is {phone_number} to your Bank Accounts Banificiary list.
+  utter_ask_bank_name:
+  - text: What is the Bank Name of your New Beneficiary whome you are adding?
+  utter_ENGLISH:
+  - text: ⚠️ Please Enter the requested value in ENGLISH.
+  utter_Bank_Benificiary:
+  - text: You are adding {USERNAME} (whose account number is {account_number} and bank is {bank_name}) to your Bank Accounts Banificiary list.
+  utter_loanCalculatior:
+  - text: |-
+      Thank you for your interest in our loan.
+      To know the loan rate you can type :"show me your loans" or type "interest rate",
+      so that you will be able to know about the different types of loan rate.
+  utter_LoanCalculator:
+  - text: For calculate Loan details you may visit "http://192.168.10.64/loan/".
+  utter_enterPHONE:
+  - text: Please enter your mobile number to verify you.
+  utter_invalidOTP:
+  - text: OTP is invalid. Please Enter the Valid OTP.
+  utter_invalidPHONE:
+  - text: Incorrect Mobile Number. Please Enter a Correct Mobile Number.
+  utter_invalidAMOUNT:
+  - text: Please Enter the Valid Amount.
+  utter_invalidCHEQUEnumber:
+  - text: Please Enter the Valid Cheque Number.
+  utter_invalidCARDnumber:
+  - text: Please Enter a Valid Card Number.
+  utter_invalidBankName:
+  - text: Please Check the Bank_Name. It might not a valid Bank_Name.
+  utter_invalidCard:
+  - text: Please Check the Card Type..., It might not a valid card type.
+  utter_invalidUNAME:
+  - text: Name can't be empty or too short. Please Enter A Valid Name.
+  utter_invalidEMAIL:
+  - text: Please Enter a Valid Email...
+  utter_invalidACNumber:
+  - text: Account Number is INCORRECT. Please Enter a Valid AC Number...
+  utter_invalidCCV:
+  - text: Incorrect CCV. Enter the Valid CCV, it is in the back of the card.
+  utter_invalidValid_DATE:
+  - text: Expiry Date is not Valid. Please enter the CORRECT Date as it is in the card, and make sure that your card is still valid.
+  utter_cant_do_1:
+  - text: I am a virtual assistant that's why I do not exists physically 🤖, and for that I don't even need to eat, sleep or drink.
+  utter_cant_do_2:
+  - text: I do not believe in something as a human does. But, I do care about helping humans regarding Banking.
+  utter_tell_me:
+  - text: So, tell me if there is something I can do for you.
+  utter_No_Previous_Value:
+  - text: I am sorry, I don't have any previous value. So please enter a valid input.
+  utter_Yes_Previous_Value:
+  - text: Ok, got it.
+  utter_Yes_Phone_Num:
+  - text: Great. Let's start with {phone_number} phone number.
+  utter_Prepaid_Num:
+  - text: Ok, let's continue with your cell Number.
+  utter_new_Num:
+  - text: Ok, let's continue with a New Mobile Number.
+  utter_acknowledge_complain:
+  - text: Your complain is "{complain_details}"
+  utter_this_card:
+  - text: Are you willing to pay to {card_number} card?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_is_card_credit:
+  - text: Is it a Credit Card?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_card_credit:
+  - text: Ok, Let's continue with your card number.
+  utter_card_number_affirm:
+  - text: Oh, Great.
+actions:
+- Action_CantDo
+- Action_Explain
+- Action_Set_SessionToDB
+- Action_previous_Value
+- Check_OTP
+- action_AffirmCardNumber
+- action_DenyCardNumber
+- action_FAQ
+- action_Generate_OTP
+- action_GetCardNumberFromDB
+- action_GetMobileNumberFromDB
+- action_Product_Info
+- action_SessionRestart
+- action_ask_transaction_search_form_zz_confirm_form
+- action_card_bill_form
+- action_change_address
+- action_change_name
+- action_handoff
+- action_handoff_options
+- action_inactive_advertisement
+- action_interest_rate_information
+- action_listen_complain_details
+- action_lost_card
+- action_mobile_recharge_form
+- action_offer_details
+- action_pay_cc
+- action_reset_BenificiaryValue
+- action_reset_all_slots
+- action_reset_bill_payment_form
+- action_reset_card_bill_form
+- action_reset_complain_details_form
+- action_reset_complain_slots
+- action_reset_customer_Phonenumber_form
+- action_reset_customer_address_form
+- action_reset_customer_name_form
+- action_reset_mobile_recharge_form
+- action_reset_open_procedure_form
+- action_reset_slots
+- action_reset_stopCHEQUE
+- action_restart
+- action_schedule_reminder
+- action_session_start
+- action_set_reminder
+- action_show_balance
+- action_show_loan_details
+- action_show_recipients
+- action_show_transfer_charge
+- action_submit
+- action_switch_affirm
+- action_switch_ask
+- action_switch_back_ask
+- action_switch_deny
+- action_switch_forms_affirm
+- action_switch_forms_ask
+- action_switch_forms_deny
+- action_thanks
+- action_transaction_search
+- action_transfer_money
+- utter_Enter_NumberForVarification
+- utter_LoanCalculator
+- utter_No_Previous_Value
+- utter_OTP_Received
+- utter_Prepaid_Num
+- utter_Wakeup
+- utter_Yes_Phone_Num
+- utter_Yes_Previous_Value
+- utter_acknowledge_complain
+- utter_ask_CCV
+- utter_ask_USERNAME
+- utter_ask_Valid_DATE
+- utter_ask_bank_name
+- utter_ask_cheque_number
+- utter_ask_confirm
+- utter_ask_for_review
+- utter_ask_have_account
+- utter_ask_something
+- utter_ask_token_complaint
+- utter_ask_transfer_methods
+- utter_ask_whatelse
+- utter_banking_service_suggestions
+- utter_bill_payment_details
+- utter_cant_do_1
+- utter_cant_do_2
+- utter_card_credit
+- utter_card_number_affirm
+- utter_card_payment_details
+- utter_change_name_info
+- utter_chatbot_service_suggestions
+- utter_customer_service_suggestions
+- utter_default
+- utter_enterPHONE
+- utter_explain
+- utter_explain_USERNAME
+- utter_explain_account_type
+- utter_explain_card_type
+- utter_explain_email_address
+- utter_goodbye
+- utter_greet
+- utter_have_account
+- utter_help
+- utter_invalidACNumber
+- utter_invalidAMOUNT
+- utter_invalidBankName
+- utter_invalidCARDnumber
+- utter_invalidCCV
+- utter_invalidCHEQUEnumber
+- utter_invalidCard
+- utter_invalidEMAIL
+- utter_invalidOTP
+- utter_invalidPHONE
+- utter_invalidUNAME
+- utter_invalidValid_DATE
+- utter_is_card_credit
+- utter_is_phone_number
+- utter_is_phone_number_prepaid
+- utter_loanCalculatior
+- utter_mobile_banking_service_suggestions
+- utter_new_Num
+- utter_no_account
+- utter_offer
+- utter_online_banking
+- utter_online_banking_service_suggestions
+- utter_open_procedure
+- utter_show_C-sat_rating
+- utter_show_complain_category
+- utter_show_loan_type
+- utter_show_rate_type
+- utter_slots_values
+- utter_stopCHEQUE
+- utter_stopCHEQUE_Value
+- utter_submit
+- utter_tell_me
+- utter_tell_saved_complain
+- utter_thanks
+- utter_thanks_afternoon
+- utter_thanks_evening
+- utter_thanks_night
+- utter_this_card
+- validate_Bank_To_Bank_transfer_form
+- validate_OTP_form
+- validate_bKash_form
+- validate_bill_payment_form
+- validate_card_bill_form
+- validate_cc_payment_form
+- validate_change_customer_address_form
+- validate_change_customer_name_form
+- validate_change_customer_phonenumber_form
+- validate_mobile_recharge_form
+- validate_open_procedure_form
+- validate_stop_cheque_form
+- validate_transaction_search_form
+- validate_transfer_money_form
+forms:
+  cc_payment_form:
+    required_slots:
+      AA_CONTINUE_FORM:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - cc_payment_form
+        type: from_text
+      credit_card:
+      - entity: credit_card
+        type: from_entity
+      - intent:
+        - inform
+        - cc_payment_form
+        type: from_text
+      amount-of-money:
+      - entity: amount-of-money
+        not_intent:
+        - check_balance
+        - check_earnings
+        type: from_entity
+      - entity: number
+        not_intent:
+        - check_balance
+        - check_earnings
+        type: from_entity
+      - intent:
+        - inform
+        - cc_payment_form
+        type: from_text
+      time:
+      - entity: time
+        type: from_entity
+      - intent:
+        - inform
+        - cc_payment_form
+        type: from_text
+      zz_confirm_form:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - cc_payment_form
+        type: from_text
+  transfer_money_form:
+    required_slots:
+      AA_CONTINUE_FORM:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - transfer_money_form
+        type: from_text
+      USERNAME:
+      - entity: USERNAME
+        type: from_entity
+      - intent:
+        - inform
+        - transfer_money_form
+        type: from_text
+      amount-of-money:
+      - entity: amount-of-money
+        not_intent:
+        - check_balance
+        - check_earnings
+        type: from_entity
+      - entity: number
+        not_intent:
+        - check_balance
+        - check_earnings
+        type: from_entity
+      - intent:
+        - inform
+        - transfer_money_form
+        type: from_text
+      zz_confirm_form:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - transfer_money_form
+        type: from_text
+  transaction_search_form:
+    required_slots:
+      AA_CONTINUE_FORM:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - transaction_search_form
+        type: from_text
+      search_type:
+      - intent: search_transactions
+        type: from_trigger_intent
+        value: spend
+      - intent: check_earnings
+        type: from_trigger_intent
+        value: deposit
+      - type: from_entity
+        entity: search_type
+      time:
+      - entity: time
+        type: from_entity
+      - intent:
+        - inform
+        - transaction_search_form
+        type: from_text
+      zz_confirm_form:
+      - intent: affirm
+        type: from_intent
+        value: yes
+      - intent: deny
+        type: from_intent
+        value: no
+      - intent:
+        - inform
+        - transaction_search_form
+        type: from_text
+  open_procedure_form:
+    required_slots:
+      email_address:
+      - entity: email_address
+        type: from_entity
+      USERNAME:
+      - entity: USERNAME
+        type: from_text
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+      account_type:
+      - entity: account_type
+        type: from_entity
+      card_type:
+      - entity: card_type
+        type: from_entity
+  change_customer_name_form:
+    required_slots:
+      account_number:
+      - entity: account_number
+        type: from_entity
+      USERNAME:
+      - entity: USERNAME
+        type: from_entity
+  change_customer_address_form:
+    required_slots:
+      account_number:
+      - entity: account_number
+        type: from_entity
+      mailling_address:
+      - entity: mailling_address
+        type: from_entity
+  change_customer_phonenumber_form:
+    required_slots:
+      account_number:
+      - entity: account_number
+        type: from_entity
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+  bill_payment_form:
+    required_slots:
+      utility_type:
+      - entity: utility_type
+        type: from_entity
+      account_number:
+      - entity: account_number
+        type: from_entity
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  mobile_recharge_form:
+    required_slots:
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  card_bill_form:
+    required_slots:
+      card_number:
+      - entity: card_number
+        type: from_entity
+      Valid_DATE:
+      - entity: Valid_DATE
+        type: from_entity
+      CCV:
+      - entity: CCV
+        type: from_entity
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  complain_details_form:
+    required_slots:
+      complain_details:
+      - entity: complain_details
+        type: from_text
+  OTP_form:
+    required_slots:
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+      OTP:
+      - entity: OTP
+        type: from_entity
+  stop_cheque_form:
+    required_slots:
+      cheque_number:
+      - entity: cheque_number
+        type: from_entity
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+  bKash_form:
+    required_slots:
+      USERNAME:
+      - entity: USERNAME
+        type: from_entity
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+  Bank_To_Bank_transfer_form:
+    required_slots:
+      USERNAME:
+      - entity: USERNAME
+        type: from_entity
+      bank_name:
+      - entity: bank_name
+        type: from_entity
+      account_number:
+      - entity: account_number
+        type: from_entity

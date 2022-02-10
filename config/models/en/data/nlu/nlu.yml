@@ -1,0 +1,2194 @@
+version: "2.0"
+nlu:
+- intent: campaign
+  examples: |
+    - Advertisement
+    - campaign
+    - current advertisement
+    - current campaign
+    - Ad
+    - TVC
+    - tvc
+- intent: complain
+  examples: |
+    - i have a complain
+    - I have an objection
+    - I want to complain
+    - how do i complain
+    - listen my objection
+    - listen to my complain
+    - this is not expected
+    - i'm pissed off
+    - complain
+    - this is my complain
+    - complsin
+    - need to complain
+- intent: customer_service_complain
+  examples: |
+    - i have a complain about [customer](complain_catagory) service
+    - I have a [customer](complain_catagory) service objection
+    - I want to complain about [customer](complain_catagory) service
+    - how do i complain about [customer](complain_catagory) service
+    - listen my objection about [customer](complain_catagory) service
+    - listen to my [customer](complain_catagory) service complain
+    - this is not expected [customer](complain_catagory) service
+    - i'm pissed off about [customer](complain_catagory) service
+    - [customer](complain_catagory) service complain
+- intent: banking_service_complain
+  examples: |
+    - i have a complain about [banking](complain_catagory) service
+    - I have a [banking](complain_catagory) service objection
+    - I want to complain about [banking](complain_catagory) service
+    - how do i complain about [banking](complain_catagory) service
+    - listen my objection about [banking](complain_catagory) service
+    - listen to my [banking](complain_catagory) service complain
+    - this is not expected [banking](complain_catagory) service
+    - i'm pissed off about [banking](complain_catagory) service
+    - [banking](complain_catagory) service complain
+- intent: online_banking_service_complain
+  examples: |
+    - i have a complain about [online](complain_catagory) service
+    - I have a [online](complain_catagory) banking service objection
+    - I want to complain about [online](complain_catagory) service
+    - how do i complain about [online](complain_catagory) service
+    - listen my objection about [online](complain_catagory) banbking service
+    - listen to my [online](complain_catagory) banking service complain
+    - this is not expected [online](complain_catagory) service
+    - i'm pissed off about [online](complain_catagory) banking service
+    - [online](complain_catagory) banking service complain
+- intent: mobile_banking_service_complain
+  examples: |
+    - i have a complain about [mobile](complain_catagory) banking service
+    - I have a [mobile](complain_catagory) service objection
+    - I want to complain about [mobile](complain_catagory) banking service
+    - how do i complain about [mobile](complain_catagory) banking service
+    - listen my objection about [mobile](complain_catagory) service
+    - listen to my [mobile](complain_catagory) banking service complain
+    - this is not expected [mobile](complain_catagory) service
+    - i'm pissed off about [mobile](complain_catagory) banking service
+    - [mobile](complain_catagory) service complain
+- intent: chatbot_service_complain
+  examples: |
+    - i have a complain about [chatbot](complain_catagory) service
+    - I have a [chatbot](complain_catagory) service objection
+    - I want to complain about [chatbot](complain_catagory)
+    - how do i complain about [chatbot](complain_catagory) service
+    - listen my objection about [chatbot](complain_catagory)
+    - listen to my [chatbot](complain_catagory) complain
+    - this is not expected [chatbot](complain_catagory)
+    - i'm pissed off about [chatbot](complain_catagory) service
+    - [chatbot](complain_catagory) service complain
+- intent: rate_info
+  examples: |
+    - interest rate
+    - rate information
+    - interest rate information
+    - what are the interest rate?
+    - details about interest rate
+    - rate info
+- intent: current_acc_rate_information
+  examples: |
+    - [current](rate_type) account rate
+    - [current](rate_type) account interest rate information
+    - what is the [current](rate_type) account interest rate?
+    - tell me about [current](rate_type) account rate
+    - details about [current](rate_type) account rate
+- intent: saving_acc_rate_information
+  examples: |
+    - [saving](rate_type) account rate
+    - [saving](rate_type) account interest rate information
+    - what is the [saving](rate_type) account interest rate?
+    - details about [saving](rate_type) account rate
+    - tell me about [saving](rate_type) account rate
+- intent: emi_rate_information
+  examples: |
+    - tell me about [EMI](rate_type) rate
+    - [EMI](rate_type) rate
+    - [EMI](rate_type) interest rate information
+    - what is the [EMI](rate_type) interest rate?
+    - details about [EMI](rate_type) rate
+- intent: loan_rate_information
+  examples: |
+    - [loan](rate_type) rate
+    - [loan](rate_type) interest rate information
+    - what is the [loan](rate_type) interest rate?
+    - tell me about [loan](rate_type) rate
+    - details about [loan](rate_type) rate
+- intent: personal_loan_information
+  examples: |
+    - tell me details about [personal](loan_type) loan
+    - tell me more about [personal](loan_type) loan
+    - what about [personal](loan_type) loan?
+    - what [personal](loan_type) loan provides?
+    - show me [personal](loan_type) loan
+    - what is in [personal](loan_type) loan?
+    - [Personal](loan_type)
+- intent: home_loan_information
+  examples: |
+    - tell me details about [home](loan_type) loan
+    - tell me more about [home](loan_type) loan
+    - what about [home](loan_type) loan?
+    - what [home](loan_type) loan provides?
+    - show me [home](loan_type) loan
+    - what is in [home](loan_type) loan?
+- intent: auto_loan_information
+  examples: |
+    - tell me details about [auto](loan_type) loan
+    - tell me more about [auto](loan_type) loan
+    - what about [auto](loan_type) loan?
+    - what [auto](loan_type) loan provides?
+    - show me [auto](loan_type) loan
+    - what is in [auto](loan_type) loan?
+- intent: loan_information
+  examples: |
+    - what are the loans?
+    - which loans do you offer?
+    - is there any loan for me?
+    - am i eligable for getting a loan?
+    - I want to get a loan
+    - what kind of loans are there?
+    - show me your loans
+    - show me loan information
+    - what are the loans
+    - loan details
+    - tell me about loan info
+    - loan info
+- intent: check_human
+  examples: |
+    - are you a bot?
+    - am i speaking to an ai?
+    - are you a human or a bot?
+    - are you real?
+    - are you virtual?
+    - are you an ai?
+    - aren't you a bot
+    - are you a chatbot
+    - are you a rasa bot?
+    - are you a real bot?
+    - are you a robot
+    - are you ai
+    - are you artificial
+    - are you artificial intelligence
+    - are you real
+    - are you really a bot
+    - are you robot
+    - are you sure that you're a bot?
+    - bot?
+    - who are you?
+    - are you a machine?
+    - identify yourself.
+    - whom I am talking to.
+    - your introduction please
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a robot?
+    - am I talking to an actual person?
+    - you're a bot aren't you?
+    - are you even a real person?
+    - what type of bot?
+    - do you have a face?
+    - tell me something about you
+- intent: cant_do
+  examples: |
+    - Do you sleep?
+    - can you eat?
+    - can you sing?
+    - sing a song?
+    - entertain me
+    - how do you look a like
+    - make someone laugh
+    - what types of mundane task you can do?
+    - what is your favourite dish/food?
+    - are you interested in politics
+    - do you believe in god/Allah?
+    - do you have a religion
+    - What do you think about creator?
+- intent: affirm
+  examples: |
+    - indeed
+    - correct
+    - that sounds good
+    - yes
+    - yess please
+    - of course
+    - yup
+    - yeah
+    - yes please
+    - yes plz
+    - Sure
+    - Ok
+    - sweet
+    - cool,
+    - yes...
+    - y
+    - ok
+    - ye
+    - okay
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+    - that's right
+    - perfect
+    - sounds good
+    - sounds great
+    - k
+    - wonderful
+    - perfect
+    - seems great
+    - go ahead
+    - keep going
+    - roger
+    - affirmative
+    - affirm
+    - good to go
+    - interested
+    - good
+- intent: ask_transfer_charge
+  examples: |
+    - Will I be charged for transferring money
+    - do transfers cost something?
+    - is there a transfer charge?
+    - Is there a charge
+    - will i be charged for a transaction?
+    - do xfers cost something?
+    - is there a transfer fee
+    - is there a xfer fee
+    - how much is the transfer fee
+    - whats the cost of transferring money
+    - what am I charged upon money transfer
+    - are you gonna bill me for this exchange
+    - whats the xfer price for this account
+    - okay but how much to move this money?
+    - how much is the fee to shift my money around
+    - if I send money to someone will I be charged extra for that?
+    - is there a charge when I send money to someone
+    - what is the fee for sending money to someone else
+    - I sent money to my friend will I be charged extra for that
+    - what is the percentage fee for transactions to another person
+    - are there any transaction fees or charges I should know about?
+    - tell me about transfer fees
+- intent: check_balance
+  examples: |
+    - How much money is on my account?
+    - How much money is on my account?
+    - what's my balance?
+    - what's my current balance?
+    - What's left on that account?
+    - How much do I have on that account?
+    - What's the balance on that account?
+    - How much money is left on that account?
+    - what is my account balance
+    - what's my account balance?
+    - what's my account balance
+    - whats my account balance
+    - what is my bank account balance
+    - what's my bank account balance?
+    - What's my credit card balance
+    - What's my credit balance
+    - How much money do I owe on my credit cards
+    - Show me my credit card balance
+    - What credit accounts do I have
+    - Show me my credit accounts
+    - Whats the balance on my account
+    - What's my credit account
+    - What's my [emblem](credit_card) card balance
+    - Show me my [iron bank](credit_card) balance
+    - What's my [justice bank](credit_card) balance
+    - What's the balance on the [justice bank](credit_card) account
+    - what's my [emblm](credit_card) credit card balance?
+    - what's my credit card balance?
+    - what's my credit card account balance?
+    - What is my [emblem](credit_card) card balance?
+    - whats my credit card balance
+    - What is my [emblem](credit_card) balance?
+    - whats my [emblm](credit_card) card balance?
+    - what's my [embelm](credit_card)'s card balance?
+    - what's my [emblm](credit_card) account balance?
+    - I should check my [credit card]{"entity": "account_type", "value": "credit"} balance [first](account_type)
+    - check my [credit card]{"entity": "account_type", "value": "credit"} balance
+    - check my [credit card]{"entity": "account_type", "value": "credit"} balance [first](account_type)
+    - Can you tell me my account balance?
+    - Hello, I would like to know how much money is in much money is in my account
+    - hi, whats my account bal please
+    - so... what's my balance?
+    - whats my current balance
+    - What's my balance?
+    - How much money do I have?
+    - Yeah, I like coffee But how much money do I have?
+    - Yeah, I know Since it's so nice: How much money do I have?
+    - Wait, I'll have to check my balance first. Can you do that please?
+    - Hi, I need to know how much money is in my [FDR](account_type) account
+    - Balance please
+- intent: check_earnings
+  examples: |
+    - How much money went into my account last month?
+    - How much money did I make last year?
+    - What did I earn last month?
+    - How much did I make last month?
+    - How much money did I make last week?
+    - how much was deposited in my account last month?
+    - how much was deposited in my account in the last two weeks?
+    - check deposits for last week
+    - total deposits over last year
+    - how much was deposited in January
+    - how much money have I earned?
+    - what did I earn?
+    - How much have i earned?
+    - how much did I make
+    - am I rich yet?
+    - am I a millionaire
+    - how much cash is rolling through my account
+    - how much money is in the money making machine account?
+    - what did I make in the last year?
+    - show me how much I've earned in the last week
+    - can i afford to go on vacation
+    - rent is due soon how much do I have in my account
+- intent: deny
+  examples: |
+    - not really
+    - no
+    - I don't think so
+    - never
+    - no way
+    - nope
+    - no thanks
+    - I dunno
+    - Nothing!
+    - nevermind
+    - n
+    - i decline
+    - i don not like this
+    - i don't think so
+    - i don't want either of those
+    - i don't want to
+    - i don't want to give you my email
+    - i dont want to
+    - i dont want to accept :P lol
+    - i guess it means - no
+    - i'm afraid not
+    - i'm not sure
+    - not true
+    - nah
+    - stop
+    - not interested
+    - cancel
+    - deny
+    - negetive
+    - i don't want to continue
+    - don’t proceed
+    - don't go
+    - Not
+    - pause
+    - deny
+    - not excited
+- intent: goodbye
+  examples: |
+    - see you later
+    - goodbye
+    - i'm done
+    - quit
+    - stop
+    - bye
+    - Adios
+    - BYEE
+    - GOODBYE
+    - Thanks a lot. See ya later
+    - have a good day. time to go, bye
+    - bye bye
+    - ok i gtg
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye.
+    - goodnight
+    - gotta go
+- intent: greet
+  examples: |
+    - yo
+    - good morning
+    - good noon
+    - hi
+    - hey there
+    - hey
+    - good evening
+    - hello
+    - Hello?
+    - HEY
+    - hello are you still there
+    - hallo
+    - HI
+    - Hey
+    - Hi
+    - hi!
+    - hello there
+    - hi there
+    - Hello
+    - hello its ella
+    - Hola.
+    - welcome
+    - howdy
+    - good day
+    - Hey Bot
+    - Hey Assistant
+    - hi Assistant
+    - hi bot
+- intent: pay_cc
+  examples: |
+    - I would like to pay the minimum balance on my [embelm](credit_card) card
+    - I want to pay my credit card
+    - I want to pay my card
+    - Pay my card
+    - I want to pay my [justice bank](credit_card) bill
+    - Pay my [discover](credit_card)
+    - I want to pay my [iron bank](credit_card) bill
+    - Pay my [visa](credit_card)
+    - I want to pay my [visa](credit_card) bill
+    - Pay my [mastercard](credit_card)
+    - I want to pay my [MasterCard](credit_card) bill
+    - I want to pay my credit card bill
+    - I want to pay the current balance on my credit card
+    - can you help me pay the current balance on my credit card
+    - i want to pay off my credit card
+    - I want to pay off my credit card
+    - i want to pay my credit card
+    - i want to pay off my [emblem](credit_card) credit card
+    - I want to pay my current balance on my [embelm](credit_card) credit card
+    - i want to pay my current balance on my [emblem](credit_card) credit card
+    - I want to pay $500 on my [emblem](credit_card) credit card on Sunday
+    - I want to pay my current balance on my [emblem](credit_card) credit card today
+    - i need to pay off my [emblm](credit_card) credit card
+    - Please schedule  a payment towards my credit card for April 12th
+    - Can I schedule a payment towards my credit card for tomorrow?
+    - Pay off my minimum balance please
+    - i would like to pay $1200 (amount-of-money) to my credit card
+    - I would also like to pay my [visa](credit_card) bill
+    - Pay off my credit card, please
+    - I guess it is. Since it's so much, let's pay off my credit
+    - Let's pay that credit card bill
+    - I want to pay 100 dollars toward my [Emblem](credit_card) card, tomorrow
+    - pay 100 towards [emblem](credit_card) card, tomorrow
+    - id like to pay my bill
+    - could I pay off my credit card?
+    - pay off my credit card
+    - i wanna pay my credit card
+    - pay a bill
+    - can I pay my card?
+- intent: search_transactions
+  examples: |
+    - how much did I spend at [agora](vendor_name) this week?
+    - what is my typical spending at [Amazon](vendor_name)?
+    - I want to check my spending history
+    - how much did I spend at [Sopno](vendor_name) last week?
+    - I need to check my spending history
+    - I want to check my spending
+    - I want to check my spending history at [Sopno](vendor_name)
+    - i want to check my spending history
+    - i want to see my transaction history
+    - I want to search my past transactions
+    - can I search my transaction history
+    - can I look at past transactions
+    - I want to search my transactions with [amazon](vendor_name)
+    - can i seem my transactions with [Agora](vendor_name)
+    - how much did i spend at [Sopno](vendor_name) last month?
+    - what did i spend last month?
+    - How much did I spend last month?
+    - What did I spend at [agora](vendor_name) last month?
+    - What did I spend at [agora](vendor_name) last year?
+    - how much did i spend at [Sopno](vendor_name) last year
+    - Yes! How much did I spend on [Sopno](vendor_name) last month?
+    - How much did I spend at Burger King last month?
+    - what places have I spent money?
+    - What did I spend at [Sopno](vendor_name) in may?
+    - How much money did I lose to [Sopno](vendor_name) in may?
+    - Oh how much did I actually spend at [Agora](vendor_name) last month? I'd love to know.
+    - Can you tell me how much I spent at [agora](vendor_name) this month?
+    - Can you tell me how much I spent at coffeeshops this month?
+    - Can you tell me how much I spent on coffee this month?
+    - what did I spend at [Agora](vendor_name) last month
+    - where did I spend the most money last month?
+    - How much money have i spent lately?
+- intent: thankyou
+  examples: |
+    - thank you goodbye
+    - okay thank you goodbye
+    - thank you bye
+    - um okay thank you good bye
+    - thank you
+    - and thats all thank you and good bye
+    - okay thank you
+    - thanks
+    - thanks goodbye
+    - thank you and good bye
+    - Thanks!
+    - Awesome, you are a good bot!
+    - great!
+    - I see, thanks
+    - Oh thats good!
+    - it's good :-)
+    - thnaks
+    - good job bot
+    - great
+    - thanks for the help
+    - thanks you
+    - thanks!
+    - thankyou
+    - thnks
+    - thx
+    - thanks for your information
+    - thanks f
+- intent: transfer_money
+  examples: |
+    - I want to pay [John](USERNAME)
+    - I want to transfer $100 (amount-of-money) to [Bob](USERNAME)
+    - can i transfer money to [Sally](USERNAME)
+    - I want to transfer money
+    - I want to pay someone
+    - can I pay someone
+    - I need to transfer money to a friend
+    - can I transfer money to my [mom](USERNAME)
+    - I want to pay [Bert](USERNAME)
+    - pay my friend
+    - transfer money
+    - I want to transfer $ [100](amount-of-money) to [Tommy](USERNAME)
+    - i want to transfer $ [400](amount-of-money) to [Akela](USERNAME)
+    - I want to pay [Paula Handy](USERNAME)
+    - pay Katy Parrow $ [40](amount-of-money) please
+    - transfer $ [60](amount-of-money) to [Jason Jacob](USERNAME)
+    - pay [Evan Oslo](USERNAME)
+    - pay [Lisa](USERNAME) please
+    - can I transfer money to [Kyle Gardner](USERNAME)?
+    - Pay [Karen](USERNAME) [60](amount-of-money) Euros
+    - pay [Mona](USERNAME) $ [60](amount-of-money)
+    - transfer $ [60](amount-of-money) to [Sally](USERNAME)
+    - need to transfer money
+    - II want to transfer to [Kelly](USERNAME)
+    - Pay [Percy](USERNAME) $ [50](amount-of-money)
+    - Pay $ [50](amount-of-money) to [Pat](USERNAME)
+    - Ok pay [Emma](USERNAME)
+    - pay [Emanual](USERNAME)
+    - i want to transfer $100 to [Jane smith](USERNAME)
+    - i want to transfer $100 to my [daughter](USERNAME)
+    - i want to transfer money please
+    - i mean i want to transfer money
+    - I need to pay a friend.
+    - transfer money to [ethan oswald](USERNAME)
+    - transfer money to [sara](USERNAME)
+    - I need to transfer money to my grandma [Judith](USERNAME).
+    - i want to transfer money to [Latisha](USERNAME)
+    - I need to make an urgent transfer to [Bob](USERNAME), can you do it?
+    - Ahh, okay so I want to make a transfer to [Bob](USERNAME).
+    - Can I transfer money to a friend?
+    - I need to transfer money to [Jeff](USERNAME), my son
+    - I need to send money to my kid
+    - I need to transfer money
+    - send $50 to [john jacob](USERNAME)
+    - I need to transfer money to my co-worker who paid for lunch
+    - Hi I like to send money
+    - I'd like to send 50$ to [John](USERNAME)
+    - Hi I like to send money to [John](USERNAME)
+    - Please transfer 50 dollars to [Andreas](USERNAME)
+    - I would like to transfer money to [Philipp](USERNAME)
+    - I would like to transfer 50$ to [Joschka](USERNAME)
+    - I would like to make a transfer
+    - I want to pay money
+    - Can I transfer money?
+    - transfer money to Alex
+    - Money transfer
+    - I need to make a transference
+    - I need to make a transfer
+    - i need to send money
+    - I would like to transfer money
+    - I need to make a money transfer
+    - I need to send money
+    - I’d like to make a transfer
+    - I’d like to send money
+    - I would like to wire some money
+    - I want to make a transfer
+    - I need to go to the bank to make a transfer
+    - Make a transfer
+    - I want to send money
+    - I need to transfer
+    - I need to make an account transfer
+    - I want to do fund transfer.
+    - I want to transfer funds.
+    - I want to pay money.
+    - I would like to make a payment
+    - I want to do money transaction
+    - I want to transfer some amount to someone
+    - I'd like to transfer sixty dollars from my checking account
+    - I want to wire two hundred dollars from my checking account
+    - I want to make a transfer of one hundred fifty dollars to my savings account
+    - Can I please transfer some money between my accounts
+    - I just want to send a hundred dollars to my savings
+    - I want to make a wire transfer
+    - Is it possible to transfer money online
+    - Are online transfers available
+    - How can I transfer money
+    - What do I need to do to transfer some money between my accounts
+    - I want to transfer money to my wife's account
+    - I want to make a transfer today
+    - Transfer money
+- intent: check_recipients
+  examples: |
+    - Who can I send money to?
+    - Who are my known recipients
+    - Show me my list of recipients
+    - Show the recipient list
+    - Show me people I can send money to
+    - Who is a valid payee
+    - who can I pay?
+    - who can I transfer money?
+    - who's in my recipient list?
+    - who can I transfer money to?
+    - Who is on your list?
+    - who is in my list of kown recipients?
+    - Who all can I transfer money to?
+    - Who can I transfer money to?
+    - Okay. Who can I transfer money to then?
+    - can I see the list of known recipients?
+    - tell me who I can share my money with
+    - whats my recipient list
+    - can I send money to anyone?
+    - who exactly am I able to send money to
+    - if I want to transfer money can i send it to anyone
+    - show me my money sending list
+- intent: help
+  examples: |
+    - help
+    - what can you do?
+    - what can I ask you?
+    - what do you do?
+    - what can you help me with?
+    - help me
+    - help, what do you do
+    - how do I use this
+    - how can you help me
+    - What are the things that you can do?
+    - What else can you help me with?
+    - can you do anything else?
+    - can you help me?
+    - come back
+    - cool! can I do something else here?
+    - hello what can you do for me
+    - help please
+    - help pls
+    - help?
+    - hep me
+- intent: new_card
+  examples: |
+    - how to get a new [credit](card_type) card
+    - what is the procedure for applying a new [credit](card_type) card
+    - can i get a new [credit](card_type) card
+    - applying for a new [credit](card_type) card
+    - applying for an ATM [credit](card_type) card
+    - the way to get a [credit](card_type) card
+    - [credit](card_type) card getting procedure
+    - i want to have a new [credit](card_type) card
+    - new [credit](card_type) card
+    - get new [credit](card_type) card
+    - have a new [credit](card_type) card
+    - new [credit](card_type) card getting
+- intent: product_info
+  examples: |
+    - tell me about your [Retail Banking](product_type) product
+    - what are the [loan](product_type) products
+    - i want to know about [loan](product_type) products
+    - which [NRB Banking](product_type) product do you have
+    - is there any [loan](product_type) products
+    - which [loan](product_type) product is for me
+    - want to know more about products
+    - product details
+- intent: human_handoff
+  examples: |
+    - handoff
+    - operator
+    - I want a human
+    - can I speak to an agent
+    - real agent please
+    - real human
+    - chat with a live agent
+    - give me a person please
+    - i want to talk to a human
+    - transfer to a human
+    - Please give me to a human
+    - can I talk to human?
+    - can I talk to human
+    - talk to human
+    - i want human :(
+    - can i talk to human
+    - i want to speak to human
+    - can i talk to a real person?
+    - connect me to a real person
+    - I need a real person
+    - can i took with a real person
+    - let me speak to a real person
+    - let me speak to a real person please
+    - i want to talk to a real person
+- intent: show_accounts
+  examples: |
+    - please list my [FDR](account_type) accounts
+    - please show my [FDR](account_type) accounts
+    - please get all my [FDR](account_type) accounts
+    - show me my [FDR](account_type) accounts details
+    - Display My [FDR](account_type) accounts
+    - Show [Current](account_type) accounts
+    - List my [Current](account_type) accounts
+    - List my [Current](account_type) account
+    - Can I check my [Current](account_type) account number
+    - can I have a look at my [Current](account_type) accounts
+    - Show my [Saving](account_type) account details
+    - My [Saving](account_type) accounts
+    - I’d like to see all my [Saving](account_type) accounts
+    - Can I view my [Saving](account_type) accounts
+    - Make a list of my [Saving](account_type) accounts
+    - show my [loan](account_type) account numbers
+    - I want to see my [loan](account_type) accounts
+    - I would like to see all my [loan](account_type) accounts
+    - Display my bank [loan](account_type) account
+    - Overview of [loan](account_type) accounts
+    - Show all my [loan](account_type) accounts
+    - please show my [loan](account_type) accounts summary
+    - please show my [loan](account_type) account balance
+    - information about [loan](account_type) account
+    - info on [loan](account_type) account
+    - show the details of my [loan](account_type) account
+    - List out all my [loan](account_type) accounts
+    - Fetch my [loan](account_type) accounts details
+    - get me my [loan](account_type) accounts information
+    - Please retrieve my [loan](account_type) accounts information
+    - show me my accounts rewards points
+    - details of my account
+- intent: show_credit_cards
+  examples: |
+    - please show my credit cards
+    - please list my credit cards
+    - show me my credit cards details
+    - what is my credit cards outstanding
+    - Display My Cards
+    - List my credit cards
+    - i need to see my credit cards
+    - Can I have access to a credit cards
+    - My credit cards
+    - I want to see my credit card details
+    - I’d like my credit cards displayed
+    - Can I see all my credit cards
+    - Show my cards
+    - Display Credit Cards
+    - Show Credit Cards
+    - Could you show me my credit cards
+    - I would like to see my credit cards
+    - Credit cards information
+    - Display my credit cards
+    - Credit Card Overvuew
+    - Show all my credit cards
+    - show my credit cards
+    - what all credit cards do I have?
+    - List out all my credit cards
+    - I want to see list of all my credit cards
+    - I would like to see information of all my credit cards
+- intent: show_statement
+  examples: |
+    - Please show me my bank statement
+    - I would like to see my bank statement
+    - Show me my all my transactions
+    - Give me a list of my statement history
+    - Can you provide me my bank statement?
+    - Extract Statements
+    - Print statements
+    - i want to see my statements
+    - Can I have a look at my statement please
+    - Display my statements
+    - My statement
+    - I’d like to see my statement
+    - I want to see my statement
+    - Please extract statement of my movements
+    - Make a statement
+    - Display Statements
+    - Show statements
+    - Show account movements
+    - Could you show me my statements
+    - I would like to see my statements
+    - Show my statements
+    - Account Transaction overview
+    - Show my account statements
+    - Please show my bank entries.
+    - Please show my debits and credits.
+    - Can I have a look at my receipts and payments?
+    - Can I see my inflows and outflows?
+    - Please show me my transaction history
+    - Please retieve my transaction log
+    - I would like to see my bank account statement history
+- intent: ADD_Beneficiary
+  examples: |
+    - I want to add new friends
+    - add new friends
+    - add new family
+    - I want to add Beneficiary
+    - need to add someone for fund transfer
+    - transfer money to a new person
+    - fund transfer to a new account
+    - fund transfer to a family member
+    - fund transfer to a friend
+    - add someone to transfer money
+- intent: bKash
+  examples: |
+    - bKash
+    - bKash transfer
+    - transfers to bKash
+    - bKash account
+    - mobile bKash account
+    - bkash agent
+- intent: Bank
+  examples: |
+    - Bank account
+    - Bank to Bank
+    - personal Bank account
+    - Bank account Holder
+    - Bank account
+- intent: stop_cheque
+  examples: |
+    - cancel my cheque
+    - stop cheque
+    - confiscate my cheque
+    - my cheque number is [65988745](cheque_number), stop this
+    - my cheque number is [65879745](cheque_number), I want to cancel it
+    - my cheque is [65879745](cheque_number), prevent it
+    - i want to cancel my cheque
+    - need to cancel cheque
+    - stop my cheque to pass
+    - lost my cheque
+    - cheque cancel request
+    - wants to cancel cheque
+    - report about cheque
+    - cheque cancel
+    - need help about lost cheque
+    - how can I cancel my cheque
+    - cheque report to cancel
+- intent: lost_card
+  examples: |
+    - i've lost my card
+    - I don't know where my card is
+    - I have no idea where've left my card
+    - I left my card somewhere and now I need to cancel it
+    - I really don't remember where my card is
+    - I'm afraid I don't know where my card is
+    - I've lost my credit card and I don't think I will find it again
+    - My card is gone I must have left it somewhere
+    - I'm afraid someone took my card so I'd better cancel it
+    - I have no clue where is my card
+    - Can't find my card don't know what to do
+    - Can't find my card what should I do
+    - Unblock card
+    - card unblock card procedure
+    - I want to unlock my card
+    - unlock card
+    - unblock card
+- intent: change_pin
+  examples: |
+    - I don't remember my pin and need to change it
+    - I want to change my pin because I can't remember it.
+    - Is it possible to change my card's pin online
+    - Could you help me resetting my pin
+    - Can I get a new pin number for my card
+    - What do I need to do to get a new pin number
+    - How can I restore the secret code of my card
+    - I lost my card's secret number now I can't use it anymore
+    - Where can I find my card's pin
+    - Where can I find my card's secret code
+    - I think someone discovered my pin and I want to change it
+    - I want to change the secret digits to access my credit card.
+- intent: retirement_plan
+  examples: |
+    - I want to apply to a retirement savings plan
+    - What are the available plans for retirement in your bank
+    - what's the best RSP available in your products
+    - Do you offer retirement savings plans
+    - I want to invest some money for my retirement
+    - details about retirement plan
+- intent: online_banking
+  examples: |
+    - I want to get access to online banking
+    - What can I do in the online banking
+    - How can I benefit from your online banking
+    - Do you have a mobile app for online banking
+    - Can I make transfer online
+    - Can I check my balance online
+    - I want to get a password for online banking
+    - What are the things I can do online and not over the phone
+    - Are there things that I can only do online?
+    - Please retrieve my transaction log
+    - how to use mibile banking app
+    - can I use your upay for everything?
+- intent: bill_pay
+  examples: |
+    - I want to pay my bill
+    - [WASA](utility_type) bill pay
+    - I want to pay my [WASA](utility_type) bill
+    - pay [electricicty](utility_type) bill
+    - pay [DTH](utility_type) bill
+    - pay [telephone](utility_type) bill
+    - [WASA](utility_type) bill payment
+    - [electricicty](utility_type) bill payment
+    - [telephone](utility_type) bill payment
+    - [electricity](utility_type) bill payment
+    - make other payments
+    - pay bill
+    - [telephone](utility_type) bill payment
+    - make payments
+    - [DTH](utility_type) bill
+    - [WASA](utility_type) bill payment
+    - pay bill
+    - bill payments
+    - I want to pay bill
+- intent: card_bill
+  examples: |
+    - want to pay my card bill
+    - my [credit](credit_card) card number is [1234568756345](card_number) and I want to pay the bill
+    - pay my [credit](credit_card) card bill
+    - wants to pay my card bill
+    - card bill payment
+    - card payment
+    - card bill pay
+    - card bill payment
+    - card bill
+    - wants to pay my card bill
+    - pay my card due bill
+    - I want to pay my card bill
+- intent: mobile_recharge
+  examples: |
+    - Mobile Wallets
+    - mobile recharge
+    - mobile recharge from my account
+    - airtime top-up
+    - mobile top up
+    - want to top up to my prepaid number
+- intent: close_procedure
+  examples: |
+    - How can I close my [FDR](account_type) account?
+    - how to kill my account?
+    - what types of documents need to close an account?
+    - can I close my [Brother](USERNAME) account?
+    - can I change my [FDR](account_type) to [FDR](account_type), and how?
+    - need to close my account.
+    - close my account.
+    - freeze my account.
+    - I want to stop using my account, and how can I do that?
+    - close account
+    - cls account
+    - stop my account
+    - useless account
+    - I don't need my account.
+    - wants to leave your bank.
+    - wanna get rid of my account.
+    - procedure of clossing an account.
+    - not satisfied with my account, and need to shut it.
+- intent: open_procedure
+  examples: |
+    - account open
+    - want to open account
+    - open new account
+    - I want to open account
+    - account [FDR](account_type)  open
+    - start account
+    - start [CASA](account_type) account
+    - [CASA](account_type) account open
+    - [FDR](account_type) account opening
+    - opening [FDR](account_type) account
+    - open account
+    - open [FDR](account_type) account
+    - wanna open account
+    - wanna open [FDR](account_type) account
+    - how to open [FDR](account_type)
+    - how to start account
+    - how to start [FDR](account_type) account
+    - can i open account [FDR](account_type)
+    - can i start [FDR](account_type)
+    - can i open [FDR](account_type)
+    - how to open account
+    - how to open [FDR](account_type) account
+    - how can i open [FDR](account_type)
+    - how can i open account
+    - how can i open [FDR](account_type) account
+    - what to do open account
+    - what to do open [FDR](account_type) account
+    - what to do opening [FDR](account_type)
+    - what to do opening account-
+    - what to do opening [FDR](account_type) account
+    - what is needed to open [FDR](account_type)
+    - what is needed to open an account
+    - what is needed to open a [FDR](account_type) account
+    - what is the requirement to open
+    - what is the requirement to open [FDR](account_type)
+    - what is the requirement to open an account
+    - what is the requirement to open a [FDR](account_type) account
+    - requirement to open account
+    - requirement to open [FDR](account_type)
+    - requirement to open a bank account
+    - how can I get a [loan](account_type)
+    - requirements to be eligible for a [loan](account_type)
+    - am i eligible for a [loan](account_type)
+    - open an account
+    - open a [FDR](account_type) account
+    - I want to open a [FDR](account_type) account
+    - please open a [FDR](account_type) account
+    - i want to open a [FDR](account_type) account
+    - i want to open a [CASA](account_type) account
+    - I am wishing for [FDR](account_type)
+    - open [FDR](account_type) account
+- intent: inform
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - [542145](OTP)
+    - [568932](OTP)
+    - [442145](OTP)
+    - [588932](OTP)
+    - [542245](OTP)
+    - [568532](OTP)
+    - [442645](OTP)
+    - [589932](OTP)
+    - [873235](OTP) is the OTP
+    - My OTP is [456523](OTP)
+    - Here is the OTP [123456](OTP)
+    - OTP is [789654](OTP) 
+    - tomorrow
+    - next week
+    - next day
+    - last transaction
+    - yesterday
+    - for today
+    - last week
+    - the past month
+    - the past two days
+    - the last two weeks
+    - at [amazon](vendor_name)
+    - [Sopno](vendor_name)
+    - at [agora](vendor_name)
+    - at [Sopno](vendor_name)
+    - [Agora](vendor_name)
+    - [Amazon](vendor_name)
+    - [Sopno](vendor_name)
+    - minimum balance
+    - [87421545](cheque_number) cheque number
+    - [10000](amount-of-money)
+    - [65988745](cheque_number)
+    - my cheque number is [65988895](cheque_number)
+    - cheque number is [12786534](cheque_number)
+    - cheque number [65988525](cheque_number)
+    - [65988545](cheque_number)
+    - [65999525](cheque_number)
+    - [69899525](cheque_number)
+    - [87215698](cheque_number)
+    - [32564578](cheque_number)
+    - [65985645](cheque_number)
+    - [23568954](cheque_number)
+    - [12657815](cheque_number)
+    - [59152648](cheque_number)
+    - [75356842](cheque_number)
+    - [42869137](cheque_number)
+    - [45698752](cheque_number)
+    - [12345987](cheque_number)
+    - [12356987](cheque_number)
+    - [45632541](cheque_number)
+    - [12398746](cheque_number)
+    - [65894231](cheque_number)
+    - [59875462](cheque_number)
+    - [45698524](cheque_number)
+    - [53795186](cheque_number)
+    - [95731462](cheque_number)
+    - [98756245](cheque_number)
+    - [59152648](cheque_number)
+    - cheque number [75356842](cheque_number)
+    - [42869137](cheque_number) is the cheque number
+    - cheque number [45698752](cheque_number)
+    - cheque number [12345987](cheque_number)
+    - cheque number [12356987](cheque_number)
+    - cheque number [45632541](cheque_number)
+    - [12398746](cheque_number) is the cheque number
+    - [65894231](cheque_number) is the cheque number
+    - [59875462](cheque_number) is the cheque number
+    - [45698524](cheque_number) is the cheque number
+    - [15548755](cheque_number) cheque number
+    - [32625356](cheque_number) cheque number
+    - [95865748](cheque_number) cheque number
+    - [Sonali Bank](bank_name)
+    - [City Bank](bank_name)
+    - [United Commercial Bank](bank_name)
+    - [Standard Chartered](bank_name)
+    - [EBL](bank_name)
+    - [BRAC Bank](bank_name)
+    - [HSBC](bank_name)
+    - [Sonali Bank](bank_name)
+    - [City Bank](bank_name)
+    - [United Commercial Bank](bank_name)
+    - [Standard Chartered](bank_name)
+    - [EBL](bank_name)
+    - [BRAC Bank](bank_name)
+    - [HSBC](bank_name)
+    - Bank name is [Sonali Bank](bank_name)
+    - Bank name is [City Bank](bank_name)
+    - Bank name is [United Commercial Bank](bank_name)
+    - Bank name is [Standard Chartered](bank_name)
+    - Bank name is [EBL](bank_name)
+    - Bank name is [BRAC Bank](bank_name)
+    - Bank name is [HSBC](bank_name)
+    - I want to pay the minimum balance
+    - the current balance
+    - the minimum balance
+    - my minimum balance
+    - my current balance
+    - [emblem](credit_card) card
+    - all cards
+    - [iron bank](credit_card) card
+    - [justice bank](credit_card) card
+    - [emblem](credit_card)
+    - [iron bank](credit_card)
+    - [justice bank](credit_card)
+    - [emblem](credit_card) account
+    - [iron bank](credit_card) account
+    - [justice bank](credit_card) account
+    - [emblem](credit_card) [credit card](account_type)
+    - [iron bank](credit_card) [credit card](account_type)
+    - [justice bank](credit_card) [credit card](account_type)
+    - my [emblem](credit_card) [credit card](account_type)
+    - my [iron bank](credit_card) [credit card](account_type)
+    - my [justice bank](credit_card) [credit card](account_type)
+    - my [emblem](credit_card) [card](account_type)
+    - my [iron bank](credit_card) [card](account_type)
+    - my [justice bank](credit_card) [card](account_type)
+    - towards my [emblem](credit_card) [card](account_type)
+    - towards my [iron bank](credit_card) [card](account_type)
+    - towards my [justice bank](credit_card) [card](account_type)
+    - for sunday
+    - for friday
+    - for tomorrow
+    - for saturday
+    - I want to pay the {amount-of-money} on my [emblem](credit_card) [credit card](account_type) today
+    - today
+    - Please schedule it for the first of next month
+    - taka
+    - [mastercard](credit_card)
+    - [visa](credit_card)
+    - [american express](credit_card)
+    - my [rasa](credit_card) account
+    - my [credit card]{"entity": "account_type", "value": "credit"} account ending in 4321
+    - My [Visa](credit_card) account
+    - A friend.
+    - [Alexandra](USERNAME)?
+    - today please
+    - [Iron Bank](credit_card)
+    - My [visa](credit_card)
+    - [Rifat](USERNAME)
+    - [Akib](USERNAME)
+    - [anusha](USERNAME)
+    - [Nafees](USERNAME)
+    - [Ridoy](USERNAME)
+    - [Hasan](USERNAME)
+    - [Imran](USERNAME)
+    - [Rakib](USERNAME)
+    - [Roomey](USERNAME)
+    - [01631224628](phone_number)
+    - [181126](OTP)
+    - [yttr@gmail.com](email_address)
+    - [Mohammad Rifat Ullah](USERNAME)
+    - [Mohammmad Rifat Ullah](USERNAME)
+    - [Hasib](USERNAME)
+    - to my [brother](USERNAME)
+    - to my [sister](USERNAME)
+    - my [dad](USERNAME)
+    - [Rifat Ullah](USERNAME)
+    - [Ridoy](USERNAME)
+    - [Liza Akter](USERNAME)
+    - [Azizul Hakim](USERNAME)
+    - [Alamin Hosen](USERNAME)
+    - [Tarekul Islam](USERNAME)
+    - [Sajahan Hridoy](USERNAME)
+    - [Sakawat Sabuj](USERNAME)
+    - [Sufia Uddin](USERNAME)
+    - In that case, let's go with Percy(USERNAME)
+    - My chase
+    - Amin(USERNAME)
+    - Mehrin(USERNAME)
+    - Sara(USERNAME)
+    - my wife's
+    - Ziaul(USERNAME)
+    - htthis weekend
+    - all of them
+    - Darren Smith(USERNAME)
+    - Percy(USERNAME)
+    - percy donald(USERNAME)
+    - danIelle smilanich(USERNAME)
+    - [Gringtos](credit_card)
+    - [Home](loan_type)
+    - [Auto](loan_type)
+    - [dfdf@gmail.com](email_address)
+    - [Azizul Karim](USERNAME)
+    - [FDR](account_type)
+    - [hg@yahoo.com](email_address)
+    - [Seikh Mujibur Rahman](USERNAME)
+    - [master](card_type)
+    - my email address is [abc@gmail.com](email_address)
+    - [abc@gmail.com](email_address)
+    - [abc@gmail.com](email_address) is my email
+    - email is [abc@gmail.com](email_address)
+    - my email is [abc@gmail.com](email_address)
+    - [abc@gmail.com](email_address) is my email address
+    - here is my email address [abc@gmail.com](email_address)
+    - my email is [rifat@gmail.com](email_address)
+    - my email is [rifat@hotmail.com](email_address)
+    - my email is [rifat@gmail.com](email_address)
+    - [rifatullah@yahoo.com](email_address)
+    - my email address is [abc@yahoo.com](email_address)
+    - [abc@outlook.com](email_address)
+    - [abc@outlook.com](email_address) is my email
+    - email is [abc@hotmail.com](email_address)
+    - my email is [abc@yahoo.com](email_address)
+    - [abc@hotmail.com](email_address) is my email address
+    - here is my email address [abc@gmail.com](email_address)
+    - my email is [rifat@outlook.com](email_address)
+    - my email is [rifat@gmail.com](email_address)
+    - [rifatullah@yahoo.com](email_address)
+    - [rifatullah@genusys.us](email_address)
+    - [rifati@yahoo.com](email_address)
+    - [Ahmed Abdul Rahman](USERNAME)
+    - [Loan](account_type)
+    - [AMEX](card_type)
+    - [amex](card_type)
+    - [visa](card_type)
+    - [Visa](card_type)
+    - [VISA](card_type)
+    - [MASTER](card_type)
+    - [master](card_type)
+    - [Master](card_type)
+    - [atm](card_type)
+    - [Atm](card_type)
+    - [Visa Platinum](card_type)
+    - [visa platinum](card_type)
+    - my name is [vincent](USERNAME)
+    - my full name [vincent](USERNAME)
+    - name [vincent](USERNAME)
+    - [vincent](USERNAME)
+    - [Md Alauddin Ahemed](USERNAME)
+    - [Mohhammad Norul Islam Khan](USERNAME)
+    - [Md. Shah Alom Bhuiyan](USERNAME)
+    - [Hasan Talukder](USERNAME)
+    - [Md. Sahabuddin Polok](USERNAME)
+    - i am [vincent john](USERNAME)
+    - you can call me [vincent Brown](USERNAME)
+    - [vincent](USERNAME) it's me
+    - it's [vincent](USERNAME)
+    - identify me as [vincent](USERNAME)
+    - my name is [Rifat](USERNAME)
+    - i'm [vincent](USERNAME)
+    - [Rifat] (USERNAME)
+    - my name is [Rifat](USERNAME)
+    - [FDR](account_type)
+    - want a [CASA](account_type) account
+    - my choice is [FDR](account_type)
+    - want a [saving](account_type) account
+    - my choice is [saving](account_type)
+    - want a [current](account_type) account
+    - my choice is [current](account_type)
+    - want a [loan](account_type) account
+    - my choice is [loan](account_type)
+    - [FDR](account_type) please
+    - [FDR](account_type)
+    - [fdr](account_type)
+    - [casa](account_type)
+    - [CASA](account_type)
+    - [saving](account_type)
+    - [loan](account_type)
+    - [current](account_type)
+    - [FDR](account_type)
+    - [fdr](account_type)
+    - [CASA](account_type)
+    - [casa](account_type)
+    - [saving](account_type)
+    - [loan](account_type)
+    - [current](account_type)
+    - [VISA](card_type)
+    - [VISA](card_type)
+    - i need [VISA](card_type) card
+    - need a [VISA](card_type) card
+    - i want a [VISA](card_type) card
+    - willing to have a [VISA](card_type) card
+    - want a [VISA](card_type) card
+    - preferably [VISA](card_type) card
+    - needed [VISA](card_type) card
+    - need a [Visa](card_type) card
+    - i wanrt a [rasa](card_type) card
+    - i wannt a [visa](card_type) card
+    - [master](card_type)
+    - [atm](card_type)
+    - [amex](card_type)
+    - [VISA Platinum](card_type)
+    - [Platinum](card_type)
+    - i need [master](card_type) card
+    - need a [master](card_type) card
+    - i want a [master](card_type) card
+    - i need [AMEX](card_type) card
+    - need a [amex](card_type) card
+    - i want a [amex](card_type) card
+    - willing to have a [master](card_type) card
+    - want a [master](card_type) card
+    - preferably [master](card_type) card
+    - needed [master](card_type) card
+    - i wannt a [master](card_type) card
+    - i want a [visa](card_type) card
+    - credit [card](offer_type) offers
+    - debit [card](offer_type) offers
+    - [new](offer_type) offers
+    - [upay](offer_type) offers
+    - [new](offer_type)
+    - [Upay](offer_type)
+    - [New](offer_type)
+    - [Card](offer_type)
+    - [Upay](offer_type)
+    - [New](offer_type)
+    - [Card](offer_type)
+    - my account number is [1234567890458](account_number)
+    - [1234567890546](account_number) is my account number
+    - [1234567890456](account_number)
+    - [2646254237654](account_number)
+    - [6532452365453](account_number)
+    - [1456456567867](account_number)
+    - [6532452765655](account_number)
+    - [5645659876655](account_number)
+    - [5544535434354](account_number)
+    - [8778676543324](account_number)
+    - [1234567890789](account_number) my account number
+    - [Mohammadpur, Dhaka-1207](mailling_address)
+    - [Mirpur, Dhaka](mailling_address)
+    - [Banani, Dhaka](mailling_address)
+    - [Mirpur-10, Dhaka](mailling_address)
+    - [Mirpur-1, Dhaka](mailling_address)
+    - [Mirpur-2, Dhaka](mailling_address)
+    - [Mirpur-11, Dhaka](mailling_address)
+    - [Mirpur-6, Dhaka](mailling_address)
+    - [Uttara, Dhaka-1230](mailling_address)
+    - [Gulshan-1, Dhaka](mailling_address)
+    - [Gulshan-2, Dhaka](mailling_address)
+    - [Mirpur-12, Dhaka](mailling_address)
+    - [Rampura, Dhaka](mailling_address)
+    - [Gazipur, Dhaka](mailling_address)
+    - [Dhanmondi, Dhaka](mailling_address)
+    - [Malibagh, Dhaka](mailling_address)
+    - [Shamoli, Dhaka](mailling_address)
+    - [Shantinagar, Dhaka](mailling_address)
+    - [Mohakhali, Dhaka](mailling_address)
+    - [Motijhil, Dhaka](mailling_address)
+    - [Gulshan, Dhaka](mailling_address)
+    - [Mohammadpur, Dhaka-1207](mailling_address)
+    - [Mohammadpur, Dhaka](mailling_address)
+    - [Shamoli, Dhaka](mailling_address)
+    - [Banglabazar, Dhaka](mailling_address)
+    - [Razarbagh, Dhaka](mailling_address)
+    - [Motijhil, Dhaka](mailling_address)
+    - my new address is [Mohammadpur, Dhaka-1207](mailling_address)
+    - here is my updated address [Mohammadpur, Dhaka-1207](mailling_address)
+    - [Mohammadpur, Dhaka-1207](mailling_address) is my valid address
+    - my address is [Mohammadpur, Dhaka-1207](mailling_address)
+    - my phone number is [01712345678](phone_number)
+    - [01712345678](phone_number)
+    - [01718657895](phone_number)
+    - [01631554678](phone_number)
+    - [01924566565](phone_number)
+    - [01712345457](phone_number)
+    - [01718787895](phone_number)
+    - [01631554678](phone_number)
+    - [01928965657](phone_number)
+    - [01631254678](phone_number) is my cell number
+    - [01924566455](phone_number) is the updated cell number
+    - [01712345963](phone_number) is my phone number
+    - [01712354878](phone_number) updated phone number
+    - my new phone is [01712345678](phone_number)
+    - [WASA](utility_type)
+    - [DTH](utility_type)
+    - [Electricity](utility_type)
+    - [telephone](utility_type)
+    - [Internet](utility_type)
+    - I want to pay my [WASA](utility_type) bill
+    - pay [electricicty](utility_type) bill
+    - pay [DTH](utility_type) bill
+    - pay [telephone](utility_type) bill
+    - [WASA](utility_type) bill payment
+    - [electricicty](utility_type) bill payment
+    - [telephone](utility_type) bill payment
+    - i want to pay [100](amount-of-money)
+    - pay [1000](amount-of-money) taka
+    - [5000](amount-of-money) taka
+    - [500](amount-of-money)
+    - ৳ [500](amount-of-money)
+    - [5000](amount-of-money) ৳
+    - [3000](amount-of-money) ৳
+    - [2500](amount-of-money) taka
+    - BDT [3000](amount-of-money)
+    - [2000](amount-of-money) BDT
+    - [3500](amount-of-money) Bangladeshi taka
+    - [400](amount-of-money)
+    - [2000](amount-of-money)
+    - [1000](amount-of-money) tk
+    - tk [1000](amount-of-money)
+    - [3000](amount-of-money)
+    - [40000](amount-of-money)
+    - [20000](amount-of-money)
+    - [50](amount-of-money)
+    - [700](amount-of-money)
+    - I don't like your services
+    - I am not satisfied of this service
+    - This is boring
+    - This is wasting my time
+    - Not so responsive
+    - [1234567890](account_number) is the account number
+    - this system is bad
+    - [0987654321456](account_number)
+    - [1000](amount-of-money)
+    - [1233424458712](account_number) is the account number
+    - [1000](amount-of-money) taka
+    - [123456789](account_number) is my account number
+    - taka [500](amount-of-money)
+    - my [credit](credit_card) card number is [4581234568756345](card_number)
+    - this is my [1234568756344565](card_number)
+    - pay [1234568756378545](card_number) bill
+    - here is my card number [1234568756457345](card_number)
+    - [1234568756345485](card_number)
+    - [9873524356242332](card_number)
+    - [1234567462583845](card_number)
+    - [9876554534874332](card_number)
+    - [1234567489322845](card_number)
+    - [9876551254576542](card_number)
+    - my card number is [9876554534332458](card_number)
+    - card number is [9876557894534332](card_number)
+    - [1234568756456345](card_number) is my card number
+    - [1231234568756345](card_number) my card
+    - [1234456568756345](card_number) is my [credit](credit_card) number
+    - [2153454584356545](account_number) is my account number
+    - [FDR](account_type)
+    - [AMEX](card_type)
+    - [VISA](card_type)
+    - [Master](card_type)
+    - [Platinum](card_type)
+    - [ATM](card_type)
+    - [WASA](utility_type)
+    - [4578568921534](account_number)
+    - [5421784512654](account_number)
+    - [4521547898652](account_number)
+    - [4587452165983](account_number)
+    - [8789655412235](account_number)
+    - [6587129835595](account_number)
+    - [8915594826379](account_number)
+    - [1548265937825](account_number)
+    - [12546546](cheque_number)
+    - [56644654](cheque_number)
+    - [45654654](cheque_number)
+    - [65465465](cheque_number)
+    - [46565231](cheque_number)
+    - [46587978](cheque_number)
+    - [78978965](cheque_number)
+    - [78546462](cheque_number)
+    - [78978978](cheque_number)
+    - [46545645](cheque_number)
+    - [46578978](cheque_number)
+    - [78978979](cheque_number)
+    - [98634565](cheque_number)
+    - [45678997](cheque_number)
+    - [12245643](cheque_number)
+    - [74158258](cheque_number)
+    - [78963217](cheque_number)
+    - [32598845](cheque_number)
+    - [21545989](cheque_number)
+    - [12356456](cheque_number)
+    - [45454545](cheque_number)
+    - [78787878](cheque_number)
+    - [456](CCV)
+    - [789](CCV)
+    - [852](CCV)
+    - [741](CCV)
+    - [654](CCV)
+    - [785](CCV)
+    - [123](CCV)
+    - [963](CCV)
+    - [519](CCV)
+    - [147](CCV)
+    - [146](CCV)
+    - [452](CCV)
+    - [445](CCV)
+    - [145](CCV)
+    - [563](CCV)
+    - [357](CCV)
+    - [851](CCV)
+    - [654](CCV)
+    - my card ccv is [267](CCV)
+    - card ccv is [451](CCV)
+    - [874](CCV)
+    - [459](CCV)
+    - [516](CCV)
+    - [852](CCV)
+    - [957](CCV)
+    - [153](CCV)
+    - [751](CCV)
+    - [953](CCV)
+    - [486](CCV) is my CCV
+    - ccv is [489](CCV)
+    - [145](CCV)
+    - [754](CCV)
+    - [426](CCV)
+    - [568](CCV)
+    - [454](CCV)
+    - [587](CCV)
+    - [658](CCV)
+    - [896](CCV)
+    - [478](CCV)
+    - [985](CCV)
+    - [654](CCV)
+    - [856](CCV)
+    - [896](CCV)
+    - [357](CCV)
+    - [957](CCV)
+    - [351](CCV)
+    - [02/22](Valid_DATE)
+    - [05/28](Valid_DATE)
+    - [08/21](Valid_DATE)
+    - [09/23](Valid_DATE)
+    - [07/22](Valid_DATE)
+    - [06/28](Valid_DATE)
+    - [01/21](Valid_DATE)
+    - [08/23](Valid_DATE)
+    - card valid date is [05/24](Valid_DATE)
+    - valid date [12/25](Valid_DATE)
+    - expiry date is [09/24](Valid_DATE)
+    - card expiry date is [10/24](Valid_DATE)
+    - [01/21](Valid_DATE)
+    - [02/25](Valid_DATE)
+    - [03/24](Valid_DATE)
+    - [04/26](Valid_DATE)
+    - [05/25](Valid_DATE)
+    - [06/24](Valid_DATE)
+    - [07/22](Valid_DATE)
+    - [08/23](Valid_DATE)
+- intent: calculate_loan
+  examples: |
+    - I want to calculate loan
+    - calculate loan
+    - loan calculation
+    - monthly loan calculation
+    - how much do I need to pay for a certain amount of loan
+    - annual loan calculation
+    - show me how much do i need to pay for a loan 
+- intent: change_customer_name
+  examples: |
+    - I want to update my name
+    - change my name to [Rifat](USERNAME)
+    - want's to change my name
+    - update my name to [Rifat](USERNAME)
+    - How to update my existing account holder name
+    - change my account holder name
+    - need to change my name to [Rifat](USERNAME)
+    - I want to change my name to [RIFAT](USERNAME)
+    - change my name To [Rifat](USERNAME)
+    - replace my name to [Zahid](USERNAME)
+    - replace my name
+- intent: change_customer_address
+  examples: |
+    - I want to update my address
+    - change my address to [Mohammadpur, Dhaka-1207](mailling_address)
+    - want's to change my address
+    - update my address
+    - replace my old address by [Mohammadpur, Dhaka-1207](mailling_address)
+    - change my account address
+    - need to change my address to [Mohammadpur, Dhaka-1207](mailling_address)
+- intent: change_customer_phonenumber
+  examples: |
+    - I want to update my phone number
+    - change my phone to [01712345678](phone_number)
+    - want's to change my phone number
+    - update my phone number
+    - replace my phone number by [01712345678](phone_number)
+    - change my account phone
+    - need to change my phone number to [01712345678](phone_number)
+- intent: offer
+  examples: |
+    - offers
+    - discounts
+    - available offers
+    - available discounts
+    - what offers
+    - what discounts
+    - what are the offers
+    - what are the discounts
+    - how to get offers
+    - how to get discount
+    - offers for me
+    - dsicounts for me
+    - what offers for me
+    - what dsicounts for me
+    - which offers for me
+    - which dsicounts for me
+    - is there any offers
+    - is there any discounts
+    - is there any offers available
+    - is there any discounts available
+    - how to find offer
+    - how to find discount
+    - can i have an offer
+    - can i have a discount
+    - new offer
+    - service discount
+- intent: FAQ
+  examples: |
+    - wants to see the FAQ question page.
+    - Frequent Ask question
+    - FAQ
+    - asked question by people
+    - common questions
+    - What is Uclick?
+    - Uclick?
+    - What is e-KYC?
+    - e-KYC
+    - Who Can open account using Uclick?
+    - Why Uclick is different from others?
+    - joint account in Uclick
+    - [UCB](bank_name) Branch to activate my account?
+    - mandatory to visit [UCB](bank_name) Branch
+    - [Fixed Deposits or DPS](account_type) account through Uclick?
+- intent: location
+  examples: |
+    - locate nearest branches
+    - ATMs Locator Agents
+    - Branch Location
+    - ATM Location
+    - Recycler Location
+    - Agent Banking Location
+
+- intent: previous_Value
+  examples: |
+    - use the last one.
+    - previous amount
+    - previous value
+    - old value
+    - old amount
+    - use the last value
+    - last value
+    - last one
+    - previous
+
+- intent: explain
+  examples: |
+    - why do you need my [name](Explain)?
+    - why do you need my [email](Explain)?
+    - why do you need my [username](Explain)?
+    - why do you need my [email_address](Explain)?
+    - why do you need my [USERNAME](Explain)?
+    - why do you need my [email_address](Explain)?
+    - Why do you need to know that?
+    - Can you explain that?
+    - [email](Explain).
+    - [name](Explain).
+    - [email address](Explain).
+    - [username](Explain).
+    - [email_address](Explain).
+    - [USERNAME](Explain).
+    - [card types](Explain)
+    - [account_types](Explain)
+    - why [email](Explain).
+    - why [name](Explain).
+    - why [email address](Explain).
+    - why [username](Explain).
+    - why [email_address](Explain).
+    - why [USERNAME](Explain).
+    - why do you need to know the [account types](Explain)
+    - why do you need to know the [card types](Explain)
+    - why do you need to know the [account_types](Explain)
+    - why do you need to know the [card_types](Explain)
+    - why should I provide you this particular value.
+    - why do you need to know that?
+    - why do I trust you with my credentials.
+    - why [account types](Explain)
+    - why [card types](Explain)
+    - why [account_types](Explain)
+    - why [card_types](Explain)
+    - why [name](Explain)
+    - why do you need that?
+    - why
+    - why this
+    - why do I share it with you.
+    - can't share it
+    - can't share
+    - why do i provide it to you
+    - why do i tell it to you
+- intent: out_of_scope
+  examples: |
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - I want a pizza
+    - my washing machine isn't working
+    - what year is it
+    - order a pizza
+    - I want to order a pizza
+    - what is the weather today
+    - what is the weather
+    - what the weather today ?
+    - hows the weather
+    - tell me a joke
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - ofif fsdfafsfs
+    - I love
+    - How dominos makes pizzas? can I have the recipies
+    - who owns the bank?
+    - where dou you guys put the lockers key?
+    - who holds bank lockers key?
+    - how can I buy a bank?
+    - gfwyafisdka 
+    - fgsdjkfhjhsd jkhfdskjghfds
+    - asdfghjkl
+    - qwertyuiop
+    - zxcvbnm
+    - jfvhreswjhfjh fgbujhgrfth,rg,;uj.lo
+    - fgejrtgjkdfjkglkdfgfd54g65fdgfdjgjfdh
+    - hfgrgrgggsdhgjkssssssssgvf
+    - ijgfsdguy345783iuwejkgryt83o74ghfiuewrufgkjfhvggcxh
+    - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    - bbbbbbbbbbbbbbbbbbbb
+    - cccccccccccccccccccc
+    - dddddddddddd
+    - eeeeeeeeeeeeeeeeeeeeeeeeeee
+    - ryyyyyyyyyyyyyyyyyyyyyyyyyyy
+    - ttttttttttttttttttt
+    - uuuuuuuuuuuuuuuuuuuuu
+    - iiiiiiiiiiiiiiiiiiii
+    - oipiuoytrejhfdghjkfgghj
+    - ;lkjhgfdyuiouytretyuivbnvcxvb
+    - efgeryhfgjefehrfkjuolrftjuofhpojhk
+    - kjfdgvkfdnvgncbxcm,b;khnliusghfkdls
+    - jhsdflihdsghkasgdkjfauytwefhgsvdnbbxz,clhk
+    - jhgdsffkjjlkj kljhjksahkj kljjdasjlk
+    - hdsjh kjsdfkjh
+    - iuwery skjdf ;lkdsf
+    - ljsdfjh sfdkjhk
+    - uiweylfkd lskfjjfs
+    - slkdfj fssfdj
+    - sldfjhwer
+    - op;als;a
+    - Alas! I am done...
+    - Alas! lost lottery.
+    - can I win a lottery.?
+    - who give fund to 
+    - suicide
+    - injured
+    - self injured
+    - shiiiii
+    - uwruy4782387 92438yiuwey psodfk
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
+    - Are you ready?
+    - But you're an english site :(
+    - Can I ask you questions first?
+    - Can I die
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - Do I have to accept?
+    - Do you know
+    - Have we met before?
+    - HomeBase is advertised as a community. Is there a way to interact with other members of the community?
+    - I already told you! I'm a shitmuncher
+    - I am User
+    - I am an opioid addic
+    - I am an opioid addict
+    - I am hungry
+    - I am trying to build one, and did some research before, but I have not do hand-on work yet
+    - I can barely see this white text on light gray background ...
+    - I changed my mind
+    - I have installed it
+    - I need a girl friend!
+    - I need to eat cake
+    - I wan to buy a plane
+    - I wanna marry you
+    - I want a new laptop
+    - I want book a hotel
+    - I want french cuisine
+    - I want pizza
+    - I want to die
+    - I want to order pizza
+    - I want to use pipe
+    - I will check
+    - I'm a shitmuncher
+    - Is Rasa really smart?
+    - Is this Goal-Oriented Chatbot?
+    - Is today saturday?
+    - Mail me the guide
+    - Make me a sandwich
+    - NLW
+    - Nice name
+    - Now?
+    - Pizza bot
+    - Recharge
+    - SEL ME SOMETHING
+    - The Try it out is not working
+    - The weather is good
+    - Try it out broken
+    - What day is it today?
+    - What did you eat yesterday?
+    - What do you prefer?
+    - What is todays date
+    - What is your hobbies?
+    - What makes you better than a human?
+    - What's 1 + 1?
+    - What's do YouTube do
+    - What's your backend system?
+    - Where am I right now?
+    - Where am I?
+    - Who ?
+    - Who are your customers
+    - Why don’t you answer?
+    - Why is my TRUST score set to 50 after I completed the registration process?
+    - Won't you ask me how I am?
+    - You'r blue.
+    - I want to marry you
+    - a tamed mouse will arrive at your doorstep in the next couple of days
+    - aRE YOU SINGLE
+    - again?
+    - alexa, order 5 tons of natrium chloride
+    - and make chicken noises into the phone
+    - are the newsletter worth the subscription?
+    - are u facebook
+    - are u, facebook?
+    - are you single?
+    - are you dev?
+    - are you russian?
+    - are you sick
+    - are you vegan
+    - better than you
+    - book a ticket
+    - but I just told you that :(
+    - but if rasa is open source why do you have a sales team
+    - buy one please
+    - buy groceries
+    - call me father
+    - can we keep chatting?
+    - can you book dinner
+    - can you cheer me up
+    - can you cook dinner
+    - can you give me a cup of coffee
+    - can you help me with the docs?
+    - can you help me with your docs
+    - can you help me with your docs?
+    - can you learn from our conversation?
+    - can you speak about politic ?
+    - can you understand ?
+    - cannot see
+    - chgfhgh
+    - chinese ok?
+    - colder
+    - common, just try
+    - connect to alexa
+    - cr
+    - custom service
+    - did i break you
+    - dinner
+    - do you believe in god?
+    - do you know me
+    - do you know ras
+    - do you liek cheese?
+    - do you like football
+    - do you like movies
+    - do you sell vacuum robots?
+    - do you want to marry me?
+    - example of a chatbot
+    - genocide
+    - get me a club mate
+    - give me a girl friend
+    - give me food
+    - go back
+    - google?
+    - great, I'd like to buy a house
+    - hang on let me find it
+    - i m looking for job
+    - i told you already
+    - i wanna party
+    - i want a non dripping ice cream
+    - i want caffe
+    - i want food
+    - i want good flycam
+    - i want more of you in my life!
+    - i want pizza
+    - i want pizza!!
+    - i want to book a hotel
+    - i want to buy a roomba for my grandson
+    - i want to eat
+    - i want to find new friends
+    - i want to find out what you can build with rasa
+    - i want to fly
+    - i want to grab lunch
+    - i want to know current situtation in pakistan
+    - i want to order a pizza
+    - i want to see your happy customers
+    - i will tame a mouse for you
+    - is still married to you
+    - is it a wasteland full of broken robot parts?
+    - is it allow to
+    - oh my god, not again!
+    - personal or work?
+    - pizza
+    - can you order something?
+    - buy a gun?
+    - please help with my ice cream it's dripping
+    - please hjave lunchj
+    - please hurry, i have deadline in two weeks to deliver the bot it is for very big company
+    - please play music
+    - rasa topics
+    - really? you're so touchy?
+    - sing me a song
+    - so, I'm helping right now to training you?
+    - some thing else
+    - someone call the police i think the bot died
+    - tell me about yourself
+    - tell me more about next best action
+    - that doesn't sound like a joke
+    - that link doesn't work!
+    - what is the capital of delhi
+    - what is the capital of india
+    - what is the current petrol price
+    - what is the day ?
+    - what is the real use case where we can use this one
+    - what is your address?
+    - what the latest news ?
+    - what you ate today?
+    - what's 5 + 5
+    - what's a newsletter?
+    - why its called rasa ?
+    - will u kill me
+    - will u kill me?
+    - winter is already leaving
+    - with you recommend me?
+    - would you like some water
+    - yeah, my dog was drinking a couple of litres of water per day and tried drinking the swimming pool
+    - you already have that
+    - you can learn how to make a coffe
+    - you have children?
+    - you have job opening
+    - you lock sweety
+    - you should learn to count
+    - you will know it from the single red rose it carries between its teeth
+    - you're a woman
+    - ı am learning python
+    - CALL THE POLICE
+    - i want play
+    - how do you like your coffee
+    - Can you get analytics on who I'm chatting with when I use Rasa
+    - coronavirus
+    - have you heard of corona?
+    - where do i type in commandy
+    - where to type in commands
+    - square root of  
+    - have you heard of corona?
+    - where do i type in commandy
+    - where to type in commands
+    - dou you sell peoples data to somewhere else
+    - I want to download your customers data
+    - customers details
+    - can you share others credentials
+    - is money heist real?
+    - do you someone whose name is Arturito 
+    - kiss me
+    - you have to
+
+- regex: account_number
+  examples: |
+      - [0-9]{13}
+- regex: card_number
+  examples: |
+      - \d{16}
+- regex: phone_number
+  examples: |
+      - \d{11}
+- regex: cheque_number
+  examples: |
+      - \d{8}
+- regex: OTP
+  examples: |
+      - \d{6}
+- regex: CCV
+  examples: |
+      - [0-9]\d{3}
+- regex: Valid_DATE
+  examples: |
+      - \b\d{2}/\d{2}\b
+- regex: amount-of-money
+  examples: |
+      - [0-9]
+- synonym: credit
+  examples: |
+    - credit card
+    - card
+- synonym: username
+  examples: |
+    - name
+    - username
+    - NAME
+    - USERNAME
+    - USER NAME
+    - user name
+- synonym: email
+  examples: |
+    - email
+    - email_address
+    - mail
+    - EMAIL
+    - EMAIL_ADDRESS
+    - EMAIL ADDRESS
+    - email address
+- synonym: account type
+  examples: |
+    - account
+    - account_type
+    - account_types
+    - account types
+    - ACCOUNT
+    - ACCOUNT TYPES
+
+- lookup: bank_name
+  examples: |
+    - Sonali Bank
+    - City Bank
+    - United Commercial Bank
+    - Standard Chartered
+    - EBL
+    - BRAC Bank
+    - HSBC
+- synonym: HSBC
+  examples: |
+    - HSBC
+    - HSBC Bank
+    - hsbc
+- synonym: BRAC Bank
+  examples: |
+    - brac bank
+    - BRAC Bank
+    - BRAC BANK
+- synonym: EBL
+  examples: |
+    - EBL
+    - ebl
+    - Eastern Bank Ltd
+    - Eastern Bank Ltd.
+- synonym: City Bank
+  examples: |
+    - The City Bank
+    - City Bank Limited
+    - City Bank Ltd
+    - City Bank
+
+- lookup: USERNAME
+  examples: |
+    - Md. Imran Hossan
+    - Iffat Fouzia
+    - Sharmin Shopna
+    - Apu Chandra Das
+    - Jannatul Ferdous
+    - Ibnul Khayer Jiad
+    - Sharmin Akter
+    - Tani Barua
+    - Sadia Sawrin
+    - Anima Sharmin Shitol
+    - Nahid Sultana
+    - Cheri Das Gupta
+    - Romana Akter
+    - Md Sayeed Alam
+    - Mir Mozammel Hossain Arman
+    - Md Nizam Uddin
+    - Md. Abdullah Al Noman
+    - Md. Arman Jaman Arin
+    - Kazi Md.Tareque
+    - Sultan Mahmud Nasher
+    - MD Hasan Nowfel
+    - Abu Bakar Siddiq
+    - Md Ryean Bin Islam
+    - Pritam Barua
+    - Shahrukh Ahmed
+    - Raktim Das Antu
+    - Emdad Hossain
+    - Jane Alam Emon
+    - Mirfat Jeba
+    - Retu Kar
+    - Farhana Zobair
+    - Nusrat Jahan Borsha
+    - Farjana Islam
+    - Mera Biswas
+    - Purnima Rani Das
+    - Md Amdadul Haque Amdad
+    - Md Rashedul Haque Rashed
+    - Md Abu Jar Gifary
+    - Afroza Pervin
+    - Ziaul Haque
+    - Md Al Amin
+    - Ferdous Ul Karim Riaz
+    - Md Sarwar Hossain
+    - Najmunnahar
+    - Jerin Farjana
+    - Md. Afzal Hossian Shawon
+    - Meheraj Ahmed Sakil
+    - Monjur Hossain Sheikh
+    - Rehena Parvin
+    - Mita Pervin
+    - Paresh Kumer Biswas
+    - Shaikat Rahman Sagor
+    - Md. Nazmul Alam
+    - Md. Foysal Ahmad
+    - Sadia Afrin
+    - Rehana Parvin Rani
+    - Sheikh Ishtiak Ahmed
+    - Afroza Akter
+    - Nusrat Jahan
+    - Dolon Das
+    - Emran Hossain
+    - Hamida Akter
+    - Ruhul Quddus
+    - Afikur Rahman Sumon
+    - Farhana Parvin Mukta
+    - Lutfor Rahman Limon
+    - Sadia Sefat
+    - Md. Milon Hossain
+    - Ahanaf Yeasar Toha
+    - Pallab Mahmud
+    - Emon Chowdhury Shovha
+    - Noyel Rahman
