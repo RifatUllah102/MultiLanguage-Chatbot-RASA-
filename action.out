@@ -1,0 +1,91 @@
+2021-12-23 13:13:23 INFO     rasa_sdk.endpoint  - Starting action endpoint server...
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_session_start'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_restart'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_all_slots'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_card_number'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_AMOUNT'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_check_response'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_account_number'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_PIN'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_reset_PINandACnumer'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_check_AC_Number'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_tell_ACNumber'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_check_PIN'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_show_balance'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_tell_pin'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_handoff_options'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'action_handoff'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'validate_card_bill_form_c_number'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'validate_card_bill_form_amount'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'validate_check_Balance_ACnum_form'.
+2021-12-23 13:13:26 INFO     rasa_sdk.executor  - Registered function for 'validate_check_Balance_PIN_form'.
+2021-12-23 13:13:26 INFO     rasa_sdk.endpoint  - Action endpoint is up and running on http://0.0.0.0:5056
+2021-12-23 13:13:26 DEBUG    rasa_sdk.utils  - Using the default number of Sanic workers (1).
+2021-12-23 13:19:02 DEBUG    rasa_sdk.executor  - Received request to run 'action_reset_PINandACnumer'
+2021-12-23 13:19:02 DEBUG    rasa_sdk.executor  - Finished running 'action_reset_PINandACnumer'
+2021-12-23 13:19:02 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:02 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:12 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:12 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:13 DEBUG    rasa_sdk.executor  - Received request to run 'action_reset_BkashTransectionVALUES'
+2021-12-23 13:19:13 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_reset_BkashTransectionVALUES'.
+2021-12-23 13:19:13 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:13 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:21 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:21 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:22 DEBUG    rasa_sdk.executor  - Received request to run 'action_reset_BkashTransectionVALUES'
+2021-12-23 13:19:22 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_reset_BkashTransectionVALUES'.
+2021-12-23 13:19:22 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:22 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:37 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:37 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:37 DEBUG    rasa_sdk.executor  - Received request to run 'action_reset_BkashTransectionVALUES'
+2021-12-23 13:19:37 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_reset_BkashTransectionVALUES'.
+2021-12-23 13:19:37 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:19:37 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:22:49 DEBUG    rasa_sdk.executor  - Received request to run 'action_reset_BkashTransectionVALUES'
+2021-12-23 13:22:49 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_reset_BkashTransectionVALUES'.
+2021-12-23 13:22:49 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:22:49 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:22:58 DEBUG    rasa_sdk.executor  - Received request to run 'validate_check_Balance_ACnum_form'
+2021-12-23 13:23:01 DEBUG    rasa_sdk.executor  - Finished running 'validate_check_Balance_ACnum_form'
+2021-12-23 13:23:01 DEBUG    rasa_sdk.executor  - Received request to run 'action_tell_ACNumber'
+2021-12-23 13:23:01 DEBUG    rasa_sdk.executor  - Finished running 'action_tell_ACNumber'
+2021-12-23 13:23:11 DEBUG    rasa_sdk.executor  - Received request to run 'action_check_AC_Number'
+2021-12-23 13:23:11 DEBUG    rasa_sdk.executor  - Finished running 'action_check_AC_Number'
+2021-12-23 13:23:11 DEBUG    rasa_sdk.executor  - Received request to run 'validate_phone_number_form'
+2021-12-23 13:23:11 ERROR    rasa_sdk.endpoint  - No registered action found for name 'validate_phone_number_form'.
+2021-12-23 13:23:11 DEBUG    rasa_sdk.executor  - Received request to run 'action_tell_PhoneNumber'
+2021-12-23 13:23:11 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_tell_PhoneNumber'.
+2021-12-23 13:23:21 DEBUG    rasa_sdk.executor  - Received request to run 'action_check_phone_Number'
+2021-12-23 13:23:21 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_check_phone_Number'.
+2021-12-23 13:23:21 DEBUG    rasa_sdk.executor  - Received request to run 'validate_card_bill_form_amount'
+2021-12-23 13:23:21 DEBUG    rasa_sdk.executor  - Finished running 'validate_card_bill_form_amount'
+2021-12-23 13:23:31 DEBUG    rasa_sdk.executor  - Received request to run 'validate_card_bill_form_amount'
+2021-12-23 13:23:35 DEBUG    rasa_sdk.executor  - Finished running 'validate_card_bill_form_amount'
+2021-12-23 13:23:35 DEBUG    rasa_sdk.executor  - Received request to run 'action_tell_Amount'
+2021-12-23 13:23:35 ERROR    rasa_sdk.endpoint  - No registered action found for name 'action_tell_Amount'.
+check_balance
+Reset AC number and PIN Function Called.
+inform
+0.9999970197677611
+validate_account_number
+AC Number is :  12345678
+Correct card Number
+set_slot_value
+get_session_id
+default
+আপনি বলেছেন, {' ওয়ান টু থ্রি ফোর ফাইভ সিক্স সেভেন এইট'} । সেটা ঠিক হলে, হ্যা বলুন ।
+affirm
+0.9999527931213371
+response check Function Called.
+Got, Yes
+affirm
+inform
+0.9999970793724061
+CCV in amount validation: None
+amount inside function:  10000
+set_slot_value
+get_session_id
+default
+Amount is  10000
